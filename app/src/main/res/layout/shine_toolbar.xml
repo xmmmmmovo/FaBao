@@ -50,7 +50,7 @@
                 style="@style/ImageView.GuillotineItem"
                 android:src="@drawable/ic_profile" />
 
-            <com.example.lab.android.nuc.new_idea.util.views.CanaroTextView
+            <com.example.lab.android.nuc.law_analysis.util.views.CanaroTextView
                 android:id="@+id/text_1"
                 style="@style/TextView.GuillotineItem"
                 android:text="@string/profile" />
@@ -77,7 +77,7 @@
                 style="@style/ImageView.GuillotineItem"
                 android:src="@drawable/ic_feed" />
 
-            <com.example.lab.android.nuc.new_idea.util.views.CanaroTextView
+            <com.example.lab.android.nuc.law_analysis.util.views.CanaroTextView
                 style="@style/TextView.GuillotineItem"
                 android:text="@string/feed" />
         </LinearLayout>
@@ -102,7 +102,7 @@
                 style="@style/ImageView.GuillotineItem"
                 android:src="@drawable/ic_settings" />
 
-            <com.example.lab.android.nuc.new_idea.util.views.CanaroTextView
+            <com.example.lab.android.nuc.law_analysis.util.views.CanaroTextView
                 style="@style/TextView.GuillotineItem"
                 android:text="@string/activity" />
         </LinearLayout>
@@ -127,7 +127,7 @@
                 style="@style/ImageView.GuillotineItem"
                 android:src="@drawable/ic_settings" />
 
-            <com.example.lab.android.nuc.new_idea.util.views.CanaroTextView
+            <com.example.lab.android.nuc.law_analysis.util.views.CanaroTextView
                 style="@style/TextView.GuillotineItem"
                 android:text="@string/settings" />
         </LinearLayout>
