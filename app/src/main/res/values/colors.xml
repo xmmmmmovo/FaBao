@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#6676d9</color>
+    <color name="colorAccent">#63b8ff</color>
+    <color name="guillotine_background">#63b8ff</color>
+    <color name="guillotine_background_dark">#ffffff</color>
+    <color name="selected_item_color">#41f58c</color>
+    <color name="orange">#ffbd48</color><!--橙色 -->
+    <color name="deep_orange">#FFA500</color>
+    <color name="light_orange">#ffcc6f</color>
+</resources>

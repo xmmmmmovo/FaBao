@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">new_idea</string>
+    <string name="profile">个人信息</string>
+    <string name="feed">反馈</string>
+    <string name="activity">热门</string>
+    <string name="settings">设置</string>
+</resources>
