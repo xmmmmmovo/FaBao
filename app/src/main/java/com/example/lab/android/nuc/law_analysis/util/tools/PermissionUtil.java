@@ -15,24 +15,20 @@ public class PermissionUtil {
     private static final int PERMISSION_REQUEST_CODE = 1 << 5;
     private static OnRequestPermissionsListener sListener;
 
-    public void requestPermissions(List<String> pe) {
-
-    }
-
     public static void requestPermissions(final Activity activity, String[] permissions,
                                           OnRequestPermissionsListener listener) {
         sListener = listener;
         List<String> permissionList = new ArrayList<>();
         for (String permission :
                 permissions) {
-            if (ContextCompat.checkSelfPermission( activity, permission )
+            if (ContextCompat.checkSelfPermission(activity, permission)
                     != PackageManager.PERMISSION_GRANTED) {
-                permissionList.add( permission );
+                permissionList.add(permission);
             }
         }
 
         if (!permissionList.isEmpty()) {
-            showDialog( activity, permissionList );
+            showDialog(activity, permissionList);
         } else {
             listener.onGranted();
         }

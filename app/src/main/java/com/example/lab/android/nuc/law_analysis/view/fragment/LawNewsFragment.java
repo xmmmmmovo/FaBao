@@ -1,7 +1,8 @@
 package com.example.lab.android.nuc.law_analysis.view.fragment;
 
+import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -17,29 +18,34 @@ import com.youth.banner.Transformer;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Fragment3 extends Fragment implements View.OnClickListener{
+public class LawNewsFragment extends Fragment implements View.OnClickListener {
+    private List<String> images = new ArrayList<>();
+    private List<String> titles = new ArrayList<>();
 
-
-    public static Fragment3 newInstance(){
-        Bundle bundle = new Bundle( );
-        Fragment3 fragment3 = new Fragment3();
-        fragment3.setArguments( bundle );
-        return fragment3;
+    public LawNewsFragment() {
+        // Required empty public constructor
     }
 
-    List<String> images = new ArrayList<>( );
-    List<String> titles = new ArrayList<>( );
+    public static LawNewsFragment newInstance() {
+        
+        Bundle args = new Bundle();
+        
+        LawNewsFragment fragment = new LawNewsFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate( savedInstanceState );
+        super.onCreate(savedInstanceState);
         init();
     }
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate( R.layout.fragment3,container,false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.law_news_fragment, container, false);
         Banner banner = (Banner) view.findViewById( R.id.banner );
         banner.setBannerStyle( BannerConfig.CIRCLE_INDICATOR_TITLE);
         //设置图片加载器
@@ -61,7 +67,6 @@ public class Fragment3 extends Fragment implements View.OnClickListener{
         return view;
     }
 
-
     private void init(){
         images.add( "http://pd35yssng.bkt.clouddn.com/i1.jpg" );
         images.add( "http://pd35yssng.bkt.clouddn.com/i2.jpg" );
@@ -74,8 +79,9 @@ public class Fragment3 extends Fragment implements View.OnClickListener{
         titles.add( "以案说法：城镇居民购买农民土地建房被判决无效！" );
         titles.add( "农民工意外受伤引纠纷 人民调解来帮忙" );
     }
+
     @Override
-    public void onClick(View v) {
+    public void onClick(View view) {
 
     }
 }

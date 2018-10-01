@@ -9,6 +9,10 @@
     <!-- //网络权限，当禁用后，无法进行检索等相关业务 -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <application
         android:name="com.example.lab.android.nuc.law_analysis.application.App"
@@ -18,7 +22,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.lab.android.nuc.law_analysis.view.activity.MainActivity"
+        <activity
+            android:name="com.example.lab.android.nuc.law_analysis.view.activity.MainActivity"
             android:hardwareAccelerated="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,6 +31,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.example.lab.android.nuc.law_analysis.view.fragment.MainAnalysisFragment" />
+        <activity android:name="com.example.lab.android.nuc.law_analysis.view.fragment.SearchLawListFragment"></activity>
     </application>
 
 </manifest>

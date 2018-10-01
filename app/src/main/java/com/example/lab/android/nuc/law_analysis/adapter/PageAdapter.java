@@ -6,10 +6,10 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.example.lab.android.nuc.law_analysis.view.fragment.CommunicationFragment;
-import com.example.lab.android.nuc.law_analysis.view.fragment.Fragment1;
-import com.example.lab.android.nuc.law_analysis.view.fragment.Fragment2;
-import com.example.lab.android.nuc.law_analysis.view.fragment.Fragment3;
+import com.example.lab.android.nuc.law_analysis.view.fragment.LawNewsFragment;
 import com.example.lab.android.nuc.law_analysis.view.fragment.LawVideoFragment;
+import com.example.lab.android.nuc.law_analysis.view.fragment.MainAnalysisFragment;
+import com.example.lab.android.nuc.law_analysis.view.fragment.SearchLawListFragment;
 
 /*
 主界面的viewpager的Adapter
@@ -29,11 +29,11 @@ public class PageAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position){
             case 0:
-                return Fragment1.newInstance();
+                return SearchLawListFragment.newInstance();
             case 1:
-                return Fragment2.newInstance();
+                return LawNewsFragment.newInstance();
             case 2:
-                return Fragment3.newInstance();
+                return MainAnalysisFragment.newInstance();
             case 3:
                 return CommunicationFragment.newInstance();
             case 4:
