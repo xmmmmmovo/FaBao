@@ -10,16 +10,16 @@ import android.view.ViewGroup;
 
 import com.example.lab.android.nuc.law_analysis.R;
 /*
-法律讲坛的fragment
+法律社区的fragment
  */
-public class LawChatFragment extends Fragment implements View.OnClickListener{
+public class LawyersChatFragment extends Fragment implements View.OnClickListener{
 
 
-    public static LawChatFragment newInstance(){
+    public static LawyersChatFragment newInstance(){
         Bundle bundle = new Bundle( );
-        LawChatFragment lawChatFragment = new LawChatFragment();
-        lawChatFragment.setArguments( bundle );
-        return lawChatFragment;
+        LawyersChatFragment lawyersChatFragment = new LawyersChatFragment();
+        lawyersChatFragment.setArguments( bundle );
+        return lawyersChatFragment;
     }
 
     @Nullable

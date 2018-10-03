@@ -63,7 +63,7 @@ public class CommunicationFragment extends Fragment implements View.OnClickListe
         mViewPager = root.findViewById( R.id.community_view_pager);
         MagicPagerAdapter adapter = new MagicPagerAdapter( getChildFragmentManager() );
         adapter.addFragment(LawyersFragment.newInstance());
-        adapter.addFragment( LawChatFragment.newInstance() );
+        adapter.addFragment( LawyersChatFragment.newInstance() );
         mViewPager.setAdapter( adapter );
     }
 
