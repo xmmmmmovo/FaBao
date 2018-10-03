@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.lab.android.nuc.new_idea.R;
+import com.example.lab.android.nuc.law_analysis.R;
 
 public class Fragment2 extends Fragment implements View.OnClickListener{
 

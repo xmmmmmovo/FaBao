@@ -12,20 +12,19 @@ import android.view.ViewGroup;
 
 import com.example.lab.android.nuc.law_analysis.adapter.JiaoziAdapter;
 import com.example.lab.android.nuc.law_analysis.base.Jiaozi;
-import com.example.lab.android.nuc.law_analysis.util.tools.GlideImageLoader;
-import com.example.lab.android.nuc.new_idea.R;
-import com.youth.banner.Banner;
-import com.youth.banner.BannerConfig;
-import com.youth.banner.Transformer;
+import com.example.lab.android.nuc.law_analysis.R;
 
 import java.util.ArrayList;
-import java.util.List;
+
+import cn.jzvd.Jzvd;
 
 public class LawVideoFragment1 extends Fragment implements View.OnClickListener{
+
 
     private RecyclerView mRecyclerView;
     private JiaoziAdapter mJiaoziAdapter;
     private ArrayList<Jiaozi> mJiaozis;
+
 
     public static LawVideoFragment1 newInstance(){
         Bundle bundle = new Bundle( );
@@ -53,24 +52,57 @@ public class LawVideoFragment1 extends Fragment implements View.OnClickListener{
 
     private void initJiaozi(){
         mJiaozis = new ArrayList<>(  );
-        mJiaozis.add( new Jiaozi( "《法律讲堂（文史版）》 20140714 马丁-路德-金遇刺案（一） 歧视很严重",
-                "http://jzvd.nathen.cn/c494b340ff704015bb6682ffde3cd302/64929c369124497593205a4190d7d128-5287d2089db37e62345123a1be272f8b.mp4" ) );
-        mJiaozis.add( new Jiaozi( "《法律讲堂（文史版）》 20140714 马丁-路德-金遇刺案（一） 歧视很严重",
-                "http://jzvd.nathen.cn/63f3f73712544394be981d9e4f56b612/69c5767bb9e54156b5b60a1b6edeb3b5-5287d2089db37e62345123a1be272f8b.mp4" ) );
-        mJiaozis.add( new Jiaozi( "《法律讲堂（文史版）》 20140714 马丁-路德-金遇刺案（一） 歧视很严重",
-                "http://tv.cntv.cn/video/C10604/b19db92b23f94dd4bf93f77795f57433" ) );
-        mJiaozis.add( new Jiaozi( "《法律讲堂（文史版）》 20140714 马丁-路德-金遇刺案（一） 歧视很严重",
-                "http://tv.cntv.cn/video/C10604/b19db92b23f94dd4bf93f77795f57433" ) );
-        mJiaozis.add( new Jiaozi( "《法律讲堂（文史版）》 20140714 马丁-路德-金遇刺案（一） 歧视很严重",
-                "http://tv.cntv.cn/video/C10604/b19db92b23f94dd4bf93f77795f57433" ) );
-        mJiaozis.add( new Jiaozi( "《法律讲堂（文史版）》 20140714 马丁-路德-金遇刺案（一） 歧视很严重",
-                "http://tv.cntv.cn/video/C10604/b19db92b23f94dd4bf93f77795f57433" ) );
-        mJiaozis.add( new Jiaozi( "《法律讲堂（文史版）》 20140714 马丁-路德-金遇刺案（一） 歧视很严重",
-                "http://tv.cntv.cn/video/C10604/b19db92b23f94dd4bf93f77795f57433" ) );
+        mJiaozis.add( new Jiaozi( "2018婚姻法，缺了这9个，谁也离不了婚？ ",
+                "http://pd35yssng.bkt.clouddn.com/woc.mp4" ) );
+        mJiaozis.add( new Jiaozi( "2018新婚姻法规定：3种情况离婚净身出户，懂了吗？",
+                "http://pd35yssng.bkt.clouddn.com/woc6.mp4" ) );
+        mJiaozis.add( new Jiaozi( "2018年，新婚姻法，起诉离婚后，查询法官的正确打开方式？",
+                "http://pd35yssng.bkt.clouddn.com/woc7.mp4" ) );
+        mJiaozis.add( new Jiaozi( "辽视第一时间 - 婚姻法",
+                "http://pd35yssng.bkt.clouddn.com/woc5.mp4" ) );
+        mJiaozis.add( new Jiaozi( "今年新婚姻法，不管结婚几十年，这项规定女方一分钱拿不到 ",
+                "http://pd35yssng.bkt.clouddn.com/woc1.mp4" ) );
+        mJiaozis.add( new Jiaozi( "中国访谈 -- 世界对话之新婚姻法的推出",
+                "http://pd35yssng.bkt.clouddn.com/wocc1.mp4" ) );
+        mJiaozis.add( new Jiaozi( "2018婚姻法新规定，房产证即使有你名字，离婚时也可能分不到钱",
+                "http://pd35yssng.bkt.clouddn.com/wocc2.mp4" ) );
+        mJiaozis.add( new Jiaozi( "《婚姻法》有规定！这几种情况房子写了你名字也未必是你的！" ,
+                "http://pd35yssng.bkt.clouddn.com/wocc3.mp4") );
+        mJiaozis.add( new Jiaozi("妻子频遭家暴怀着孕也被殴打，丈夫：我就这个样，你可以离婚啊！",
+                "http://pd35yssng.bkt.clouddn.com/videolib_repo%252F1810%252F01%252FUWXnL338L%252FHD%252FUWXnL338L-mobile.mp4"));
+        mJiaozis.add( new Jiaozi( "2018新婚姻法，关于未婚同居都做了哪些规定？不知道可吃大亏了！",
+                "http://pd35yssng.bkt.clouddn.com/videolib_repo%252F1808%252F21%252FRhFCn026a%252FHD%252FRhFCn026a-mobile.mp4") );
     }
 
     @Override
     public void onClick(View v) {
 
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Jzvd.releaseAllVideos();
+    }
+
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        Jzvd.releaseAllVideos();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Jzvd.releaseAllVideos();
+    }
+
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Jzvd.goOnPlayOnResume();
     }
 }

@@ -14,7 +14,7 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 
 import com.example.lab.android.nuc.law_analysis.util.views.ColorFlipPagerTitleView;
-import com.example.lab.android.nuc.new_idea.R;
+import com.example.lab.android.nuc.law_analysis.R;
 import com.example.lab.android.nuc.law_analysis.adapter.MagicPagerAdapter;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;

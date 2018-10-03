@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.lab.android.nuc.new_idea.R;
+import com.example.lab.android.nuc.law_analysis.R;
 /*
 法律讲坛的fragment
  */

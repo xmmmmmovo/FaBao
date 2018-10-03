@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.example.lab.android.nuc.law_analysis.adapter.MagicPagerAdapter;
-import com.example.lab.android.nuc.new_idea.R;
+import com.example.lab.android.nuc.law_analysis.R;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
 import net.lucode.hackware.magicindicator.ViewPagerHelper;
@@ -35,6 +35,7 @@ public class LawVideoFragment extends Fragment implements View.OnClickListener{
     private List<String> mDataList = Arrays.asList(CHANNELS);
     private ViewPager mViewPager;
 
+
     public static LawVideoFragment newInstance(){
         Bundle bundle = new Bundle( );
         LawVideoFragment lawVideoFragment = new LawVideoFragment();
@@ -47,10 +48,11 @@ public class LawVideoFragment extends Fragment implements View.OnClickListener{
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate( R.layout.fragment_law_video,container,false);
         mViewPager = (ViewPager) view.findViewById(R.id.view_pager);
+
         MagicPagerAdapter mMagicPagerAdapter = new MagicPagerAdapter( getChildFragmentManager() );
         mMagicPagerAdapter.addFragment( LawVideoFragment1.newInstance() );
-        mMagicPagerAdapter.addFragment( LawVideoFragment1.newInstance() );
-        mMagicPagerAdapter.addFragment( LawVideoFragment1.newInstance() );
+        mMagicPagerAdapter.addFragment( LawVideoFragment2.newInstance() );
+        mMagicPagerAdapter.addFragment( LawVideoFragment3.newInstance() );
         mMagicPagerAdapter.addFragment( LawVideoFragment1.newInstance() );
         mMagicPagerAdapter.addFragment( LawVideoFragment1.newInstance() );
         mViewPager.setAdapter( mMagicPagerAdapter );

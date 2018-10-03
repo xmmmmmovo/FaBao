@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.lab.android.nuc.new_idea.R;
+import com.example.lab.android.nuc.law_analysis.R;
 
 import cn.jzvd.JZDataSource;
 import cn.jzvd.JzvdStd;

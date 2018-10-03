@@ -1,7 +1,7 @@
 package com.example.lab.android.nuc.law_analysis.view.activity;
 
-import android.Manifest;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
@@ -14,10 +14,13 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.baidu.ocr.sdk.OCR;
+import com.baidu.ocr.sdk.OnResultListener;
+import com.baidu.ocr.sdk.exception.OCRError;
+import com.baidu.ocr.sdk.model.AccessToken;
+import com.example.lab.android.nuc.law_analysis.R;
 import com.example.lab.android.nuc.law_analysis.adapter.PageAdapter;
 import com.example.lab.android.nuc.law_analysis.util.tools.PermissionUtil;
-import com.example.lab.android.nuc.law_analysis.util.views.CanaroTextView;
-import com.example.lab.android.nuc.new_idea.R;
 import com.qintong.library.InsLoadingView;
 import com.yalantis.guillotine.animation.GuillotineAnimation;
 
@@ -25,8 +28,11 @@ import java.util.ArrayList;
 
 import devlight.io.library.ntb.NavigationTabBar;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
+    private AlertDialog.Builder alertDialog;
+    //aip.lecence初始话
+    private boolean hasGotToken = false;
     private static final long RIPPLE_DURATION = 250;
     InsLoadingView dingView;
     @Override
@@ -35,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView( R.layout.activity_main );
         initUI();
         requestPermissions();
+        alertDialog = new AlertDialog.Builder(this);
+        //文字提取初始化
+        initAccessToken();
     }
     private void initUI(){
          Toolbar toolbar = (Toolbar) findViewById( R.id.toolbar );
@@ -49,14 +58,9 @@ public class MainActivity extends AppCompatActivity {
         dingView = (InsLoadingView) guillotineMenu.findViewById( R.id.loading_view);
         dingView.setStatus( InsLoadingView.Status.LOADING );
         final LinearLayout linearLayout = guillotineMenu.findViewById( R.id.profile_group);
-        linearLayout.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText( MainActivity.this, "Profile OnClicked", Toast.LENGTH_SHORT ).show();
-                CanaroTextView view = (CanaroTextView) findViewById( R.id.text_1 );
-                view.setHighlightColor( getResources().getColor( R.color.selected_item_color ) );
-            }
-        } );
+        linearLayout.setOnClickListener( this);
+        LinearLayout feedBack = guillotineMenu.findViewById( R.id.feed_group );
+        feedBack.setOnClickListener( this );
         new GuillotineAnimation.GuillotineBuilder(guillotineMenu, guillotineMenu.findViewById(R.id.guillotine_hamburger), contentHamburger)
                 .setStartDelay(RIPPLE_DURATION)
                 .setActionBarViewForAnimation(toolbar)
@@ -152,14 +156,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void requestPermissions() {
-        String[] permissions = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                Manifest.permission.ACCESS_FINE_LOCATION,
-                Manifest.permission.ACCESS_COARSE_LOCATION,
-                Manifest.permission.CAMERA,Manifest.permission.RECORD_AUDIO,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                Manifest.permission.READ_EXTERNAL_STORAGE};
 
-        PermissionUtil.requestPermissions(this, permissions, new PermissionUtil.OnRequestPermissionsListener() {
+        PermissionUtil.requestPermissions(this,new PermissionUtil.OnRequestPermissionsListener() {
             @Override
             public void onGranted() {
                 Toast.makeText(MainActivity.this, "所有权限均已同意", Toast.LENGTH_SHORT).show();
@@ -178,7 +176,52 @@ public class MainActivity extends AppCompatActivity {
                             }
                         })
                         .show();
+            }
+        });
+    }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.profile_group:
+                Toast.makeText( this, "profile group", Toast.LENGTH_SHORT ).show();
+                break;
+            case R.id.feed_group:
+                Intent intent = new Intent( MainActivity.this,LoginActivity.class );
+                startActivity( intent );
+                break;
+            default:
+                break;
+        }
+    }
+
+    /**
+     * 以license文件方式初始化
+     */
+    private void initAccessToken() {
+        OCR.getInstance(this).initAccessToken( new OnResultListener<AccessToken>() {
+            @Override
+            public void onResult(AccessToken accessToken) {
+                String token = accessToken.getAccessToken();
+                hasGotToken = true;
+            }
+
+            @Override
+            public void onError(OCRError error) {
+                error.printStackTrace();
+                alertText("licence方式获取token失败", error.getMessage());
+            }
+        }, getApplicationContext());
+    }
+
+    private void alertText(final String title, final String message) {
+        this.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                alertDialog.setTitle(title)
+                        .setMessage(message)
+                        .setPositiveButton("确定", null)
+                        .show();
             }
         });
     }

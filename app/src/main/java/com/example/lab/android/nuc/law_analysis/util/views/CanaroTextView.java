@@ -5,7 +5,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
-import com.example.lab.android.nuc.law_analysis.application.App;
+import com.example.lab.android.nuc.law_analysis.application.MyApplication;
 
 /*
 用于炫酷的Toolbar侧滑栏里面的每一个文字数据
@@ -22,7 +22,7 @@ public class CanaroTextView extends TextView {
 
     public CanaroTextView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        setTypeface( App.canaroExtraBold);
+        setTypeface( MyApplication.canaroExtraBold);
     }
 
 }

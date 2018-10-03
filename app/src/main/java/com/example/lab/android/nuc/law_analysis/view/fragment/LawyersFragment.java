@@ -15,7 +15,7 @@ import android.widget.EditText;
 
 import com.example.lab.android.nuc.law_analysis.adapter.LawyerAdapter;
 import com.example.lab.android.nuc.law_analysis.base.Lawyer;
-import com.example.lab.android.nuc.new_idea.R;
+import com.example.lab.android.nuc.law_analysis.R;
 
 import java.util.ArrayList;
 

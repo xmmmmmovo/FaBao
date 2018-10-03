@@ -3,11 +3,12 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 27
     defaultConfig {
-        applicationId "com.example.lab.android.nuc.new_idea"
+        applicationId "com.example.lab.android.nuc.law_analysis"
         minSdkVersion 16
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -18,6 +19,8 @@ android {
     }
 }
 
+apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao' // apply plugin
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:27.1.1'
@@ -26,6 +29,21 @@ dependencies {
     implementation 'com.android.support:design:27.1.1'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    //聊天界面所需
+    implementation 'com.squareup.retrofit2:converter-gson:2.0.0-beta4'
+    implementation 'com.alibaba:fastjson:1.2.47'
+    implementation 'com.lzy.net:okgo:3.0.4'
+    implementation 'com.lzy.net:okserver:2.0.5'
+    implementation 'com.jakewharton:butterknife:8.8.0'
+    implementation 'com.jakewharton:butterknife-annotations:8.8.0'
+    implementation 'org.greenrobot:greendao:3.2.2'
+    implementation 'com.github.LuckSiege.PictureSelector:picture_library:v2.2.3'
+    implementation 'com.github.nyakokishi:ChatImageView:1.0.2'
+    implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+    implementation 'org.ocpsoft.prettytime:prettytime:4.0.1.Final'
+    implementation 'com.novaapps:FloatingActionMenu:1.0'
+    //方法数过多
+    implementation 'com.android.support:multidex:1.0.3'
     //底部炫酷滑栏
     implementation 'devlight.io:navigationtabbar:1.2.5'
     //顶部炫酷Tollbar
@@ -43,4 +61,6 @@ dependencies {
     implementation 'com.youth.banner:banner:1.4.10'
     //饺子视频
     implementation 'cn.jzvd:jiaozivideoplayer:6.3.1'
+    //登陆界面
+    implementation 'it.sephiroth.android.library.easing:android-easing:+'
 }
