@@ -34,4 +34,7 @@
     <string name="detail_11">学霸，英语小天才</string>
     <string name="detail_12">爱吃烧烤</string>
     <string name="detail_13">精力充沛，跑步爱好者</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

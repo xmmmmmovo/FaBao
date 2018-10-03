@@ -21,6 +21,11 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
     <application
         android:name=".application.MyApplication"
         android:allowBackup="true"
@@ -36,7 +41,6 @@
 
         <activity
             android:name=".view.activity.LoginActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"
             android:hardwareAccelerated="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -44,6 +48,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".view.activity.MainActivity"
             android:configChanges="orientation|screenSize|keyboardHidden" />
@@ -59,5 +64,5 @@
         <activity android:name=".view.activity.VoiceChatActivity" />
         <activity android:name=".communication.activity.LocationActivity"/>
     </application>
-
+    <!--fragment不用再这里面注册-->
 </manifest>

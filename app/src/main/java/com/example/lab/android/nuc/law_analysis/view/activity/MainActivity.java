@@ -1,5 +1,6 @@
 package com.example.lab.android.nuc.law_analysis.view.activity;
 
+import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
@@ -34,7 +35,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //aip.lecence初始话
     private boolean hasGotToken = false;
     private static final long RIPPLE_DURATION = 250;
-    InsLoadingView dingView;
+    private InsLoadingView dingView;
+    private View guillotineMenu;
+    private View contentHamburger;
+    private Toolbar toolbar;
+    private boolean isOpenMenu = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
@@ -46,14 +52,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initAccessToken();
     }
     private void initUI(){
-         Toolbar toolbar = (Toolbar) findViewById( R.id.toolbar );
-         View contentHamburger = findViewById( R.id.content_hamburger );
+         toolbar = (Toolbar) findViewById( R.id.toolbar );
+         contentHamburger = findViewById( R.id.content_hamburger );
          if (toolbar != null) {
              setSupportActionBar( toolbar );
              getSupportActionBar().setTitle( null );
          }
         FrameLayout root = (FrameLayout) findViewById( R.id.root );
-        View guillotineMenu = LayoutInflater.from(this).inflate(R.layout.shine_toolbar, null);
+        guillotineMenu = LayoutInflater.from(this).inflate(R.layout.shine_toolbar, null);
         root.addView(guillotineMenu);
         dingView = (InsLoadingView) guillotineMenu.findViewById( R.id.loading_view);
         dingView.setStatus( InsLoadingView.Status.LOADING );
@@ -66,6 +72,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .setActionBarViewForAnimation(toolbar)
                 .setClosedOnStart(true)
                 .build();
+        startAnimin();
         final ViewPager viewPager = (ViewPager) findViewById( R.id.vp_horizontal_ntb );
         PageAdapter adapter = new PageAdapter( getSupportFragmentManager(),this );
         viewPager.setAdapter( adapter );
@@ -78,8 +85,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         getResources().getDrawable(R.drawable.ic_first),
                         Color.parseColor(colors[0]))
                         .selectedIcon(getResources().getDrawable(R.drawable.ic_sixth))
-                        .title("Heart")
-                        .badgeTitle("NTB")
+                        .title("条目查询")
+                        .badgeTitle("new")
                         .build()
         );
         models.add(
@@ -87,8 +94,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         getResources().getDrawable(R.drawable.ic_second),
                         Color.parseColor(colors[1]))
 //                        .selectedIcon(getResources().getDrawable(R.drawable.ic_eighth))
-                        .title("Cup")
-                        .badgeTitle("with")
+                        .title("法律新闻")
+                        .badgeTitle("new")
                         .build()
         );
         models.add(
@@ -96,8 +103,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         getResources().getDrawable(R.drawable.ic_third),
                         Color.parseColor(colors[2]))
                         .selectedIcon(getResources().getDrawable(R.drawable.ic_seventh))
-                        .title("Diploma")
-                        .badgeTitle("state")
+                        .title("法律分析")
+                        .badgeTitle("new")
                         .build()
         );
         models.add(
@@ -106,16 +113,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         Color.parseColor(colors[3]))
 //                        .selectedIcon(getResources().getDrawable(R.drawable.ic_eighth))
                         .title("社群")
-                        .badgeTitle("icon")
+                        .badgeTitle("new")
                         .build()
         );
-        models.add(
+        models.add(//典型案例
                 new NavigationTabBar.Model.Builder(
                         getResources().getDrawable(R.drawable.platform_normal),
                         Color.parseColor(colors[4]))
                         .selectedIcon(getResources().getDrawable(R.drawable.platform_begin))
                         .title("法律讲坛")
-                        .badgeTitle("777")
+                        .badgeTitle("new")
                         .build()
         );
 
@@ -154,10 +161,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }, 500);
     }
 
+    private void startAnimin() {
+        new GuillotineAnimation.GuillotineBuilder(guillotineMenu, guillotineMenu.findViewById(R.id.guillotine_hamburger), contentHamburger)
+                .setStartDelay(RIPPLE_DURATION)
+                .setActionBarViewForAnimation(toolbar)
+                .setClosedOnStart(true)
+                .build();
+        isOpenMenu = !isOpenMenu;
+    }
+
+    //覆写返回逻辑
+    @Override
+    public void onBackPressed() {
+        if (isOpenMenu){
+            startAnimin();
+        }else {
+            super.onBackPressed();
+        }
+    }
 
     private void requestPermissions() {
-
         PermissionUtil.requestPermissions(this,new PermissionUtil.OnRequestPermissionsListener() {
+        String[] permissions = new String[]{
+                Manifest.permission.ACCESS_FINE_LOCATION,
+                Manifest.permission.ACCESS_COARSE_LOCATION,
+                Manifest.permission.CAMERA,Manifest.permission.RECORD_AUDIO,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.READ_EXTERNAL_STORAGE};
             @Override
             public void onGranted() {
                 Toast.makeText(MainActivity.this, "所有权限均已同意", Toast.LENGTH_SHORT).show();
@@ -172,7 +202,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         .setPositiveButton("是", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-
                             }
                         })
                         .show();
