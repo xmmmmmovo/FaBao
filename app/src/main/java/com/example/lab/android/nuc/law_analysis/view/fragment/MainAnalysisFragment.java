@@ -3,22 +3,13 @@ package com.example.lab.android.nuc.law_analysis.view.fragment;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.lab.android.nuc.law_analysis.util.tools.GlideImageLoader;
 import com.example.lab.android.nuc.law_analysis.R;
-import com.youth.banner.Banner;
-import com.youth.banner.BannerConfig;
-import com.youth.banner.Transformer;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import java.util.zip.Inflater;
 /**
  * 条目分析 语音输入分析
  * */

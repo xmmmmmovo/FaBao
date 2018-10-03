@@ -22,7 +22,7 @@
                 style="@style/ImageView.Hamburger"
                 android:src="@drawable/ic_menu_90" />
 
-            <com.example.lab.android.nuc.law_analysis.util.views.CanaroTextView
+            <com.example.lab.android.nuc.law_analysis.utils.views.CanaroTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

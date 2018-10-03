@@ -21,7 +21,7 @@ import com.bumptech.glide.Glide;
 import com.example.lab.android.nuc.law_analysis.R;
 import com.example.lab.android.nuc.law_analysis.base.Lawyer;
 import com.example.lab.android.nuc.law_analysis.communication.activity.ChatActivity;
-import com.example.lab.android.nuc.law_analysis.util.views.RoundImageView;
+import com.example.lab.android.nuc.law_analysis.utils.views.RoundImageView;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;

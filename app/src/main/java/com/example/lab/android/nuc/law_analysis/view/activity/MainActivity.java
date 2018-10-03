@@ -21,7 +21,7 @@ import com.baidu.ocr.sdk.exception.OCRError;
 import com.baidu.ocr.sdk.model.AccessToken;
 import com.example.lab.android.nuc.law_analysis.R;
 import com.example.lab.android.nuc.law_analysis.adapter.PageAdapter;
-import com.example.lab.android.nuc.law_analysis.util.tools.PermissionUtil;
+import com.example.lab.android.nuc.law_analysis.utils.tools.PermissionUtil;
 import com.qintong.library.InsLoadingView;
 import com.yalantis.guillotine.animation.GuillotineAnimation;
 
@@ -82,18 +82,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         final ArrayList<NavigationTabBar.Model> models = new ArrayList<>();
         models.add(
                 new NavigationTabBar.Model.Builder(
-                        getResources().getDrawable(R.drawable.ic_first),
+                        getResources().getDrawable(R.drawable.ic_searchs),
                         Color.parseColor(colors[0]))
-                        .selectedIcon(getResources().getDrawable(R.drawable.ic_sixth))
+                        .selectedIcon(getResources().getDrawable(R.drawable.ic_searchs1))
                         .title("条目查询")
                         .badgeTitle("new")
                         .build()
         );
         models.add(
                 new NavigationTabBar.Model.Builder(
-                        getResources().getDrawable(R.drawable.ic_second),
+                        getResources().getDrawable(R.drawable.ic_news2),
                         Color.parseColor(colors[1]))
-//                        .selectedIcon(getResources().getDrawable(R.drawable.ic_eighth))
+                        .selectedIcon(getResources().getDrawable(R.drawable.ic_news))
                         .title("法律新闻")
                         .badgeTitle("new")
                         .build()

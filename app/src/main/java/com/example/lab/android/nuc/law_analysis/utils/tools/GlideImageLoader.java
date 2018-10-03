@@ -1,4 +1,4 @@
-package com.example.lab.android.nuc.law_analysis.util.tools;
+package com.example.lab.android.nuc.law_analysis.utils.tools;
 
 import android.content.Context;
 import android.widget.ImageView;

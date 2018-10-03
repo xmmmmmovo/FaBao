@@ -64,4 +64,8 @@ dependencies {
     implementation 'cn.jzvd:jiaozivideoplayer:6.3.1'
     //登陆界面
     implementation 'it.sephiroth.android.library.easing:android-easing:+'
+    //悬浮按钮
+    implementation 'com.getbase:floatingactionbutton:1.10.1'
+    //点赞按钮
+    implementation 'com.sackcentury:shinebutton:0.2.0'
 }

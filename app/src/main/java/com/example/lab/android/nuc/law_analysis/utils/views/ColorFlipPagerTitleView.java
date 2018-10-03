@@ -1,4 +1,4 @@
-package com.example.lab.android.nuc.law_analysis.util.views;
+package com.example.lab.android.nuc.law_analysis.utils.views;
 
 import android.content.Context;
 

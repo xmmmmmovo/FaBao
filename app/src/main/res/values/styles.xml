@@ -180,4 +180,10 @@
 
     <style name="PictureToTextTheme" parent="Theme.AppCompat.Light.DarkActionBar">
     </style>
+    <declare-styleable name="NineGridLayout">
+        <attr name="sapcing" format="dimension"/>
+    </declare-styleable>
+    <declare-styleable name="RatioImageView">
+        <attr name="ratio" format="float"/>
+    </declare-styleable>
 </resources>

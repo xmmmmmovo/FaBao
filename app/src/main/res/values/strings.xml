@@ -37,4 +37,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    //法律动态
+    <string name="text_detail">翻着我们的照片，想念若隐若现，去年的冬天，我们笑得很甜...... —— 哎哟，不错哦!</string>
+    <string name="ai_te">\u0040</string>
 </resources>

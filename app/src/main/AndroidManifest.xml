@@ -20,12 +20,12 @@
     <!-- 基于位置服务的所有权限 -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
+    <!-- fragment不用再这里面注册 -->
     <application
         android:name=".application.MyApplication"
         android:allowBackup="true"
@@ -34,7 +34,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="UZ80sIExOKSlf4QQ54FfaMUyls6jKlkh" />
@@ -48,7 +47,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".view.activity.MainActivity"
             android:configChanges="orientation|screenSize|keyboardHidden" />
@@ -62,7 +60,18 @@
             android:theme="@style/PictureToTextTheme" />
         <activity android:name=".view.activity.VideoChatActivity" />
         <activity android:name=".view.activity.VoiceChatActivity" />
-        <activity android:name=".communication.activity.LocationActivity"/>
+        <activity android:name=".communication.activity.LocationActivity" />
+        <activity android:name=".view.activity.DynamicActivity" />
+        <activity
+            android:name=".view.activity.SelectLawyerActivity"
+            android:theme="@style/PictureToTextTheme" />
+        <activity
+            android:name=".view.activity.SelectTopicActivity"
+            android:theme="@style/PictureToTextTheme" />
+        <activity
+            android:name=".view.activity.SelectArticleActivity"
+            android:theme="@style/PictureToTextTheme" />
+        <activity android:name=".view.activity.CommentActivity"></activity>
     </application>
-    <!--fragment不用再这里面注册-->
+
 </manifest>

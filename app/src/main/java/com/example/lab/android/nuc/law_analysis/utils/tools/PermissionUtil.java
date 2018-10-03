@@ -1,13 +1,10 @@
-package com.example.lab.android.nuc.law_analysis.util.tools;
+package com.example.lab.android.nuc.law_analysis.utils.tools;
 
 import android.Manifest;
 import android.app.Activity;
-import android.content.DialogInterface;
 import android.content.pm.PackageManager;
-import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AlertDialog;
 
 import java.util.ArrayList;
 import java.util.List;
