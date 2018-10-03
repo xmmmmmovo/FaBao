@@ -7,8 +7,8 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import com.example.lab.android.nuc.law_analysis.view.fragment.CommunicationFragment;
 import com.example.lab.android.nuc.law_analysis.view.fragment.Fragment1;
-import com.example.lab.android.nuc.law_analysis.view.fragment.Fragment2;
 import com.example.lab.android.nuc.law_analysis.view.fragment.Fragment3;
+import com.example.lab.android.nuc.law_analysis.view.fragment.Fragment2;
 import com.example.lab.android.nuc.law_analysis.view.fragment.LawVideoFragment;
 
 /*
