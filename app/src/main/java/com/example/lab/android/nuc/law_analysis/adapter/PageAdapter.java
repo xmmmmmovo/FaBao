@@ -7,9 +7,12 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import com.example.lab.android.nuc.law_analysis.view.fragment.CommunicationFragment;
 import com.example.lab.android.nuc.law_analysis.view.fragment.LawNewsFragment;
+import com.example.lab.android.nuc.law_analysis.view.fragment.LawNewsHomeFragment;
 import com.example.lab.android.nuc.law_analysis.view.fragment.LawVideoFragment;
 import com.example.lab.android.nuc.law_analysis.view.fragment.MainAnalysisFragment;
 import com.example.lab.android.nuc.law_analysis.view.fragment.SearchLawListFragment;
+
+import java.util.List;
 
 /*
 主界面的viewpager的Adapter
@@ -19,6 +22,7 @@ public class PageAdapter extends FragmentPagerAdapter {
     private final int COUNT = 5;
 
     public Context mContext;
+
 
     public PageAdapter(FragmentManager fm,Context context) {
         super( fm );
@@ -31,7 +35,7 @@ public class PageAdapter extends FragmentPagerAdapter {
             case 0:
                 return SearchLawListFragment.newInstance();
             case 1:
-                return LawNewsFragment.newInstance();
+                return LawNewsHomeFragment.newInstance();
             case 2:
                 return MainAnalysisFragment.newInstance();
             case 3:

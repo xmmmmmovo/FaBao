@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 
-import com.example.lab.android.nuc.law_analysis.util.views.ColorFlipPagerTitleView;
+import com.example.lab.android.nuc.law_analysis.utils.views.ColorFlipPagerTitleView;
 import com.example.lab.android.nuc.law_analysis.R;
 import com.example.lab.android.nuc.law_analysis.adapter.MagicPagerAdapter;
 
@@ -47,7 +47,7 @@ public class CommunicationFragment extends Fragment implements View.OnClickListe
 
     public CommunicationFragment(){
         mTitleDataList.add( "律师列表");
-        mTitleDataList.add( "法律讲坛");
+        mTitleDataList.add( "法律社区");
     }
 
     @Nullable
@@ -63,7 +63,7 @@ public class CommunicationFragment extends Fragment implements View.OnClickListe
         mViewPager = root.findViewById( R.id.community_view_pager);
         MagicPagerAdapter adapter = new MagicPagerAdapter( getChildFragmentManager() );
         adapter.addFragment(LawyersFragment.newInstance());
-        adapter.addFragment( LawChatFragment.newInstance() );
+        adapter.addFragment( LawyersChatFragment.newInstance() );
         mViewPager.setAdapter( adapter );
     }
 

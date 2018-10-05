@@ -25,15 +25,15 @@ public class SearchLawListFragment extends Fragment  {
 
     int y;
 
-    public static SearchLawListFragment newInstance() {
-        Bundle args = new Bundle();
-        
-        SearchLawListFragment fragment = new SearchLawListFragment();
-        fragment.setArguments(args);
-        return fragment;
-    }
+        public static SearchLawListFragment newInstance() {
+            Bundle args = new Bundle();
 
-    @Nullable
+            SearchLawListFragment fragment = new SearchLawListFragment();
+            fragment.setArguments(args);
+            return fragment;
+        }
+
+        @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.search_law_list_fragment, container, false);

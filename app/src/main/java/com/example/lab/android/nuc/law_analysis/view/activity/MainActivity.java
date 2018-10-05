@@ -21,7 +21,7 @@ import com.baidu.ocr.sdk.exception.OCRError;
 import com.baidu.ocr.sdk.model.AccessToken;
 import com.example.lab.android.nuc.law_analysis.R;
 import com.example.lab.android.nuc.law_analysis.adapter.PageAdapter;
-import com.example.lab.android.nuc.law_analysis.util.tools.PermissionUtil;
+import com.example.lab.android.nuc.law_analysis.utils.tools.PermissionUtil;
 import com.qintong.library.InsLoadingView;
 import com.yalantis.guillotine.animation.GuillotineAnimation;
 
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initAccessToken();
     }
     private void initUI(){
-         toolbar = (Toolbar) findViewById( R.id.toolbar );
+         toolbar = (Toolbar) findViewById( R.id.toolbar_main );
          contentHamburger = findViewById( R.id.content_hamburger );
          if (toolbar != null) {
              setSupportActionBar( toolbar );
@@ -76,24 +76,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         final ViewPager viewPager = (ViewPager) findViewById( R.id.vp_horizontal_ntb );
         PageAdapter adapter = new PageAdapter( getSupportFragmentManager(),this );
         viewPager.setAdapter( adapter );
-
         final String[] colors = getResources().getStringArray(R.array.default_preview);
         final NavigationTabBar navigationTabBar = (NavigationTabBar) findViewById(R.id.ntb_horizontal);
         final ArrayList<NavigationTabBar.Model> models = new ArrayList<>();
         models.add(
                 new NavigationTabBar.Model.Builder(
-                        getResources().getDrawable(R.drawable.ic_first),
+                        getResources().getDrawable(R.drawable.ic_searchs),
                         Color.parseColor(colors[0]))
-                        .selectedIcon(getResources().getDrawable(R.drawable.ic_sixth))
+                        .selectedIcon(getResources().getDrawable(R.drawable.ic_searchs1))
                         .title("条目查询")
                         .badgeTitle("new")
                         .build()
         );
         models.add(
                 new NavigationTabBar.Model.Builder(
-                        getResources().getDrawable(R.drawable.ic_second),
+                        getResources().getDrawable(R.drawable.ic_news2),
                         Color.parseColor(colors[1]))
-//                        .selectedIcon(getResources().getDrawable(R.drawable.ic_eighth))
+                        .selectedIcon(getResources().getDrawable(R.drawable.ic_news))
                         .title("法律新闻")
                         .badgeTitle("new")
                         .build()
@@ -128,6 +127,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         navigationTabBar.setModels(models);
         navigationTabBar.setViewPager(viewPager, 2);
+        navigationTabBar.setBehaviorEnabled(true);
+        navigationTabBar.setOnTabBarSelectedIndexListener( new NavigationTabBar.OnTabBarSelectedIndexListener() {
+            @Override
+            public void onStartTabSelected(NavigationTabBar.Model model, int index) {
+
+            }
+
+            @Override
+            public void onEndTabSelected(NavigationTabBar.Model model, int index) {
+                model.hideBadge();
+            }
+        } );
+
         navigationTabBar.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(final int position, final float positionOffset, final int positionOffsetPixels) {
@@ -214,6 +226,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()){
             case R.id.profile_group:
                 Toast.makeText( this, "profile group", Toast.LENGTH_SHORT ).show();
+                Intent intent1 = new Intent( MainActivity.this,WakeActivity .class );
+                startActivity( intent1 );
                 break;
             case R.id.feed_group:
                 Intent intent = new Intent( MainActivity.this,LoginActivity.class );

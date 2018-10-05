@@ -15,8 +15,9 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -34,6 +35,7 @@ import com.baidu.ocr.sdk.OnResultListener;
 import com.baidu.ocr.sdk.exception.OCRError;
 import com.baidu.ocr.sdk.model.AccessToken;
 import com.baidu.ocr.sdk.model.GeneralBasicParams;
+import com.baidu.ocr.sdk.model.GeneralParams;
 import com.baidu.ocr.sdk.model.GeneralResult;
 import com.baidu.ocr.sdk.model.WordSimple;
 import com.baidu.ocr.ui.camera.CameraActivity;
@@ -41,6 +43,7 @@ import com.example.lab.android.nuc.law_analysis.adapter.Main_Analysis_Adapter;
 import com.example.lab.android.nuc.law_analysis.base.DataBean;
 
 import com.example.lab.android.nuc.law_analysis.R;
+
 import com.example.lab.android.nuc.law_analysis.communication.activity.ChatActivity;
 import com.example.lab.android.nuc.law_analysis.communication.activity.DictationResult;
 import com.example.lab.android.nuc.law_analysis.communication.utils.KeyBoardUtils;
@@ -59,12 +62,14 @@ import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.ui.RecognizerDialog;
 import com.iflytek.cloud.ui.RecognizerDialogListener;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 
 
 import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter;
+
 
 
 
@@ -237,16 +242,42 @@ public class MainAnalysisFragment extends Fragment {
 
         // 识别成功回调，通用文字识别
         if (requestCode == REQUEST_CODE_GENERAL_BASIC && resultCode == Activity.RESULT_OK) {
-            RecognizeService.recGeneralBasic(getActivity(), FileUtil.getSaveFile(getContext()).getAbsolutePath(),
-                    new RecognizeService.ServiceListener() {
-                        @Override
-                        public void onResult(String result) {
-                          editText_Analyis.setText(result);
-                        }
-                    });
+//            RecognizeService.recGeneralBasic(getActivity(), FileUtil.getSaveFile(getContext()).getAbsolutePath(),
+////                    new RecognizeService.ServiceListener() {
+////                        @Override
+////                        public void onResult(String result) {
+////                          editText_Analyis.setText(result);
+////                        }
+////                    });
+            recGeneral(FileUtil.getSaveFile(getContext()).getAbsolutePath());
         }
 
     }
+
+
+
+    private void recGeneral(String filePath) {
+        GeneralParams param = new GeneralParams();
+        param.setDetectDirection(true);
+        param.setImageFile(new File(filePath));
+        OCR.getInstance(getActivity()).recognizeAccurate(param, new OnResultListener<GeneralResult>() {
+            @Override
+            public void onResult(GeneralResult result) {
+                StringBuilder sb = new StringBuilder();
+                for (WordSimple word : result.getWordList()) {
+                    sb.append(word.getWords());
+                    sb.append("\n");
+                }
+                editText_Analyis.setText(sb);
+            }
+
+            @Override
+            public void onError(OCRError error) {
+                editText_Analyis.setText(error.getMessage());
+            }
+        });
+    }
+
 
     @Override
    public void onDestroy() {
