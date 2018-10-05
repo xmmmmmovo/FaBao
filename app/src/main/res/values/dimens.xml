@@ -18,4 +18,6 @@
     <dimen name="second_card_height">40dp</dimen>
     <dimen name="second_card_radius">20dp</dimen>
     <dimen name="second_card_radius_on_focus">8dp</dimen>
+    <dimen name="toolbar_height">56dp</dimen>
+    <dimen name="title_size">20sp</dimen>
 </resources>

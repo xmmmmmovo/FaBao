@@ -72,7 +72,6 @@ public class LawyersChatFragment extends Fragment implements View.OnClickListene
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate( R.layout.fragment_law_chat,container,false);
-        ShineButton shineButton1 = (ShineButton) view.findViewById( R.id.po_image1 );
         initFloatButton( view );
         initView(view);
         return view;
@@ -80,7 +79,6 @@ public class LawyersChatFragment extends Fragment implements View.OnClickListene
 
     @Override
     public void onResume() {
-//        ShineButton shineButton1 = (ShineButton) view.findViewById( R.id.po_image1 );
         super.onResume();
     }
 
@@ -226,13 +224,6 @@ public class LawyersChatFragment extends Fragment implements View.OnClickListene
         model11.location_imageUri = R.drawable.hebei;
         mList.add( model11 );
 
-        OkGo.<String>post( "http://47.95.7.169:8080/getQuestion")
-                .execute( new StringCallback() {
-                    @Override
-                    public void onSuccess(Response<String> response) {
-
-                    }
-                } );
     }
 
     //图片数据的url;

@@ -33,39 +33,35 @@ dependencies {
     //聊天界面所需
     implementation 'com.squareup.retrofit2:converter-gson:2.0.0-beta4'
     implementation 'com.alibaba:fastjson:1.2.47'
-    implementation 'com.lzy.net:okgo:3.0.4'
-    implementation 'com.lzy.net:okserver:2.0.5'
-    implementation 'com.jakewharton:butterknife:8.8.0'
-    implementation 'com.jakewharton:butterknife-annotations:8.8.0'
+    implementation 'com.lzy.net:okgo:2.1.4'
+    implementation 'com.lzy.net:okserver:1.1.3'
     implementation 'org.greenrobot:greendao:3.2.2'
     implementation 'com.github.LuckSiege.PictureSelector:picture_library:v2.2.3'
     implementation 'com.github.nyakokishi:ChatImageView:1.0.2'
     implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
     implementation 'org.ocpsoft.prettytime:prettytime:4.0.1.Final'
-    implementation 'com.novaapps:FloatingActionMenu:1.0'
-    //方法数过多
-    implementation 'com.android.support:multidex:1.0.3'
-    //底部炫酷滑栏
-    implementation 'devlight.io:navigationtabbar:1.2.5'
-    //顶部炫酷Tollbar
-    implementation 'com.github.Yalantis:GuillotineMenu-Android:1.2'
-    //cardview
-    implementation 'com.android.support:cardview-v7:27.1.1'
-    //圆形头像
-    implementation 'com.qintong:insLoadingAnimation:1.1.0'
-    implementation 'de.hdodenhof:circleimageview:2.2.0'
-    //二哥的给的那个左右滑动
-    implementation 'com.github.hackware1993:MagicIndicator:1.5.0'
-    //Glide加载图片
-    implementation 'com.github.bumptech.glide:glide:4.7.1'
-    //轮播控件
-    implementation 'com.youth.banner:banner:1.4.10'
-    //饺子视频
-    implementation 'cn.jzvd:jiaozivideoplayer:6.3.1'
-    //登陆界面
-    implementation 'it.sephiroth.android.library.easing:android-easing:+'
-    //悬浮按钮
-    implementation 'com.getbase:floatingactionbutton:1.10.1'
-    //点赞按钮
-    implementation 'com.sackcentury:shinebutton:0.2.0'
+    implementation 'com.novaapps:FloatingActionMenu:1.0' //悬浮按钮
+    implementation 'com.android.support:multidex:1.0.3' //方法数过多
+    implementation 'devlight.io:navigationtabbar:1.2.5' //底部炫酷滑栏
+    implementation 'com.github.Yalantis:GuillotineMenu-Android:1.2' //顶部炫酷Tollbar
+    implementation 'com.android.support:cardview-v7:27.1.1'  //cardview
+    implementation 'com.qintong:insLoadingAnimation:1.1.0' //动画加载
+    implementation 'de.hdodenhof:circleimageview:2.2.0' //圆形头像
+    implementation 'com.github.hackware1993:MagicIndicator:1.5.0' //二哥的给的那个左右滑动
+    implementation 'com.github.bumptech.glide:glide:4.3.1' //Glide加载图片
+    implementation 'com.youth.banner:banner:1.4.10' //轮播控件
+    implementation 'cn.jzvd:jiaozivideoplayer:6.3.1' //饺子视频
+    implementation 'it.sephiroth.android.library.easing:android-easing:+' //登陆界面
+    implementation 'com.getbase:floatingactionbutton:1.10.1' //悬浮按钮
+    implementation 'com.sackcentury:shinebutton:0.2.0' //点赞按钮
+    //ButterKnife  新闻所用
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.15'
+    implementation 'org.greenrobot:eventbus:3.0.0'
+    //leakcanary  内存泄漏检测库
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.1'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.1'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.1'//如果有fragmnet的话还要添加这个库
+    implementation 'com.zzhoujay.richtext:richtext:2.5.4'//富文本控件
+
+
 }

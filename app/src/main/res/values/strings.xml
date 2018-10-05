@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">law_analysis</string>
+    <string name="app_name">法宝</string>
     <!--语音视频通话的AppId-->
     <string name="agora_app_id">892995891e7947a89dda080cf1759818</string>
     <string name="profile">个人信息</string>
@@ -40,4 +40,12 @@
     //法律动态
     <string name="text_detail">翻着我们的照片，想念若隐若现，去年的冬天，我们笑得很甜...... —— 哎哟，不错哦!</string>
     <string name="ai_te">\u0040</string>
+    <string name="wake_demo_hint">请点击“开始唤醒”后读出您在开放平台购买的唤醒词，当引擎计算得分大于您设置的门限值时，即可进行唤醒。</string>
+    <string name="app_id">5bb37e54</string>
+
+    //新闻
+    <string name="news">新闻</string>
+    <string name="loadfail">加载失败</string>
+    <string name="exit">再按一次退出程序</string>
+    <string name="copy_msg">已经复制链接地址到剪切板!</string>
 </resources>

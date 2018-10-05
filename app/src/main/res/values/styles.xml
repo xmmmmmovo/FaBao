@@ -178,7 +178,8 @@
         <item name="android:backgroundDimEnabled">false</item>
     </style>
 
-    <style name="PictureToTextTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="PictureToTextTheme" parent="Theme.AppCompat.Light.DarkActionBar"/>
+    <style name="CommentTheme" parent="Theme.AppCompat.Light.NoActionBar">
     </style>
     <declare-styleable name="NineGridLayout">
         <attr name="sapcing" format="dimension"/>
@@ -186,4 +187,30 @@
     <declare-styleable name="RatioImageView">
         <attr name="ratio" format="float"/>
     </declare-styleable>
+
+    //新闻的style
+    <!-- 用于开启滑动返回功能的 Activity -->
+    <style name="AppTheme.Transparent">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <style name="ToolBarTheme" parent="Theme.AppCompat.Light">
+        <item name="android:textColorSecondary">#000000</item>
+        <item name="actionOverflowMenuStyle">@style/OverflowMenuStyle</item>
+        <item name="dropDownListViewStyle">@style/OverflowDropDownStyle</item>
+    </style>
+
+    <style name="OverflowMenuStyle" parent="Widget.AppCompat.Light.PopupMenu.Overflow">
+        <item name="overlapAnchor">true</item>
+    </style>
+
+    <style name="OverflowDropDownStyle" parent="Widget.AppCompat.Light.ListView.DropDown">
+        <item name="android:dividerHeight">0.5dp</item>
+        <item name="android:divider">#eeeeee</item>
+    </style>
+
+    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">18sp</item>
+    </style>
 </resources>

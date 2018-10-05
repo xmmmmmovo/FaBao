@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initAccessToken();
     }
     private void initUI(){
-         toolbar = (Toolbar) findViewById( R.id.toolbar );
+         toolbar = (Toolbar) findViewById( R.id.toolbar_main );
          contentHamburger = findViewById( R.id.content_hamburger );
          if (toolbar != null) {
              setSupportActionBar( toolbar );
@@ -76,7 +76,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         final ViewPager viewPager = (ViewPager) findViewById( R.id.vp_horizontal_ntb );
         PageAdapter adapter = new PageAdapter( getSupportFragmentManager(),this );
         viewPager.setAdapter( adapter );
-
         final String[] colors = getResources().getStringArray(R.array.default_preview);
         final NavigationTabBar navigationTabBar = (NavigationTabBar) findViewById(R.id.ntb_horizontal);
         final ArrayList<NavigationTabBar.Model> models = new ArrayList<>();
@@ -128,6 +127,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         navigationTabBar.setModels(models);
         navigationTabBar.setViewPager(viewPager, 2);
+        navigationTabBar.setBehaviorEnabled(true);
+        navigationTabBar.setOnTabBarSelectedIndexListener( new NavigationTabBar.OnTabBarSelectedIndexListener() {
+            @Override
+            public void onStartTabSelected(NavigationTabBar.Model model, int index) {
+
+            }
+
+            @Override
+            public void onEndTabSelected(NavigationTabBar.Model model, int index) {
+                model.hideBadge();
+            }
+        } );
+
         navigationTabBar.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(final int position, final float positionOffset, final int positionOffsetPixels) {
@@ -214,6 +226,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()){
             case R.id.profile_group:
                 Toast.makeText( this, "profile group", Toast.LENGTH_SHORT ).show();
+                Intent intent1 = new Intent( MainActivity.this,WakeActivity .class );
+                startActivity( intent1 );
                 break;
             case R.id.feed_group:
                 Intent intent = new Intent( MainActivity.this,LoginActivity.class );

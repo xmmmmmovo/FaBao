@@ -114,27 +114,7 @@ public class DynamicActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                OkGo.<String>post( "http://47.95.7.169:8080/setQuestion" )
-                        .params( "UserID","12" )
-                        .params( "name","Wanda" )
-                        .params( "quesTitle","语言学习" )
-                        .params( "questionDetial", mEditText.getText().toString())
-                        .params( "questionTime", simpleDateFormat.format( date ))
-                        .params( "picture","http://p8nssbtwi.bkt.clouddn.com/teacher_3.jpg" )
-                        .params( "country","汉语" )
-                        .params( "questionNumber","9" )
-                        .execute( new StringCallback() {
-                            @Override
-                            public void onSuccess(Response<String> response) {
-                                finish();
-                                Toast.makeText( DynamicActivity.this, "发表成功", Toast.LENGTH_SHORT ).show();
-                            }
-                            @Override
-                            public void onError(Response<String> response) {
-                                super.onError( response );
-                                Toast.makeText( DynamicActivity.this, "发表失败!请重试！", Toast.LENGTH_SHORT ).show();
-                            }
-                        } );
+
             }
         } );
 

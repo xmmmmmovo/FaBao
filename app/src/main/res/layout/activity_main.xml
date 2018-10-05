@@ -13,9 +13,11 @@
         android:orientation="vertical">
 
         <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+            android:id="@+id/toolbar_main"
             app:contentInsetStart="0dp"
-            style="@style/Toolbar">
+            style="@style/Toolbar"
+            app:layout_scrollFlags="scroll|enterAlways">
+
 
             <ImageView
                 android:id="@+id/content_hamburger"
