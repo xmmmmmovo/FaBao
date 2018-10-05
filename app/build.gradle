@@ -4,7 +4,7 @@ android {
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.example.lab.android.nuc.law_analysis"
-        minSdkVersion 16
+        minSdkVersion 19
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
@@ -64,4 +64,14 @@ dependencies {
     implementation 'cn.jzvd:jiaozivideoplayer:6.3.1'
     //登陆界面
     implementation 'it.sephiroth.android.library.easing:android-easing:+'
+    //recyclerView的动画
+    implementation 'jp.wasabeef:recyclerview-animators:2.3.0'
+    implementation  project(path: ':ocr_ui')
+
+    implementation 'com.github.tangguna:SearchBox:1.0.1'
+
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.6'
+
+    api 'com.google.code.gson:gson:2.7'
+
 }
