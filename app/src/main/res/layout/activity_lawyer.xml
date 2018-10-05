@@ -22,7 +22,7 @@
             app:contentScrim="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-            <com.example.lab.android.nuc.law_analysis.util.views.RoundImageView
+            <com.example.lab.android.nuc.law_analysis.utils.views.RoundImageView
                 android:id="@+id/contact_ImageView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -93,7 +93,7 @@
                         android:layout_margin="10dp"
                         android:orientation="vertical">
 
-                        <com.example.lab.android.nuc.law_analysis.util.views.RippleButtonView
+                        <com.example.lab.android.nuc.law_analysis.utils.views.RippleButtonView
                             android:id="@+id/test_bt"
                             android:layout_width="100dp"
                             android:layout_height="wrap_content"

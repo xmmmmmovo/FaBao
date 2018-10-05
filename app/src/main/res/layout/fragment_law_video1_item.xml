@@ -13,7 +13,7 @@
         android:layout_marginTop="18dp"
         android:text="Standard ui with share button, visible after fullscreen" />
 
-    <com.example.lab.android.nuc.law_analysis.util.views.JzvdStdShowShareButtonAfterFullscreen
+    <com.example.lab.android.nuc.law_analysis.utils.views.JzvdStdShowShareButtonAfterFullscreen
         android:id="@+id/custom_videoplayer_standard_with_share_button"
         android:layout_width="match_parent"
         android:layout_height="200dp" />

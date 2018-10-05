@@ -21,7 +21,7 @@ import com.bumptech.glide.Glide;
 import com.example.lab.android.nuc.law_analysis.R;
 import com.example.lab.android.nuc.law_analysis.base.Lawyer;
 import com.example.lab.android.nuc.law_analysis.communication.activity.ChatActivity;
-import com.example.lab.android.nuc.law_analysis.util.views.RoundImageView;
+import com.example.lab.android.nuc.law_analysis.utils.views.RoundImageView;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
@@ -139,24 +139,6 @@ public class LawyerActivity extends AppCompatActivity {
     }
 
     private void requestcontact(){
-        OkGo.<String>post( "http://47.95.7.169:8080/getUserInfo")
-                .tag( this )
-                .isMultipart( true)
-                .params( "UserID",userID)
-                .execute( new StringCallback() {
-                    @Override
-                    public void onSuccess(Response<String> response) {
-                        Log.i( "return","all"  + response.body());
-                        info = JSON.parseObject( response.body(), Lawyer.class );
-                        interest_text = info.lawyer_like;
-                        toPerson_text = info.lawyer_location;
-                        toGoal_text = info.getLawyer_level();
-                        interest.setText( interest_text );
-                        toPerson.setText( toPerson_text );
-                        toGoal.setText( toGoal_text );
-
-                    }
-                } );
 
     }
 }

@@ -1,9 +1,6 @@
 package com.example.lab.android.nuc.law_analysis.view.fragment;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -11,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.lab.android.nuc.law_analysis.R;
-import com.example.lab.android.nuc.law_analysis.util.tools.GlideImageLoader;
+import com.example.lab.android.nuc.law_analysis.utils.tools.GlideImageLoader;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
