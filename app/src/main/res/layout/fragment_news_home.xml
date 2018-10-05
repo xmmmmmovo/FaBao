@@ -38,7 +38,7 @@
         android:clickable="true"
         android:src="@drawable/ic_arrow"
         app:fabSize="mini"
-        app:layout_behavior="com.example.lab.android.nuc.law_analysis.utils.ScrollAwareFABBehavior"
+        app:layout_behavior="com.example.lab.android.nuc.law_analysis.news.util.ScrollAwareFABBehavior"
         app:rippleColor="@color/fab_color" />
 
 </android.support.design.widget.CoordinatorLayout>
