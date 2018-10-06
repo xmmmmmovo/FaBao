@@ -66,6 +66,7 @@
         <activity android:name=".view.activity.VoiceChatActivity" />
         <activity android:name=".communication.activity.LocationActivity"/>
         <activity android:name=".view.activity.Search_Intent_Activity"/>
+        <activity android:name=".view.activity.Search_Item_Activity"/>
     </application>
 
     <!--fragment不用再这里面注册-->

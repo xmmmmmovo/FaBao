@@ -184,6 +184,9 @@ public class MainAnalysisFragment extends Fragment {
 
     }
 
+
+
+
     private boolean checkTokenStatus() {
         if (!hasGotToken) {
             Toast.makeText(getContext(), "token还未成功获取", Toast.LENGTH_LONG).show();
@@ -228,8 +231,6 @@ public class MainAnalysisFragment extends Fragment {
         alertText("", result);
     }
 
-//
-
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -255,7 +256,7 @@ public class MainAnalysisFragment extends Fragment {
         OCR.getInstance(getActivity()).release();
     }
 
-    /*-------------------------------语音转文字--------------------------*/
+    /*语音转文字*/
     public void voice_to_text(){
         // 有交互动画的语音识别器
         iatDialog = new RecognizerDialog(getActivity(), mInitListener);
