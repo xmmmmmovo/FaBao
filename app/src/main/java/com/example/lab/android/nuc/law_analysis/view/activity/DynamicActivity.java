@@ -26,6 +26,8 @@ import android.widget.Toast;
 import com.example.lab.android.nuc.law_analysis.R;
 import com.example.lab.android.nuc.law_analysis.adapter.GridImageAdapter;
 import com.example.lab.android.nuc.law_analysis.utils.manager.FullyGridLayoutManager;
+import com.getbase.floatingactionbutton.FloatingActionButton;
+import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import com.luck.picture.lib.PictureSelector;
 import com.luck.picture.lib.config.PictureConfig;
 import com.luck.picture.lib.config.PictureMimeType;
@@ -72,7 +74,6 @@ public class DynamicActivity extends AppCompatActivity {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_dynamic );
         themeId = R.style.picture_default_style;
-
         mEditText  = (EditText) findViewById( R.id.et_content );
         mLyImage = (LinearLayout) findViewById(R.id.ly_image);
         mLyVideo = (LinearLayout) findViewById(R.id.ly_video);
@@ -187,7 +188,6 @@ public class DynamicActivity extends AppCompatActivity {
             window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
         }
     }
-
 
     private void loadDate() {
         mLyImage.setOnClickListener(new View.OnClickListener() {

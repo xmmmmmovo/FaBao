@@ -7,7 +7,9 @@ import com.example.lab.android.nuc.law_analysis.R;
 import com.example.lab.android.nuc.law_analysis.news.ImageLoader;
 import com.example.lab.android.nuc.law_analysis.news.adapter.AbsListAdapter;
 import com.example.lab.android.nuc.law_analysis.news.bean.NewsBean;
-
+/*
+新闻Adapter
+ */
 public class NewsAdapter extends AbsListAdapter<NewsBean>{
 
 

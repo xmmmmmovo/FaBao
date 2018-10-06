@@ -8,7 +8,9 @@ import android.util.Log;
 import android.widget.Toast;
 
 import java.util.List;
-
+/*
+标题栏TabLayout的Adapter
+ */
 public class TitleAdapter extends FragmentPagerAdapter{
 
     private List<Fragment> fragments;

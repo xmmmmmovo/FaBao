@@ -40,7 +40,7 @@ dependencies {
     implementation 'com.github.nyakokishi:ChatImageView:1.0.2'
     implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
     implementation 'org.ocpsoft.prettytime:prettytime:4.0.1.Final'
-    implementation 'com.novaapps:FloatingActionMenu:1.0' //悬浮按钮
+    implementation 'com.novaapps:FloatingActionMenu:1.0' //聊天界面悬浮按钮
     implementation 'com.android.support:multidex:1.0.3' //方法数过多
     implementation 'devlight.io:navigationtabbar:1.2.5' //底部炫酷滑栏
     implementation 'com.github.Yalantis:GuillotineMenu-Android:1.2' //顶部炫酷Tollbar
@@ -62,6 +62,8 @@ dependencies {
     releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.1'
     debugImplementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.1'//如果有fragmnet的话还要添加这个库
     implementation 'com.zzhoujay.richtext:richtext:2.5.4'//富文本控件
+    implementation 'fm.jiecao:jiecaovideoplayer:5.5.4' //视频播放器
+    implementation 'com.cocosw:bottomsheet:1.+@aar'    //上滑悬浮菜单
 
 
 }

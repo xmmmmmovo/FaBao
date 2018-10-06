@@ -37,14 +37,14 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dp"
-                android:text="NATIVE LANGUAGE 母语" />
+                android:text="居住地" />
 
             <TextView
                 android:id="@+id/tv_native_language"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="Spanish"
+                android:text="山西省太原市尖草坪区学院路"
                 android:textColor="#2d4095" />
 
             <TextView
@@ -52,7 +52,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dp"
-                android:text="LEARNING 学习" />
+                android:text="从事事务所" />
             <TextView
                 android:id="@+id/contact_now_learn"
                 android:layout_gravity="center_horizontal"
@@ -62,7 +62,7 @@
                 android:layout_height="wrap_content" />
 
             <TextView
-                android:text="兴趣爱好"
+                android:text="擅长处理案件类型"
                 android:layout_marginTop="20dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
@@ -71,27 +71,27 @@
                 android:id="@+id/interest"
                 android:layout_gravity="center_horizontal"
                 android:textColor="#2d4095"
-                android:text="Playing the piano, dancing."
+                android:text="婚姻财产"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
             <TextView
                 android:layout_marginTop="20dp"
                 android:layout_gravity="center_horizontal"
-                android:text="想聊的人"
+                android:text="律师等级"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <TextView
                 android:id="@+id/toPerson"
                 android:layout_gravity="center_horizontal"
                 android:textColor="#2d4095"
-                android:text="Character development person"
+                android:text="特级律师"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
             <TextView
                 android:layout_marginTop="20dp"
-                android:text="近期目标"
+                android:text="近期处理案件"
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -99,7 +99,7 @@
                 android:id="@+id/toGoal"
                 android:textColor="#2d4095"
                 android:layout_gravity="center_horizontal"
-                android:text="汉语达到二级"
+                android:text="婚后财产分割"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </LinearLayout>
