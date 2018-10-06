@@ -1,74 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar_news"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:contentInsetStartWithNavigation="0dp"
-        app:layout_collapseMode="pin"
-        app:layout_scrollFlags="scroll|enterAlways"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:theme="@style/ToolBarTheme">
-
-        <TextView
-            android:id="@+id/tv_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_gravity="center"
-            android:ellipsize="marquee"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:singleLine="true"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
-
-    </android.support.v7.widget.Toolbar>
-
-    <android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/swipefreshlayout"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/toolbar_news">
+        android:orientation="vertical"
+        xmlns:fab="http://schemas.android.com/tools">
 
-        <ScrollView
-            android:id="@+id/scrollView_news"
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_news"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scrollbarSize="2dp"
-            android:scrollbarStyle="outsideOverlay"
-            android:scrollbarThumbVertical="@color/black"
-            android:scrollbars="vertical">
+            android:layout_height="wrap_content"
+            app:contentInsetStartWithNavigation="0dp"
+            app:layout_collapseMode="pin"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:theme="@style/ToolBarTheme">
 
             <TextView
-                android:id="@+id/news_detail_body"
-                android:layout_width="match_parent"
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:layout_marginTop="10dp"
-                android:lineSpacingExtra="6dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textSize="16sp" />
-        </ScrollView>
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:ellipsize="marquee"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
 
-    </android.support.v4.widget.SwipeRefreshLayout>
+        </android.support.v7.widget.Toolbar>
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipefreshlayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/toolbar_news">
+
+            <ScrollView
+                android:id="@+id/scrollView_news"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbarSize="2dp"
+                android:scrollbarStyle="outsideOverlay"
+                android:scrollbarThumbVertical="@color/black"
+                android:scrollbars="vertical">
+
+                <TextView
+                    android:id="@+id/news_detail_body"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:layout_marginTop="10dp"
+                    android:lineSpacingExtra="6dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textSize="16sp" />
+            </ScrollView>
+
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+    </RelativeLayout>
+
+    <com.getbase.floatingactionbutton.FloatingActionsMenu
+        android:id="@+id/detail_actions_menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_margin="16dp"
-        android:clickable="true"
-        android:src="@drawable/ic_arrow"
-        app:fabSize="mini"
-        app:layout_behavior="com.example.lab.android.nuc.law_analysis.news.util.ScrollAwareFABBehavior"
-        app:rippleColor="@color/fab_color" />
+        fab:fab_addButtonColorNormal="@color/fab_color"
+        fab:fab_addButtonColorPressed="@color/blue_normal"
+        fab:fab_addButtonPlusIconColor="@color/white"
+        android:layout_marginBottom="16dp"
+        android:layout_marginRight="16dp"
+        app:fab_addButtonSize="mini"
+        android:layout_gravity="bottom|right|end"
+        fab:fab_labelStyle="@style/menu_labels_style">
 
-</RelativeLayout>
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_addButtonColorNormal="@color/fab_color"
+            fab:fab_addButtonColorPressed="@color/blue_normal"
+            fab:fab_colorNormal="#f08fb0"
+            fab:fab_colorPressed="#ef739d"
+            android:src="@drawable/ic_arrow"
+            fab:fab_size="mini"
+            fab:fab_title="返回顶部" />
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/action_text_to_voice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_addButtonColorNormal="@color/fab_color"
+            fab:fab_addButtonColorPressed="@color/blue_normal"
+            fab:fab_colorNormal="@color/fab_color"
+            fab:fab_colorPressed="@color/blue_normal"
+            fab:fab_size="mini"
+            fab:fab_title="文字播报" />
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/change_voice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_addButtonColorNormal="@color/fab_color"
+            fab:fab_addButtonColorPressed="@color/blue_normal"
+            fab:fab_addButtonSize="mini"
+            fab:fab_colorNormal="#ffe19c"
+            fab:fab_colorPressed="#ffce5d"
+            fab:fab_size="mini"
+            android:src="@drawable/ic_change"
+            fab:fab_title="声音切换"/>
+
+    </com.getbase.floatingactionbutton.FloatingActionsMenu>
+
+</android.support.design.widget.CoordinatorLayout>

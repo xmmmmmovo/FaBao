@@ -1,106 +1,105 @@
 package com.example.lab.android.nuc.law_analysis.view.fragment;
 
-import android.content.Context;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
-import com.example.lab.android.nuc.law_analysis.adapter.MagicPagerAdapter;
+import com.example.lab.android.nuc.law_analysis.adapter.JiaoziAdapter;
+import com.example.lab.android.nuc.law_analysis.base.Jiaozi;
 import com.example.lab.android.nuc.law_analysis.R;
 
-import net.lucode.hackware.magicindicator.MagicIndicator;
-import net.lucode.hackware.magicindicator.ViewPagerHelper;
-import net.lucode.hackware.magicindicator.buildins.UIUtil;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.CommonNavigator;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.CommonNavigatorAdapter;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerIndicator;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerTitleView;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.indicators.LinePagerIndicator;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ColorTransitionPagerTitleView;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.SimplePagerTitleView;
+import java.util.ArrayList;
 
-import java.util.Arrays;
-import java.util.List;
+import cn.jzvd.Jzvd;
 
 public class LawVideoFragment extends Fragment implements View.OnClickListener{
 
-    private static final String[] CHANNELS = new String[]{"婚姻纠葛", "土地纠纷", "专利产权","养老医疗","盗窃抢劫"};
-    private List<String> mDataList = Arrays.asList(CHANNELS);
-    private ViewPager mViewPager;
 
+    private RecyclerView mRecyclerView;
+    private JiaoziAdapter mJiaoziAdapter;
+    private ArrayList<Jiaozi> mJiaozis;
+    private ArrayList<String> titles;
+    private ArrayList<String> mUris;
 
-    public static LawVideoFragment newInstance(){
+    public static LawVideoFragment newInstance(ArrayList<String> titles, ArrayList<String> uris){
         Bundle bundle = new Bundle( );
         LawVideoFragment lawVideoFragment = new LawVideoFragment();
+        bundle.putStringArrayList( "title",titles );
+        bundle.putStringArrayList( "uri",uris );
         lawVideoFragment.setArguments( bundle );
         return lawVideoFragment;
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate( savedInstanceState );
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate( R.layout.fragment_law_video,container,false);
-        mViewPager = (ViewPager) view.findViewById(R.id.view_pager);
-
-        MagicPagerAdapter mMagicPagerAdapter = new MagicPagerAdapter( getChildFragmentManager() );
-        mMagicPagerAdapter.addFragment( LawVideoFragment1.newInstance() );
-        mMagicPagerAdapter.addFragment( LawVideoFragment2.newInstance() );
-        mMagicPagerAdapter.addFragment( LawVideoFragment3.newInstance() );
-        mMagicPagerAdapter.addFragment( LawVideoFragment1.newInstance() );
-        mMagicPagerAdapter.addFragment( LawVideoFragment1.newInstance() );
-        mViewPager.setAdapter( mMagicPagerAdapter );
-        initMagicIndicator1(view);
+        View view = inflater.inflate( R.layout.fragment_law_video1,container,false);
+        mRecyclerView = view.findViewById( R.id.law_video_recycler  );
+        mRecyclerView.setLayoutManager( new LinearLayoutManager( getActivity() ) );
+        Bundle args = getArguments();
+        if (args != null) {
+            titles = args.getStringArrayList( "title" );
+            mUris = args.getStringArrayList( "uri" );
+        }
+        initJiaozi();
+        mJiaoziAdapter = new JiaoziAdapter( mJiaozis,getContext() );
+        mRecyclerView.setAdapter( mJiaoziAdapter );
         return view;
     }
 
-    private void initMagicIndicator1(View view) {
-        MagicIndicator magicIndicator = (MagicIndicator) view.findViewById(R.id.magic_indicator1);
-        CommonNavigator commonNavigator = new CommonNavigator(getContext());
-        commonNavigator.setAdapter(new CommonNavigatorAdapter() {
-            @Override
-            public int getCount() {
-                return mDataList == null ? 0 : mDataList.size();
-            }
-
-            @Override
-            public IPagerTitleView getTitleView(Context context, final int index) {
-                SimplePagerTitleView simplePagerTitleView = new ColorTransitionPagerTitleView(context);
-                simplePagerTitleView.setText(mDataList.get(index));
-                simplePagerTitleView.setNormalColor( Color.parseColor("#88ffffff"));
-                simplePagerTitleView.setSelectedColor(Color.WHITE);
-                simplePagerTitleView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        mViewPager.setCurrentItem(index);
-                    }
-                });
-                return simplePagerTitleView;
-            }
-
-            @Override
-            public IPagerIndicator getIndicator(Context context) {
-                LinePagerIndicator indicator = new LinePagerIndicator(context);
-                indicator.setColors(Color.parseColor("#40c4ff"));
-                return indicator;
-            }
-        });
-        magicIndicator.setNavigator(commonNavigator);
-        LinearLayout titleContainer = commonNavigator.getTitleContainer(); // must after setNavigator
-        titleContainer.setShowDividers(LinearLayout.SHOW_DIVIDER_MIDDLE);
-        titleContainer.setDividerPadding( UIUtil.dip2px(getContext(), 15));
-        titleContainer.setDividerDrawable(getResources().getDrawable(R.drawable.simple_splitter));
-        ViewPagerHelper.bind(magicIndicator, mViewPager);
+    private void initJiaozi(){
+        mJiaozis = new ArrayList<>(  );
+        for (int i = 0; i < titles.size() - 1; i++) {
+            mJiaozis.add( new Jiaozi( titles.get( i ),mUris.get( i ) ) );
+        }
     }
+
+
 
     @Override
     public void onClick(View v) {
 
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Jzvd.releaseAllVideos();
+    }
+
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        Jzvd.releaseAllVideos();
+        mJiaozis = null;
+        titles = null;
+        mUris = null;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Jzvd.releaseAllVideos();
+    }
+
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Jzvd.goOnPlayOnResume();
     }
 }

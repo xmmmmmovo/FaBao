@@ -31,7 +31,7 @@ import com.example.lab.android.nuc.law_analysis.news.util.SnackBarUtil;
 import java.lang.reflect.Method;
 
 /*
-新闻在
+新闻在WeB页面的显示
  */
 
 public class WebUIActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {

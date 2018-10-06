@@ -74,7 +74,6 @@
         <activity
             android:name=".view.activity.CommentActivity"
             android:theme="@style/CommentTheme" />
-        <activity android:name=".view.activity.WakeActivity" />
         <activity android:name=".news.activity.NewsDetailActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".news.activity.WebUIActivity"

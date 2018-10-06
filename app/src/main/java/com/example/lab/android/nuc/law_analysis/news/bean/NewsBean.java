@@ -1,5 +1,8 @@
 package com.example.lab.android.nuc.law_analysis.news.bean;
 
+/*
+新闻
+ */
 public class NewsBean {
 
     private String url_3w;
