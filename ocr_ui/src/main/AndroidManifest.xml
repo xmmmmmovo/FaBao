@@ -8,12 +8,13 @@
     <uses-feature android:name="android.hardware.camera"/>
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
-    <application android:allowBackup="true"
-                 android:label="@string/app_name"
-                 android:icon="@mipmap/ic_launcher"
-                 android:supportsRtl="true"
-                 android:vmSafeMode="true"
-                 android:theme="@style/AppTheme">
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:icon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:vmSafeMode="true"
+        android:theme="@style/AppTheme">
 
         <activity android:name="com.baidu.ocr.ui.camera.CameraActivity"
                   android:configChanges="screenSize|orientation"

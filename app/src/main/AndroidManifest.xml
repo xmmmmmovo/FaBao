@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.lab.android.nuc.law_analysis">
 
     <!-- 外置存储存取权限 -->
@@ -13,17 +14,13 @@
     <!-- 多媒体相关 -->
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
     <!-- 控制呼吸灯，振动器等，用于新消息提醒 -->
     <uses-permission android:name="android.permission.FLASHLIGHT" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <!-- 基于位置服务的所有权限 -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <!-- fragment不用再这里面注册 -->
     <application
@@ -33,7 +30,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:replace="android:icon">
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="UZ80sIExOKSlf4QQ54FfaMUyls6jKlkh" />
@@ -47,9 +45,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".view.activity.MainActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden" />
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:windowSoftInputMode="stateHidden|adjustPan"/>
         <activity android:name=".view.activity.LawyerActivity" />
         <activity
             android:name=".communication.activity.ChatActivity"
@@ -58,24 +58,23 @@
         <activity
             android:name=".communication.activity.PictureTextActivity"
             android:theme="@style/PictureToTextTheme" />
+
         <activity android:name=".view.activity.VideoChatActivity" />
         <activity android:name=".view.activity.VoiceChatActivity" />
-        <activity android:name=".communication.activity.LocationActivity" />
+        <activity android:name=".communication.activity.LocationActivity"/>
+        <activity android:name=".view.activity.Search_Intent_Activity"/>
         <activity android:name=".view.activity.DynamicActivity" />
-        <activity
-            android:name=".view.activity.SelectLawyerActivity"
-            android:theme="@style/PictureToTextTheme" />
+
         <activity
             android:name=".view.activity.SelectTopicActivity"
             android:theme="@style/PictureToTextTheme" />
         <activity
-            android:name=".view.activity.SelectArticleActivity"
-            android:theme="@style/PictureToTextTheme" />
-        <activity
             android:name=".view.activity.CommentActivity"
             android:theme="@style/CommentTheme" />
+
         <activity android:name=".news.activity.NewsDetailActivity"
             android:screenOrientation="portrait" />
+
         <activity android:name=".news.activity.WebUIActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait"/>

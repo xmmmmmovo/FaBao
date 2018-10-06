@@ -1,8 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<android.support.v4.widget.NestedScrollView
+    android:id="@+id/my_NSV"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".view.activity.MainActivity">
 
-</android.support.constraint.ConstraintLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ImageView
+            android:id="@+id/back_analyis"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="80dp"
+            android:src="@drawable/back_analyis" />
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:text="法律分析"
+            android:textStyle="bold"
+
+            android:textSize="35sp"
+            android:layout_marginLeft="150dp"/>
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="70dp"
+            android:background="#33000000"
+            />
+
+
+
+        <EditText
+            android:id="@+id/edittext_analyis"
+            android:layout_width="380dp"
+            android:layout_height="154dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="84dp"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="1"
+            android:background="@drawable/edittext_style"
+            android:gravity="top|left"
+            android:hint="请输入你的一些具体情况"
+            android:textSize="16sp" />
+
+
+        <Button
+            android:id="@+id/bt_delete_text"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/delete"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="90dp"
+            android:layout_marginRight="18dp"/>
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_height="1dp"
+            android:layout_marginTop="290dp"
+            android:background="#33000000"
+            />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview_analyis"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/card_view_analyis"
+
+            />
+
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/bt_paizhao"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="235dp"
+            android:src="@drawable/paizhao"
+            android:layout_gravity="bottom|end"
+            app:layout_anchor="@id/card_view_analyis"
+            app:layout_behavior="com.example.lab.android.nuc.law_analysis.util.views.ScrollAwareBehavior"
+            />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/bt_yuyin"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/yuyin"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="235dp"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="bottom|end"
+            app:layout_anchor="@id/card_view_analyis"
+            app:layout_behavior="com.example.lab.android.nuc.law_analysis.util.views.ScrollAwareBehavior"
+            />
+
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_view_analyis"
+            android:layout_width="match_parent"
+            android:layout_height="260dp"
+            android:layout_centerHorizontal="true"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardBackgroundColor="#4aa9f1"
+            app:cardCornerRadius="5dp"
+            android:layout_marginTop="310dp"
+            app:contentPadding="10dp"
+
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="---欢迎使用我们的案件分析"
+                android:layout_toLeftOf="@+id/card_view_analyis"
+                android:textColor="#ffff"
+                android:textSize="20sp"
+                />
+
+        </android.support.v7.widget.CardView>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/card_view_analyis"
+            android:layout_marginTop="10dp"
+
+            />
+
+    </RelativeLayout>
+
+
+</android.support.v4.widget.NestedScrollView>
