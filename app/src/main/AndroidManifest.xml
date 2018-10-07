@@ -63,7 +63,6 @@
         <activity android:name=".view.activity.VoiceChatActivity" />
         <activity android:name=".communication.activity.LocationActivity"/>
         <activity android:name=".view.activity.Search_Intent_Activity"/>
-
         <activity android:name=".view.activity.DynamicActivity" />
 
         <activity
@@ -79,7 +78,6 @@
         <activity android:name=".news.activity.WebUIActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait"/>
-
         <activity android:name=".view.activity.Search_Item_Activity"/>
 
     </application>

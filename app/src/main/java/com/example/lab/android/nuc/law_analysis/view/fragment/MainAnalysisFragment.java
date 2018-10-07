@@ -120,6 +120,7 @@ public class MainAnalysisFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         getActivity().getWindow().setSoftInputMode
+                
                 (WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN|
                         WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         view = inflater.inflate( R.layout.main_analysis_fragment,container,false);
@@ -152,7 +153,7 @@ public class MainAnalysisFragment extends Fragment {
 
 
 
-        //文字识别
+        //文字识别  返回的字可以 是整个字符串
 
         button_PaiZhao.setOnClickListener(new View.OnClickListener() {
             @Override
