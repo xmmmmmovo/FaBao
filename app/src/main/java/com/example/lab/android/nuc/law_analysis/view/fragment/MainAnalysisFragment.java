@@ -101,7 +101,7 @@ public class MainAnalysisFragment extends Fragment {
 
     public static final int TAKE_PHOTO = 1;
     public static final int CROP_PHOTO = 2;
-    private AlertDialog.Builder alertDialog;;
+    private AlertDialog.Builder alertDialog;
 
     private boolean hasGotToken = false;
 
