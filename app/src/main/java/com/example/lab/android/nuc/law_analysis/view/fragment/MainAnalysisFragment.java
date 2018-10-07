@@ -115,6 +115,7 @@ public class MainAnalysisFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         getActivity().getWindow().setSoftInputMode
+                
                 (WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN|
                         WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         view = inflater.inflate( R.layout.main_analysis_fragment,container,false);
