@@ -64,6 +64,7 @@
         <activity android:name=".view.activity.Search_Intent_Activity"/>
 
         <activity android:name=".view.activity.DynamicActivity" />
+
         <activity
             android:name=".view.activity.SelectTopicActivity"
             android:theme="@style/PictureToTextTheme" />
