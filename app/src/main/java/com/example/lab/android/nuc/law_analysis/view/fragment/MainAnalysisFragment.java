@@ -148,7 +148,7 @@ public class MainAnalysisFragment extends Fragment {
 
 
 
-        //文字识别
+        //文字识别  返回的字可以 是整个字符串
 
         button_PaiZhao.setOnClickListener(new View.OnClickListener() {
             @Override
