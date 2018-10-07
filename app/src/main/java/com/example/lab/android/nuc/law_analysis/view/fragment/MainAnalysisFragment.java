@@ -26,6 +26,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -118,6 +119,9 @@ public class MainAnalysisFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        getActivity().getWindow().setSoftInputMode
+                (WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN|
+                        WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         view = inflater.inflate( R.layout.main_analysis_fragment,container,false);
         initData();
 
@@ -189,6 +193,9 @@ public class MainAnalysisFragment extends Fragment {
 
     }
 
+
+
+
     private boolean checkTokenStatus() {
         if (!hasGotToken) {
             Toast.makeText(getContext(), "token还未成功获取", Toast.LENGTH_LONG).show();
@@ -232,8 +239,6 @@ public class MainAnalysisFragment extends Fragment {
     private void infoPopText(final String result) {
         alertText("", result);
     }
-
-//
 
 
     @Override
@@ -286,7 +291,7 @@ public class MainAnalysisFragment extends Fragment {
         OCR.getInstance(getActivity()).release();
     }
 
-    /*-------------------------------语音转文字--------------------------*/
+    /*语音转文字*/
     public void voice_to_text(){
         // 有交互动画的语音识别器
         iatDialog = new RecognizerDialog(getActivity(), mInitListener);
