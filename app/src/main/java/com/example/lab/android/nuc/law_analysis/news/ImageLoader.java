@@ -5,7 +5,9 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-
+/*
+图片加载
+ */
 public class ImageLoader {
     private static ImageLoader mInstance;
 
@@ -23,32 +25,25 @@ public class ImageLoader {
 
     /**
      * 加载图片
-     *
-     * @param context
-     * @param imgUrl
-     * @param imageView
      */
     public void with(Context context, Object imgUrl, ImageView imageView) {
-        Glide.with(context).load(imgUrl).into(imageView);
+        Glide.with(context).
+                load(imgUrl).
+
+                into(imageView);
     }
 
     /**
      * 带默认图片
-     *
-     * @param context
-     * @param imgUrl
-     * @param imageView
      */
     public void withDefault(Context context, Object imgUrl, ImageView imageView) {
-        Glide.with(context).load(imgUrl).into(imageView);
+        Glide.with(context).
+                load(imgUrl).
+                into(imageView);
     }
 
     /**
      * 圆角图片
-     *
-     * @param context
-     * @param imgUrl
-     * @param imageView
      */
     public void withRound(Context context, Object imgUrl, ImageView imageView) {
         Glide.with(context)

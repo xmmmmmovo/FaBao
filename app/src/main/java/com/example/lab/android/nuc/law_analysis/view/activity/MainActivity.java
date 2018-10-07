@@ -226,8 +226,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()){
             case R.id.profile_group:
                 Toast.makeText( this, "profile group", Toast.LENGTH_SHORT ).show();
-                Intent intent1 = new Intent( MainActivity.this,WakeActivity .class );
-                startActivity( intent1 );
                 break;
             case R.id.feed_group:
                 Intent intent = new Intent( MainActivity.this,LoginActivity.class );

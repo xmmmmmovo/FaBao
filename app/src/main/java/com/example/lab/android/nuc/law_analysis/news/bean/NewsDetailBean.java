@@ -2,6 +2,9 @@ package com.example.lab.android.nuc.law_analysis.news.bean;
 
 import java.util.List;
 
+/*
+新闻具体
+ */
 public class NewsDetailBean {
 
     private String template;

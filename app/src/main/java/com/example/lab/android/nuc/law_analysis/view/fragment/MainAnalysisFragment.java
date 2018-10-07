@@ -124,7 +124,6 @@ public class MainAnalysisFragment extends Fragment {
                         WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         view = inflater.inflate( R.layout.main_analysis_fragment,container,false);
         initData();
-
         recyclerView_Analyis_Law = view.findViewById(R.id.recyclerview_analyis);
 
         button_delete =view.findViewById(R.id.bt_delete_text)  ;

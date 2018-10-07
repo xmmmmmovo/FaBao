@@ -48,7 +48,8 @@
 
         <activity
             android:name=".view.activity.MainActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden" />
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:windowSoftInputMode="stateHidden|adjustPan"/>
         <activity android:name=".view.activity.LawyerActivity" />
         <activity
             android:name=".communication.activity.ChatActivity"
@@ -72,8 +73,6 @@
             android:name=".view.activity.CommentActivity"
             android:theme="@style/CommentTheme" />
 
-        <activity android:name=".view.activity.WakeActivity" />
-
         <activity android:name=".news.activity.NewsDetailActivity"
             android:screenOrientation="portrait" />
 
@@ -84,6 +83,5 @@
         <activity android:name=".view.activity.Search_Item_Activity"/>
 
     </application>
-
 
 </manifest>

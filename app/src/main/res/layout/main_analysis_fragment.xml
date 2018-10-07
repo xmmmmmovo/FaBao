@@ -6,8 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.activity.MainActivity"
-    >
+    tools:context=".view.activity.MainActivity">
 
 
     <RelativeLayout
@@ -132,7 +131,6 @@
                 android:layout_toLeftOf="@+id/card_view_analyis"
                 android:textColor="#ffff"
                 android:textSize="20sp"
-
                 />
 
         </android.support.v7.widget.CardView>
@@ -145,9 +143,6 @@
             android:layout_marginTop="10dp"
 
             />
-
-
-
 
     </RelativeLayout>
 

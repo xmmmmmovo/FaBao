@@ -5,6 +5,9 @@ import android.animation.ObjectAnimator;
 import android.view.View;
 
 import com.chad.library.adapter.base.animation.BaseAnimation;
+/*
+每一条新闻或者视频显现的动画
+ */
 
 public class CustomAnimation implements BaseAnimation {
     @Override

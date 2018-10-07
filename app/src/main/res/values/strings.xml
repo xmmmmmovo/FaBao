@@ -30,10 +30,10 @@
     <string name="service_chat_gallery">相册</string>
     <string name="service_chat_camera">拍照</string>
     <string name="chat_send">发送</string>
-    <string name="all_detail">对他的印象 : </string>
-    <string name="detail_11">学霸，英语小天才</string>
-    <string name="detail_12">爱吃烧烤</string>
-    <string name="detail_13">精力充沛，跑步爱好者</string>
+    <string name="all_detail">经典语录 : </string>
+    <string name="detail_11">应该有最优秀的年轻人到法学院学习，这是时代的召唤。</string>
+    <string name="detail_12">要回头看每一个案件，将遗憾印在脑中，它使以后的案件警钟长鸣。</string>
+    <string name="detail_13">律师的世界是一个自由、宽容和博大精深的世界，充满梦想是这个世界的精髓。</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -48,4 +48,19 @@
     <string name="loadfail">加载失败</string>
     <string name="exit">再按一次退出程序</string>
     <string name="copy_msg">已经复制链接地址到剪切板!</string>
+    //语音切换
+    <string name="xiaoyan">小燕 女声 青年 中英文(默认)</string>
+    <string name="xiaoyu">小宇 男声 青年 中英文</string>
+    <string name="hengli">亨利 男声 青年 英文</string>
+    <string name="mali">玛丽 女声 青年 英文</string>
+    <string name="xiaomei">小梅 女声 青年 中英文 粤语</string>
+    <string name="xaioli">小莉 女声 青年 中英文 台湾普通话</string>
+    <string name="xiaorong">小蓉 女声 青年 汉语 四川话</string>
+    <string name="xiaokun">小坤 男声 青年 汉语 河南话</string>
+    <string name="xiaoqiang">小强 男声 青年 汉语 湖南话</string>
+    <string name="xiaoying">小莹 女声 青年 汉语 陕西话</string>
+    <string name="xiaoxin">小新 男声 童年 汉语 普通话</string>
+    <string name="nannan">楠楠 女声 童年 汉语 普通话</string>
+    <string name="laosun">老孙 男声 老年 汉语普通话</string>
+    <string name="cancel">取消</string>
 </resources>
