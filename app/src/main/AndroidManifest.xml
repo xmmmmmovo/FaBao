@@ -62,7 +62,8 @@
         <activity android:name=".view.activity.VideoChatActivity" />
         <activity android:name=".view.activity.VoiceChatActivity" />
         <activity android:name=".communication.activity.LocationActivity"/>
-        <activity android:name=".view.activity.Search_Intent_Activity"/>
+        <activity android:name=".view.activity.Search_Intent_Activity"
+            android:theme="@style/PictureToTextTheme"/>
         <activity android:name=".view.activity.DynamicActivity" />
 
         <activity

@@ -9,6 +9,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -21,7 +22,10 @@ import com.baidu.ocr.sdk.exception.OCRError;
 import com.baidu.ocr.sdk.model.AccessToken;
 import com.example.lab.android.nuc.law_analysis.R;
 import com.example.lab.android.nuc.law_analysis.adapter.PageAdapter;
+import com.example.lab.android.nuc.law_analysis.application.MyApplication;
+import com.example.lab.android.nuc.law_analysis.news.util.SnackBarUtil;
 import com.example.lab.android.nuc.law_analysis.utils.tools.PermissionUtil;
+import com.example.lab.android.nuc.law_analysis.utils.views.CanaroTextView;
 import com.qintong.library.InsLoadingView;
 import com.yalantis.guillotine.animation.GuillotineAnimation;
 
@@ -40,6 +44,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private View contentHamburger;
     private Toolbar toolbar;
     private boolean isOpenMenu = false;
+    private FrameLayout root;
+    private CanaroTextView toolbarText;
+
+    // 记录第一次点击的时间
+    private long clickTime = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,13 +61,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initAccessToken();
     }
     private void initUI(){
-         toolbar = (Toolbar) findViewById( R.id.toolbar_main );
-         contentHamburger = findViewById( R.id.content_hamburger );
-         if (toolbar != null) {
-             setSupportActionBar( toolbar );
-             getSupportActionBar().setTitle( null );
-         }
-        FrameLayout root = (FrameLayout) findViewById( R.id.root );
+        toolbar = (Toolbar) findViewById( R.id.toolbar_main );
+        contentHamburger = findViewById( R.id.content_hamburger );
+        if (toolbar != null) {
+            setSupportActionBar( toolbar );
+            getSupportActionBar().setTitle( null );
+        }
+        root = (FrameLayout) findViewById( R.id.root );
         guillotineMenu = LayoutInflater.from(this).inflate(R.layout.shine_toolbar, null);
         root.addView(guillotineMenu);
         dingView = (InsLoadingView) guillotineMenu.findViewById( R.id.loading_view);
@@ -126,7 +135,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         );
 
         navigationTabBar.setModels(models);
-        navigationTabBar.setViewPager(viewPager, 2);
+        navigationTabBar.setViewPager(viewPager, 0);
         navigationTabBar.setBehaviorEnabled(true);
         navigationTabBar.setOnTabBarSelectedIndexListener( new NavigationTabBar.OnTabBarSelectedIndexListener() {
             @Override
@@ -267,5 +276,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
     }
 
-
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            if ((System.currentTimeMillis() - clickTime) > 2000) {
+                SnackBarUtil.showSnackBar( R.string.exit, root, MainActivity.this );
+                clickTime = System.currentTimeMillis();
+            } else {
+                MyApplication.getInstance().exitApp();
+            }
+            return true;
+        }
+        return super.onKeyDown( keyCode, event );
+    }
 }

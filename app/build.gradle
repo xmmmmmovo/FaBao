@@ -69,5 +69,6 @@ dependencies {
     implementation  project(path: ':ocr_ui')
     implementation 'com.github.tangguna:SearchBox:1.0.1'
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.6'
-    api 'com.google.code.gson:gson:2.7'
+    implementation 'com.google.code.gson:gson:2.7'
+    implementation project(path: ':ocr_ui')
 }
