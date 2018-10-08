@@ -60,13 +60,14 @@ dependencies {
     //leakcanary  内存泄漏检测库
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.1'
     releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.1'
-    debugImplementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.1'//如果有fragmnet的话还要添加这个库
+    debugImplementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.1'
+//如果有fragmnet的话还要添加这个库
     implementation 'com.zzhoujay.richtext:richtext:2.5.4'//富文本控件
     implementation 'fm.jiecao:jiecaovideoplayer:5.5.4' //视频播放器
     implementation 'com.cocosw:bottomsheet:1.+@aar'    //上滑悬浮菜单
     //recyclerView的动画
     implementation 'jp.wasabeef:recyclerview-animators:2.3.0'
-    implementation  project(path: ':ocr_ui')
+    implementation project(path: ':ocr_ui')
     implementation 'com.github.tangguna:SearchBox:1.0.1'
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.6'
     implementation 'com.google.code.gson:gson:2.7'

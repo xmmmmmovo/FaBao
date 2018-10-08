@@ -145,7 +145,7 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         CollapsingToolbarLayout collapsingToolbar =
                 (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
-        collapsingToolbar.setTitle("问题详情");
+        collapsingToolbar.setTitle("贴子详情");
         commentsList = generateTestData();
         initExpandableListView(commentsList);
         image = (CircleImageView) findViewById(R.id.detail_page_userLogo);

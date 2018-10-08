@@ -3,7 +3,7 @@
     <!--语音视频通话的AppId-->
     <string name="agora_app_id">892995891e7947a89dda080cf1759818</string>
     <string name="profile">个人信息</string>
-    <string name="feed">反馈</string>
+    <string name="feed">意见反馈</string>
     <string name="activity">法宝</string>
     <string name="settings">设置</string>
     <string name="action_settings">Settings</string>

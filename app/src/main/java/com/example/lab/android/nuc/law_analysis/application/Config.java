@@ -63,6 +63,8 @@ public class Config {
 
     public static final String WEATHER_END_URL = "&key=33ebf4d7998a4548942adcad5582e503";
 
+    // APP更新地址
+    public static final String APP_UPDATE_URL = "http://api.fir.im/apps/latest/592e6d2d548b7a1ccf000135?&api_token=ad06cab6f35eb810c666a7b3936e9119";
 
     /**
      * 获取新闻网址

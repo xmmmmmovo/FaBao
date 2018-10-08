@@ -36,5 +36,6 @@
     //评论区
     <color name="color_f6">#f6f6f6</color>
     <color name="base_yellow">#f9b516</color>
+    <color name="colorLine">#c6bdbd</color>
 
 </resources>
