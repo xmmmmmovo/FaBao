@@ -75,12 +75,21 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".news.activity.WebUIActivity"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait" />
-        <activity android:name=".view.activity.Search_Item_Activity" />
+            android:configChanges="orientation"/>
+
+
+        <activity android:name=".view.activity.Search_Item_Activity"
+            android:theme="@style/aboutTheme"/>
+
+
+        <activity android:name=".view.activity.Analysis_Similar_Item"/>
+        <activity android:name=".view.activity.TuiJIan_Analysis"/>
+
+    
         <activity android:name=".view.activity.AboutActivity"
             android:theme="@style/aboutTheme"/>
         <activity android:name=".view.activity.InfoActivity"/>
+
     </application>
 
 </manifest>

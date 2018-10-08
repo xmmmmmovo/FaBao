@@ -23,12 +23,14 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.baidu.ocr.sdk.OCR;
@@ -52,7 +54,9 @@ import com.example.lab.android.nuc.law_analysis.main_analysis.ImagetoText;
 import com.example.lab.android.nuc.law_analysis.util.tools.FileUtil;
 import com.example.lab.android.nuc.law_analysis.util.tools.RecognizeService;
 import com.example.lab.android.nuc.law_analysis.util.views.RecycleViewDivider2;
+import com.example.lab.android.nuc.law_analysis.view.activity.Analysis_Similar_Item;
 import com.example.lab.android.nuc.law_analysis.view.activity.MainActivity;
+import com.example.lab.android.nuc.law_analysis.view.activity.TuiJIan_Analysis;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.iflytek.cloud.ErrorCode;
@@ -96,7 +100,9 @@ public class MainAnalysisFragment extends Fragment {
     private FloatingActionButton button_PaiZhao;
     private RecognizerDialog iatDialog;
 
+    private TextView Tv1;
 
+    private Button button;
 
 
     public static final int TAKE_PHOTO = 1;
@@ -135,6 +141,8 @@ public class MainAnalysisFragment extends Fragment {
 
         button_PaiZhao = view.findViewById(R.id.bt_paizhao);
 
+        button = view.findViewById(R.id.analysis_button);
+
         button_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -152,6 +160,23 @@ public class MainAnalysisFragment extends Fragment {
         });
 
 
+        editText_Analyis.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+                Toast.makeText(getActivity(), "正在为你搜索...", Toast.LENGTH_SHORT).show();
+
+                return false;
+            }
+        });
+
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getActivity(),TuiJIan_Analysis.class);
+                startActivity(i);
+            }
+        });
 
         //文字识别  返回的字可以 是整个字符串
 
@@ -186,9 +211,26 @@ public class MainAnalysisFragment extends Fragment {
         recyclerView_Analyis_Law.setLayoutManager(layoutManager);
         adapter_Analyis_Law.setHasStableIds(true);
 
-        recyclerView_Analyis_Law.setAdapter(new AlphaInAnimationAdapter(adapter_Analyis_Law));
-        //   recyclerView_Analyis_Law.setAdapter(adapter_Analyis_Law);
+       // recyclerView_Analyis_Law.setAdapter(new AlphaInAnimationAdapter(adapter_Analyis_Law));
+           recyclerView_Analyis_Law.setAdapter(adapter_Analyis_Law);
 
+
+
+        adapter_Analyis_Law.setOnItemClickListener(new Main_Analysis_Adapter.OnRecyclerViewItemClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                Main_Analysis_Adapter.ItemHolder viewHolder = (Main_Analysis_Adapter.ItemHolder)recyclerView_Analyis_Law.findViewHolderForLayoutPosition(position);
+
+                Tv1 = viewHolder.demo_textview;
+
+                switch(view.getId()){
+                    case R.id.textview_anli_item:
+                        Intent i = new Intent(getActivity(),Analysis_Similar_Item.class);
+                        startActivity(i);
+                }
+
+            }
+        });
         return view;
 
     }
@@ -394,9 +436,9 @@ public class MainAnalysisFragment extends Fragment {
 
     private void initData() {
         lists = new ArrayList<>();
-        lists.add(new DataBean("2016年12月20日，王某某因肇事逃逸被罚款........"));
-        lists.add(new DataBean("2018年2月李某某因土地纠纷，把当地负责人告上法庭....."));
-        lists.add(new DataBean("2017年10月赵莫某因版权问题把李某某告上法庭....."));
+        lists.add(new DataBean("2016年12月20日，王某某因肇事逃逸被判刑......."));
+        lists.add(new DataBean("2018年2月李某某因撞到行人，弃车逃跑....."));
+        lists.add(new DataBean("2017年10月赵某某路上没遵守交通规则，被大货车撞到....."));
     }
 
 }
