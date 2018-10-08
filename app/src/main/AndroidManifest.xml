@@ -80,6 +80,9 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".view.activity.Search_Item_Activity"/>
 
+
+        <activity android:name=".view.activity.Analysis_Similar_Item"/>
+        <activity android:name=".view.activity.TuiJIan_Analysis"/>
     </application>
 
 </manifest>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/tools">
+
+    
+    <ImageView
+        android:id="@+id/falv_item_tuijian"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:src="@drawable/analysis_item"/>
+
+     <TextView
+         android:id="@+id/textview"
+         android:layout_below="@+id/falv_item_tuijian"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:text="&#10;           第一条 根据《中华人民共和国道路交通安全法》及其实施条例、《中华人民共和国行政许可法》，制定本规定&#10;
+         第二条 本规定由公安机关交通管理部门负责实施。&#10;
+         第三条 车辆管理所办理机动车驾驶证业务，应当遵循严格、公开、公正、便民的原则。&#10;
+         第四条 申请办理机动车驾驶证业务的人，应当如实向车辆管理所提交规定的材料，如实申告规定的事项，并对其申请材料实质内容的真实性负责。&#10;
+         第五条 公安机关交通管理部门应当建立对车辆管理所办理机动车驾驶证业务的监督制度，加强对驾驶人考试、驾驶证核发和使用的监督管理。&#10;
+         第六条 车辆管理所应当使用机动车驾驶证计算机管理系统核发、打印机动车驾驶证，不使用计算机管理系统核发、打印的机动车驾驶证无效。&#10;
+         第七条 驾驶机动车，应当依法取得机动车驾驶证。&#10;
+         第九条 机动车驾驶证记载和签注以下内容：&#10;
+         第十条 机动车驾驶证有效期分为六年、十年和长期。&#10;
+
+
+
+
+"/>
+
+    <com.getbase.floatingactionbutton.FloatingActionsMenu
+        android:id="@+id/detail_actions_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="bottom|right|end"
+        app:fab_addButtonSize="mini"
+        fab:fab_addButtonColorNormal="@color/fab_color"
+        fab:fab_addButtonColorPressed="@color/blue_normal"
+        fab:fab_addButtonPlusIconColor="@color/white"
+        fab:fab_labelStyle="@style/menu_labels_style">
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow"
+            fab:fab_addButtonColorNormal="@color/fab_color"
+            fab:fab_addButtonColorPressed="@color/blue_normal"
+            fab:fab_colorNormal="#f08fb0"
+            fab:fab_colorPressed="#ef739d"
+            fab:fab_size="mini"
+            fab:fab_title="返回顶部" />
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/action_text_to_voice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_addButtonColorNormal="@color/fab_color"
+            fab:fab_addButtonColorPressed="@color/blue_normal"
+            fab:fab_colorNormal="@color/fab_color"
+            fab:fab_colorPressed="@color/blue_normal"
+            fab:fab_size="mini"
+            fab:fab_title="文字播报" />
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/change_voice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_change"
+            fab:fab_addButtonColorNormal="@color/fab_color"
+            fab:fab_addButtonColorPressed="@color/blue_normal"
+            fab:fab_addButtonSize="mini"
+            fab:fab_colorNormal="#ffe19c"
+            fab:fab_colorPressed="#ffce5d"
+            fab:fab_size="mini"
+            fab:fab_title="声音切换" />
+    </com.getbase.floatingactionbutton.FloatingActionsMenu>
+
+
+</RelativeLayout>
