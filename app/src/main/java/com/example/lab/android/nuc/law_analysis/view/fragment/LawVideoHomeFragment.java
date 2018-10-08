@@ -34,7 +34,8 @@ import java.util.List;
 
 public class LawVideoHomeFragment extends Fragment implements View.OnClickListener{
 
-    private static final String[] CHANNELS = new String[]{"精品视频", "娱乐视频", "搞笑视频", "热点视频","婚姻纠葛", "土地纠纷", "专利产权","养老医疗","盗窃抢劫"};
+    private static final String[] CHANNELS = new String[]{"热点视频","婚姻纠葛", "土地纠纷", "专利产权",
+            "精品视频", "娱乐视频","养老医疗","盗窃抢劫", "搞笑视频"};
     private List<String> mDataList = Arrays.asList(CHANNELS);
     private ViewPager mViewPager;
     private  MagicPagerAdapter mMagicPagerAdapter;
@@ -55,19 +56,19 @@ public class LawVideoHomeFragment extends Fragment implements View.OnClickListen
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
+        initFragment1();
+        initFragment2();
+        initFragment3();
         mMagicPagerAdapter = new MagicPagerAdapter( getChildFragmentManager() );
+        mMagicPagerAdapter.addFragment(VideoFragment.newInstance( Config.VIDEO_CHOICE_ID));
+        mMagicPagerAdapter.addFragment(LawVideoFragment.newInstance(mTitle1,mUri1) );
+        mMagicPagerAdapter.addFragment(LawVideoFragment.newInstance(mTitle2,mUri2) );
+        mMagicPagerAdapter.addFragment(LawVideoFragment.newInstance(mTitle3,mUri3));
         mMagicPagerAdapter.addFragment(VideoFragment.newInstance(Config.VIDEO_ENTERTAINMENT_ID));
         mMagicPagerAdapter.addFragment(VideoFragment.newInstance(Config.VIDEO_FUN_ID));
+        mMagicPagerAdapter.addFragment(LawVideoFragment.newInstance(mTitle3,mUri3) );
+        mMagicPagerAdapter.addFragment(LawVideoFragment.newInstance(mTitle3,mUri3) );
         mMagicPagerAdapter.addFragment(VideoFragment.newInstance(Config.VIDEO_HOT_ID));
-        mMagicPagerAdapter.addFragment(VideoFragment.newInstance( Config.VIDEO_CHOICE_ID));
-        initFragment1();
-        mMagicPagerAdapter.addFragment(LawVideoFragment.newInstance(mTitle1,mUri1) );
-        initFragment2();
-        mMagicPagerAdapter.addFragment(LawVideoFragment.newInstance(mTitle2,mUri2) );
-        initFragment3();
-        mMagicPagerAdapter.addFragment(LawVideoFragment.newInstance(mTitle3,mUri3));
-        mMagicPagerAdapter.addFragment(LawVideoFragment.newInstance(mTitle3,mUri3) );
-        mMagicPagerAdapter.addFragment(LawVideoFragment.newInstance(mTitle3,mUri3) );
     }
 
 

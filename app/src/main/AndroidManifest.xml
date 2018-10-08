@@ -45,11 +45,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".view.activity.MainActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:windowSoftInputMode="stateHidden|adjustPan"/>
+            android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity android:name=".view.activity.LawyerActivity" />
         <activity
             android:name=".communication.activity.ChatActivity"
@@ -57,32 +56,39 @@
         <activity android:name=".communication.activity.ImageDisplayActivity" />
         <activity
             android:name=".communication.activity.PictureTextActivity"
-            android:theme="@style/PictureToTextTheme" />
-
+            android:theme="@style/aboutTheme" />
         <activity android:name=".view.activity.VideoChatActivity" />
         <activity android:name=".view.activity.VoiceChatActivity" />
-        <activity android:name=".communication.activity.LocationActivity"/>
-        <activity android:name=".view.activity.Search_Intent_Activity"/>
+        <activity android:name=".communication.activity.LocationActivity" />
+        <activity
+            android:name=".view.activity.Search_Intent_Activity"
+            android:theme="@style/aboutTheme" />
         <activity android:name=".view.activity.DynamicActivity" />
-
         <activity
             android:name=".view.activity.SelectTopicActivity"
-            android:theme="@style/PictureToTextTheme" />
+            android:theme="@style/aboutTheme" />
         <activity
             android:name=".view.activity.CommentActivity"
-            android:theme="@style/CommentTheme" />
-
-        <activity android:name=".news.activity.NewsDetailActivity"
+            android:theme="@style/aboutTheme" />
+        <activity
+            android:name=".news.activity.NewsDetailActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".news.activity.WebUIActivity"
+            android:configChanges="orientation"/>
 
-        <activity android:name=".news.activity.WebUIActivity"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
+
         <activity android:name=".view.activity.Search_Item_Activity"/>
 
 
         <activity android:name=".view.activity.Analysis_Similar_Item"/>
         <activity android:name=".view.activity.TuiJIan_Analysis"/>
+
+    
+        <activity android:name=".view.activity.AboutActivity"
+            android:theme="@style/aboutTheme"/>
+        <activity android:name=".view.activity.InfoActivity"/>
+
     </application>
 
 </manifest>

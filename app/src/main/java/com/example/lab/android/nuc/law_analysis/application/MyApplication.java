@@ -58,7 +58,7 @@ public class MyApplication extends MultiDexApplication{
         if (LeakCanary.isInAnalyzerProcess(this)) {
             return;
         }
-        LeakCanary.install(this);
+//        LeakCanary.install(this);
         //以下设置的所有参数是全局参数,同样的参数可以在请求的时候再设置一遍,那么对于该请求来讲,请求中的参数会覆盖全局参数
         //好处是全局参数统一,特定请求可以特别定制参数
         OkGo.init( this );

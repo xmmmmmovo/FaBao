@@ -1,49 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <ImageView
-        android:layout_width="300dp"
-        android:layout_height="130dp"
-        android:src="@drawable/logo2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="120dp"/>
+        <ImageView
+            android:id="@+id/fabao_image"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:src="@drawable/logo2"
+            android:layout_centerHorizontal="true"/>
+        <LinearLayout
+            android:id="@+id/search_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/fabao_image">
+
+            <EditText
+                android:id="@+id/et_searchtext_search"
+                android:layout_width="0dp"
+                android:layout_weight="6"
+                android:layout_height="45dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/search_baground_shap"
+                android:drawableLeft="@drawable/explore_search_icon"
+                android:hint="热门法律应有尽有"
+                android:imeOptions="actionSearch"
+                android:singleLine="true"
+                android:textColor="#000000"
+                android:textSize="14sp"/>
+            <ImageView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/yuyin_edit_center"/>
+
+        </LinearLayout>
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:layout_below="@+id/search_main"
+            android:id="@+id/swipe_refresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </android.support.v4.widget.SwipeRefreshLayout>
+    </RelativeLayout>
 
 
-    <EditText
-        android:id="@+id/et_searchtext_search"
-        android:layout_width="340dp"
-        android:layout_height="45dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="5dp"
-        android:background="@drawable/search_baground_shap"
-        android:drawableLeft="@drawable/explore_search_icon"
-        android:hint="热门法律应有尽有"
-        android:imeOptions="actionSearch"
-        android:singleLine="true"
-        android:textColor="#000000"
-        android:textSize="14sp" />
-
-    <ImageView
-        android:id="@+id/ib_searchtext_delete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/et_searchtext_search"
-        android:layout_alignRight="@+id/et_searchtext_search"
-        android:layout_centerVertical="true"
-        android:layout_marginRight="5dp"
-        android:src="@drawable/explore_search_close"
-        android:visibility="gone" />
-
-    <Button
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-        android:layout_marginRight="30dp"
-        android:background="@drawable/yuyin_edit_center"
-
-        />
 </RelativeLayout>

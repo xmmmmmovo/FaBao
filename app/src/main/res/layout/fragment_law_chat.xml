@@ -76,18 +76,6 @@
             fab:fab_size="mini"
             fab:fab_title="拍摄" />
 
-        <com.getbase.floatingactionbutton.FloatingActionButton
-            android:id="@+id/action_d"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_sign_in"
-            fab:fab_addButtonColorNormal="@color/fab_color"
-            fab:fab_addButtonColorPressed="@color/blue_normal"
-            fab:fab_addButtonSize="mini"
-            fab:fab_colorNormal="@color/fab_color"
-            fab:fab_colorPressed="@color/blue_normal"
-            fab:fab_size="mini"
-            fab:fab_title="签到" />
     </com.getbase.floatingactionbutton.FloatingActionsMenu>
 
 </RelativeLayout>

@@ -27,10 +27,9 @@ public class LawNewsHomeFragment extends Fragment {
     private ViewPager mViewPager;
     private TabLayout mTabLayout;
     private FloatingActionButton mFloatingActionButton;
-
     private List<Fragment> mFragments = new ArrayList<>(  );
 
-    private String[] mTitles = {"头条","汽车","足球","娱乐","体育","财经","科技","电影"};
+    private String[] mTitles = {"法律头条","法制财经","科技执法","法制周刊","法制娱乐","体育","汽车","足球"};
 
     private String[] mIDs = {Config.HEADLINE_ID, Config.CAR_ID, Config.FOOTBALL_ID, Config.ENTERTAINMENT_ID,
             Config.SPORTS_ID, Config.FINANCE_ID, Config.TECH_ID, Config.MOVIE_ID};
@@ -48,13 +47,14 @@ public class LawNewsHomeFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         mFragments.add(NewsFragment.newInstance( Config.HEADLINE_ID ));
-        mFragments.add( NewsFragment.newInstance( Config.CAR_ID ) );
-        mFragments.add( NewsFragment.newInstance( Config.FOOTBALL_ID ) );
-        mFragments.add( NewsFragment.newInstance( Config.ENTERTAINMENT_ID ) );
-        mFragments.add(NewsFragment.newInstance(Config.SPORTS_ID));
         mFragments.add(NewsFragment.newInstance(Config.FINANCE_ID));
         mFragments.add(NewsFragment.newInstance(Config.TECH_ID));
         mFragments.add(NewsFragment.newInstance(Config.MOVIE_ID));
+        mFragments.add( NewsFragment.newInstance( Config.ENTERTAINMENT_ID ) );
+        mFragments.add(NewsFragment.newInstance(Config.SPORTS_ID));
+        mFragments.add( NewsFragment.newInstance( Config.CAR_ID ) );
+        mFragments.add( NewsFragment.newInstance( Config.FOOTBALL_ID ) );
+
     }
 
     @Nullable

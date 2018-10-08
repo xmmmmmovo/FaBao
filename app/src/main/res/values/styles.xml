@@ -38,6 +38,9 @@
         <item name="android:textColor">@color/selected_item_color</item>
     </style>
 
+    <style name="aboutTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    </style>
+
 
     <style name="Toolbar">
         <item name="android:layout_height">wrap_content</item>
@@ -61,8 +64,8 @@
     </style>
 
     <style name="ImageView.GuillotineItem">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">25dp</item>
+        <item name="android:layout_height">25dp</item>
         <item name="android:layout_gravity">center_vertical</item>
         <item name="android:layout_marginLeft">@dimen/guillotine_large_margin</item>
     </style>
@@ -180,6 +183,7 @@
 
     <style name="PictureToTextTheme" parent="Theme.AppCompat.Light.DarkActionBar"/>
     <style name="CommentTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:statusBarColor" tools:ignore="NewApi">#674646</item>
     </style>
     <declare-styleable name="NineGridLayout">
         <attr name="sapcing" format="dimension"/>
