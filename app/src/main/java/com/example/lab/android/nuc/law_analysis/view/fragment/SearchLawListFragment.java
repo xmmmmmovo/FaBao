@@ -136,7 +136,23 @@ public class SearchLawListFragment extends Fragment  {
             new Law( "民办教育促进法","http://pd35yssng.bkt.clouddn.com/laww7.jpg",
                     "https://qianxun.baidu.com/claw/detail?id=4bc42ca1d2f8013ffff602473e93e465_law"),
             new Law( "气象法","http://pd35yssng.bkt.clouddn.com/laww8.jpg",
-            "https://qianxun.baidu.com/claw/detail?id=3dafbdbbe0c0f22cc5f81601216682a8_law")
+            "https://qianxun.baidu.com/claw/detail?id=3dafbdbbe0c0f22cc5f81601216682a8_law"),
+            new Law( "英雄烈士保护法","http://pd35yssng.bkt.clouddn.com/laww8.jpg",
+                    "https://qianxun.baidu.com/claw/detail?id=3dafbdbbe0c0f22cc5f81601216682a8_law"),
+            new Law( "刑法","http://pfx0y0vgp.bkt.clouddn.com/law01.jpg",
+            "https://qianxun.baidu.com/claw/detail?id=44c1d146805db411b3d1ffa09c8ef0c3_law"),
+            new Law( "文物保护法","hhttp://pfx0y0vgp.bkt.clouddn.com/law02.jpg",
+                    "https://qianxun.baidu.com/claw/detail?id=4136c7f315035c7fc6952a0c37f7c569_law"),
+            new Law( "义务教育法","http://pfx0y0vgp.bkt.clouddn.com/law03.jpg",
+                    "https://qianxun.baidu.com/claw/detail?id=2584bd5d60687f0ff1ea22c082dc154f_law"),
+            new Law( "教师法","http://pfx0y0vgp.bkt.clouddn.com/law04.jpg",
+                    "https://qianxun.baidu.com/claw/detail?id=cc0ac166f9cf78bf65fe2aea3c6d9456_law"),
+            new Law( "体育法","http://pfx0y0vgp.bkt.clouddn.com/law05.jpg",
+                    "https://qianxun.baidu.com/claw/detail?id=54f61bb0ff96a7e633db538e5e9a6bb8_law"),
+            new Law( "枪支管理法","http://pfx0y0vgp.bkt.clouddn.com/law06.jpg",
+                    "hhttps://qianxun.baidu.com/claw/detail?id=2f5d7bc3b0513246fb758a70d010b466_law"),
+            new Law( "献血法","http://pfx0y0vgp.bkt.clouddn.com/law07.jpg",
+                    "https://m.baidu.com/sf_bk/item/%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD%E7%8C%AE%E8%A1%80%E6%B3%95?ms=1&rid=8136428579347858824"),
 
     };
 

@@ -27,6 +27,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.lab.android.nuc.law_analysis.R;
+import com.example.lab.android.nuc.law_analysis.base.Law;
 
 import it.sephiroth.android.library.easing.Back;
 import it.sephiroth.android.library.easing.EasingManager;
@@ -36,17 +37,19 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private ViewGroup rootLayout;
     private  TextView animationTV;
     private TextView singupTV;
+    private String Account;
+    private String Password;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_login );
         rootLayout = (ViewGroup) findViewById(R.id.main_container);
 
-        EditText email = (EditText) findViewById(R.id.email);
-        EditText password = (EditText) findViewById(R.id.password);
-        EditText emailS = (EditText) findViewById(R.id.email_singup);
-        EditText passwordS = (EditText) findViewById(R.id.password_singup);
-        EditText passwordC = (EditText) findViewById(R.id.password_confirm);
+        final EditText email = (EditText) findViewById(R.id.email);
+        final EditText password = (EditText) findViewById(R.id.password);
+        final EditText emailS = (EditText) findViewById(R.id.email_singup);
+        final EditText passwordS = (EditText) findViewById(R.id.password_singup);
+        final EditText passwordC = (EditText) findViewById(R.id.password_confirm);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
@@ -68,11 +71,24 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         emailS.setOnFocusChangeListener(focuslistene);
         passwordS.setOnFocusChangeListener(focuslistene);
         passwordC.setOnFocusChangeListener(focuslistene);
-        singupTV = (TextView) findViewById( R.id.animation_tv);
+        singupTV = (TextView) findViewById( R.id.singup_big_tv);
         singupTV.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText( LoginActivity.this, "SignUp Succeed!", Toast.LENGTH_SHORT ).show();
+                if (emailS.getText() == null){
+                    Toast.makeText( LoginActivity.this, "邮箱不能为空！", Toast.LENGTH_SHORT ).show();
+                }
+                else if (passwordS.getText().toString() == null || passwordC.getText().toString() == null){
+                    Toast.makeText( LoginActivity.this, "密码不能为空！", Toast.LENGTH_SHORT ).show();
+                }
+                else if (!passwordS.getText().toString().equals( passwordC.getText().toString() )){
+                    Toast.makeText( LoginActivity.this, "两次的密码不一致", Toast.LENGTH_SHORT ).show();
+                    passwordS.setText( "" );
+                }else {
+                    Toast.makeText( LoginActivity.this, "SignUp Succeed!", Toast.LENGTH_SHORT ).show();
+                    Account = emailS.getText().toString();
+                    Password = passwordS.getText().toString();
+                }
             }
         } );
         animationTV = (TextView) findViewById(R.id.login_tv);
@@ -80,9 +96,18 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             @Override
             public void onClick(View v) {
                 singupTV.setTextColor( Color.parseColor( "#000000" ) );
-                Intent intent = new Intent( LoginActivity.this,MainActivity.class );
-                finish();
-                startActivity( intent );
+                if (email.getText().toString() == null){
+                    Toast.makeText( LoginActivity.this, "邮箱不用为空！", Toast.LENGTH_SHORT ).show();
+                }else if(password.getText().toString() == null){
+                    Toast.makeText( LoginActivity.this, "密码不能为空！", Toast.LENGTH_SHORT ).show();
+                }else if(email.getText().toString().equals( Account ) && password.getText().toString().equals( Password )){
+                    Toast.makeText( LoginActivity.this, "登陆成功！", Toast.LENGTH_SHORT ).show();
+                    Intent intent = new Intent( LoginActivity.this,MainActivity.class );
+                    finish();
+                    startActivity( intent );
+                }else {
+                    Toast.makeText( LoginActivity.this, "登陆失败！，检查账号密码是否正确！", Toast.LENGTH_SHORT ).show();
+                }
             }
         } );
     }
@@ -149,7 +174,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 RelativeLayout.LayoutParams params_circle = (RelativeLayout.LayoutParams) animationCircle.getLayoutParams();
                 params_circle.setMargins(0, 0, margin, (int) (40 * scale + 0.5f));
                 animationCircle.requestLayout();
-
 
                 int diff_width = first_curr_width - first_target_width;
                 int width = first_target_width + (int) (diff_width - (diff_width * interpolatedTime));

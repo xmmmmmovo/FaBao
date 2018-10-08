@@ -41,7 +41,6 @@ import com.luck.picture.lib.config.PictureConfig;
 import com.luck.picture.lib.config.PictureMimeType;
 import com.luck.picture.lib.entity.LocalMedia;
 import com.qintong.library.InsLoadingView;
-import com.squareup.haha.perflib.Main;
 import com.yalantis.guillotine.animation.GuillotineAnimation;
 
 import java.io.File;
