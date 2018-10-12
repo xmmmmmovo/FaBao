@@ -30,6 +30,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -155,15 +156,6 @@ public class Search_Item_Activity extends AppCompatActivity {
 //                    e.printStackTrace();
 //                    return;
 //                }
-                Random random = new Random();
-                for (int i = 0; i < 10; i++) {
-                    LawItemBean item = all_items[random.nextInt(24)];
-                    laws.add(item);
-                }
-                tipTextView.setText("成功!");
-                customStatusView.loadSuccess();
-
-                initrecycleView();
 
            }
         }, 500);
@@ -177,15 +169,25 @@ public class Search_Item_Activity extends AppCompatActivity {
     }
 
     private void initView() {
+        laws = new ArrayList<>();
         recyclerView = (RecyclerView)findViewById(R.id.search_recyclerView);
         emptyContent = (TextView)findViewById(R.id.empty_content);
+        recyclerView = (RecyclerView) findViewById(R.id.search_item_recyclerView);
+
+        Random random = new Random();
+        for (int i = 0; i < 10; i++) {
+            LawItemBean item = all_items[random.nextInt(24)];
+            laws.add(item);
+        }
+        //tipTextView.setText("成功!");
+        //customStatusView.loadSuccess();
+
+        initrecycleView();
     }
 
     private void initrecycleView(){
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(Search_Item_Activity.this));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(lawListAdapter = new LawListAdapter(laws));
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setLongClickable(true);
         lawListAdapter.setOnItemClickLitener(new LawListAdapter.OnItemClickLitener() {
             @Override

@@ -11,11 +11,12 @@ import android.widget.TextView;
 import com.example.lab.android.nuc.law_analysis.R;
 import com.example.lab.android.nuc.law_analysis.base.LawItemBean;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.Inflater;
 
 public class LawListAdapter extends RecyclerView.Adapter<LawListAdapter.ViewHolder> {
-    private List<LawItemBean> lawItems;
+    private List<LawItemBean> lawItems = new ArrayList<>();
     private Inflater inflater;
     private OnItemClickLitener mOnItemClickLitener;
 
@@ -55,7 +56,7 @@ public class LawListAdapter extends RecyclerView.Adapter<LawListAdapter.ViewHold
         private TextView law_line;
         private TextView law_content;
         private TextView fileNumber;
-        private ImageView law_from;
+        private TextView law_from;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -68,8 +69,8 @@ public class LawListAdapter extends RecyclerView.Adapter<LawListAdapter.ViewHold
         public void bindHolder(final LawItemBean law, int position) {
             fileNumber.setText((position + 1) + "");
             law_line.setText(law.getLaw_line());
-
-
+            law_content.setText(law.getLaw_content());
+            law_from.setText(law.getLaw_from());
             if (mOnItemClickLitener != null) {
                 itemView.setOnLongClickListener(new View.OnLongClickListener() {
                     @Override
