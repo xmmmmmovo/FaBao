@@ -35,8 +35,6 @@ public class LawyerActivity extends AppCompatActivity {
     private TextView contact_name,native_language,learn_language;
     private String interest_text,toPerson_text,toGoal_text,imageUri;
     private TextView interest,toPerson,toGoal;
-
-
     private String learnLanguage;
     private String nativeLanguage;
     private String languageLevel;
@@ -112,8 +110,8 @@ public class LawyerActivity extends AppCompatActivity {
         floatingActionButton_video.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent1 = new Intent( LawyerActivity.this,VideoChatActivity.class );
-//                startActivity( intent1 );
+                Intent intent1 = new Intent( LawyerActivity.this,VideoChatActivity.class );
+                startActivity( intent1 );
             }
         } );
 
