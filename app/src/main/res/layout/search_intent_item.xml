@@ -16,7 +16,7 @@
         android:textStyle="bold" />
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/search_recyclerView"
+        android:id="@+id/search_recyclerView_ans"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

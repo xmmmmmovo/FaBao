@@ -84,7 +84,7 @@ public class LawyersFragment extends Fragment implements View.OnClickListener,Se
         mSearchLawyerList.add( new Lawyer( "白云华","一级律师", "李国机律师事务所",
                 "民商法","http://pd35yssng.bkt.clouddn.com/lawyer1.jpg") );
         mSearchLawyerList.add( new Lawyer( "萧晓林","初级律师", "内蒙古松川律师事务所",
-                "婚姻发","http://pd35yssng.bkt.clouddn.com/lawyer2.jpg") );
+                "婚姻法","http://pd35yssng.bkt.clouddn.com/lawyer2.jpg") );
         mSearchLawyerList.add( new Lawyer( "胡建国","高级律师", "科贝律师事务所",
                 "行政法","http://pd35yssng.bkt.clouddn.com/images.jpg") );
         mSearchLawyerList.add( new Lawyer( "陈克刚","特级律师", "宁丰律师事务所",

@@ -101,10 +101,9 @@
                             android:layout_margin="5dp"
                             android:background="@drawable/button_guanzhu"
                             android:clickable="true"
+                            android:textColor="@color/white"
                             android:text="+ 关注" />
                     </LinearLayout>
-
-
                 </LinearLayout>
 
 

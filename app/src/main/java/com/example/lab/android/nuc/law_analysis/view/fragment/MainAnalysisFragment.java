@@ -83,7 +83,7 @@ import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter;
  * */
 public class MainAnalysisFragment extends Fragment {
 
-    private static final int REQUEST_CODE_GENERAL_BASIC = 106;
+    private static final int REQUEST_CODE_GENERAL_BASIC = 102;
     private RecyclerView recyclerView_Analyis_Law;
     private List<DataBean> lists;
     private Main_Analysis_Adapter adapter_Analyis_Law;
@@ -121,12 +121,10 @@ public class MainAnalysisFragment extends Fragment {
         return fragment;
 }
 
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         getActivity().getWindow().setSoftInputMode
-                
                 (WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN|
                         WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         view = inflater.inflate( R.layout.main_analysis_fragment,container,false);
@@ -183,20 +181,21 @@ public class MainAnalysisFragment extends Fragment {
         button_PaiZhao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!checkTokenStatus()) {
-                    return;
-                }
+//                if (!checkTokenStatus()) {
+//                    return;
+//                }
                 Intent intent = new Intent(getActivity(), CameraActivity.class);
                 intent.putExtra(CameraActivity.KEY_OUTPUT_FILE_PATH,
                         FileUtil.getSaveFile(getActivity().getApplication()).getAbsolutePath());
                 intent.putExtra(CameraActivity.KEY_CONTENT_TYPE,
                         CameraActivity.CONTENT_TYPE_GENERAL);
                 startActivityForResult(intent, REQUEST_CODE_GENERAL_BASIC);
+
             }
 
         });
 
-        initAccessTokenWithAkSk();
+//        initAccessTokenWithAkSk();
 
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
@@ -286,16 +285,15 @@ public class MainAnalysisFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
         // 识别成功回调，通用文字识别
         if (requestCode == REQUEST_CODE_GENERAL_BASIC && resultCode == Activity.RESULT_OK) {
 //            RecognizeService.recGeneralBasic(getActivity(), FileUtil.getSaveFile(getContext()).getAbsolutePath(),
-////                    new RecognizeService.ServiceListener() {
-////                        @Override
-////                        public void onResult(String result) {
-////                          editText_Analyis.setText(result);
-////                        }
-////                    });
+//                    new RecognizeService.ServiceListener() {
+//                        @Override
+//                        public void onResult(String result) {
+//                          editText_Analyis.setText(result);
+//                        }
+//                    });
             recGeneral(FileUtil.getSaveFile(getContext()).getAbsolutePath());
         }
 
@@ -304,10 +302,10 @@ public class MainAnalysisFragment extends Fragment {
 
 
     private void recGeneral(String filePath) {
-        GeneralParams param = new GeneralParams();
+        final GeneralParams param = new GeneralParams();
         param.setDetectDirection(true);
         param.setImageFile(new File(filePath));
-        OCR.getInstance(getActivity()).recognizeAccurate(param, new OnResultListener<GeneralResult>() {
+        OCR.getInstance(getActivity()).recognizeGeneral(param, new OnResultListener<GeneralResult>() {
             @Override
             public void onResult(GeneralResult result) {
                 StringBuilder sb = new StringBuilder();
@@ -316,6 +314,7 @@ public class MainAnalysisFragment extends Fragment {
                     sb.append("\n");
                 }
                 editText_Analyis.setText(sb);
+                Toast.makeText(getContext(), sb.toString(), Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -427,10 +426,6 @@ public class MainAnalysisFragment extends Fragment {
             }
         }
     };
-
-
-
-
 
 
 

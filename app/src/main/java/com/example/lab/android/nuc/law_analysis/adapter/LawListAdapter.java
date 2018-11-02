@@ -2,6 +2,7 @@ package com.example.lab.android.nuc.law_analysis.adapter;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,12 +17,13 @@ import java.util.List;
 import java.util.zip.Inflater;
 
 public class LawListAdapter extends RecyclerView.Adapter<LawListAdapter.ViewHolder> {
-    private List<LawItemBean> lawItems = new ArrayList<>();
+    private List<LawItemBean> lawItems;
     private Inflater inflater;
     private OnItemClickLitener mOnItemClickLitener;
 
     public LawListAdapter(List<LawItemBean> laws){
         this.lawItems = laws;
+        Log.d("item", lawItems.get(1).toString());
     }
 
     @NonNull
@@ -38,7 +40,7 @@ public class LawListAdapter extends RecyclerView.Adapter<LawListAdapter.ViewHold
 
     @Override
     public int getItemCount() {
-        return 0;
+        return lawItems.size();
     }
 
     public interface OnItemClickLitener

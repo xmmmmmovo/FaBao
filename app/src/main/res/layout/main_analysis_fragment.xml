@@ -11,33 +11,33 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp">
 
 
         <ImageView
             android:id="@+id/back_analyis"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_alignParentTop="true"
             android:layout_marginLeft="80dp"
             android:src="@drawable/back_analyis" />
 
         <TextView
             android:layout_width="150dp"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:text="法律分析"
             android:textStyle="bold"
-
-            android:textSize="35sp"
+            android:textSize="25sp"
             android:layout_marginLeft="150dp"/>
 
         <View
             android:id="@+id/view1"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginTop="70dp"
+            android:layout_marginTop="50dp"
             android:background="#33000000"
             />
 
@@ -45,9 +45,9 @@
         <EditText
             android:id="@+id/edittext_analyis"
             android:layout_width="380dp"
-            android:layout_height="154dp"
+            android:layout_height="105dp"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="84dp"
+            android:layout_marginTop="74dp"
             android:layout_centerHorizontal="true"
             android:layout_weight="1"
             android:background="@drawable/edittext_style"
@@ -70,29 +70,28 @@
             android:layout_width="match_parent"
             android:layout_centerHorizontal="true"
             android:layout_height="1dp"
-            android:layout_marginTop="290dp"
+            android:layout_marginTop="265dp"
             android:background="#33000000"
             />
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/bt_paizhao"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_margin="235dp"
-            android:src="@drawable/paizhao"
-            android:layout_gravity="bottom|end"/>
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="190dp"
+            android:layout_marginLeft="85dp"
+            android:layout_gravity="bottom|start"
+            android:src="@drawable/paizhao"/>
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/bt_yuyin"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/yuyin"
-            android:layout_alignParentEnd="true"
-            android:layout_margin="235dp"
-            android:layout_alignParentRight="true"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="190dp"
             android:layout_gravity="bottom|end"
-            />
-
+            android:layout_marginRight="85dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/yuyin" />
 
 
         <Button
@@ -100,12 +99,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="查看给您推荐的法律条目"
-            android:textSize="15sp"
+            android:textSize="16sp"
             android:textColor="#ffffff"
             android:background="@drawable/button_shape"
             android:layout_below="@+id/view2">
         </Button>
-
 
         <View
             android:id="@+id/view3"
@@ -128,15 +126,8 @@
             android:id="@+id/recyclerview_analyis"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/view3"
-
-
-            />
-
+            android:layout_below="@+id/view3" />
 
     </RelativeLayout>
-
-
-
 
 </android.support.v4.widget.NestedScrollView>

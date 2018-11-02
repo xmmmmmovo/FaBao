@@ -112,8 +112,8 @@ public class LawyerActivity extends AppCompatActivity {
         floatingActionButton_video.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent1 = new Intent( LawyerActivity.this,VideoChatActivity.class );
-//                startActivity( intent1 );
+                Intent intent1 = new Intent( LawyerActivity.this,VideoChatActivity.class );
+                startActivity( intent1 );
             }
         } );
 

@@ -6,11 +6,13 @@
     android:layout_height="match_parent">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp">
 
         <ImageView
             android:id="@+id/fabao_image"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="100dp"
             android:src="@drawable/logo2"
             android:layout_centerHorizontal="true"/>
@@ -37,15 +39,22 @@
                 android:textColor="#000000"
                 android:textSize="14sp"/>
             <ImageView
-                android:layout_weight="1"
+                android:layout_weight="0.8"
                 android:layout_width="0dp"
-                android:layout_height="45dp"
-                android:scaleType="centerCrop"
+                android:layout_height="35dp"
                 android:src="@drawable/yuyin_edit_center"/>
 
         </LinearLayout>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/light_gray_2"
+            android:layout_below="@+id/search_main"
+            android:layout_marginTop="5dp"/>
+
         <android.support.v4.widget.SwipeRefreshLayout
+            android:layout_marginTop="15dp"
             android:layout_below="@+id/search_main"
             android:id="@+id/swipe_refresh"
             android:layout_width="match_parent"

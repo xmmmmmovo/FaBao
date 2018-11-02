@@ -7,6 +7,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,11 +15,13 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.lab.android.nuc.law_analysis.R;
 import com.example.lab.android.nuc.law_analysis.adapter.LawListAdapter;
@@ -80,12 +83,12 @@ public class Search_Item_Activity extends AppCompatActivity {
         setContentView(R.layout.search_intent_item);
         initView();
 
-        Bundle bundle = getIntent().getExtras();
-        if (bundle != null){
-            search_data = bundle.getString("data");
-            //有时间写按空格切分
-            cutSearchData = search_data.split(" ");
-        }
+//        Bundle bundle = getIntent().getExtras();
+//        if (bundle != null){
+//            search_data = bundle.getString("data");
+//            //有时间写按空格切分
+//            cutSearchData = search_data.split(" ");
+//        }
 
         showCompleteDialog(Search_Item_Activity.this, "查找中");
     }
@@ -170,9 +173,9 @@ public class Search_Item_Activity extends AppCompatActivity {
 
     private void initView() {
         laws = new ArrayList<>();
-        recyclerView = (RecyclerView)findViewById(R.id.search_recyclerView);
+        recyclerView = (RecyclerView)findViewById(R.id.search_recyclerView_ans);
         emptyContent = (TextView)findViewById(R.id.empty_content);
-        recyclerView = (RecyclerView) findViewById(R.id.search_item_recyclerView);
+        emptyContent.setVisibility(View.GONE);
 
         Random random = new Random();
         for (int i = 0; i < 10; i++) {
@@ -183,24 +186,42 @@ public class Search_Item_Activity extends AppCompatActivity {
         //customStatusView.loadSuccess();
 
         initrecycleView();
+        //添加返回按钮
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            // Show the Up button in the action bar.
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setTitle( "搜索结果" );
+        }
     }
 
     private void initrecycleView(){
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(lawListAdapter = new LawListAdapter(laws));
+        recyclerView.setLayoutManager(new LinearLayoutManager(Search_Item_Activity.this));
         recyclerView.setLongClickable(true);
+        lawListAdapter = new LawListAdapter(laws);
         lawListAdapter.setOnItemClickLitener(new LawListAdapter.OnItemClickLitener() {
             @Override
             public void onItemClick(LawItemBean lawItemBean) {
-
             }
 
             @Override
             public void onItemLongClick(LawItemBean lawItemBean) {
                 android.content.ClipboardManager cm = (android.content.ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
                 cm.setText(lawItemBean.getLaw_line() + lawItemBean.getLaw_content() + lawItemBean.getLaw_from());
+                Toast.makeText(Search_Item_Activity.this, "已复制到粘贴板中！", Toast.LENGTH_SHORT).show();
             }
         });
+        recyclerView.setAdapter(lawListAdapter);
     }
 
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected( item );
+    }
 }

@@ -9,7 +9,8 @@
     <ImageView
         android:id="@+id/falv_item_tuijian"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="70dp"
+        android:layout_margin="5dp"
         android:src="@drawable/analysis_item"/>
 
      <TextView
@@ -25,12 +26,8 @@
          第六条 车辆管理所应当使用机动车驾驶证计算机管理系统核发、打印机动车驾驶证，不使用计算机管理系统核发、打印的机动车驾驶证无效。&#10;
          第七条 驾驶机动车，应当依法取得机动车驾驶证。&#10;
          第九条 机动车驾驶证记载和签注以下内容：&#10;
-         第十条 机动车驾驶证有效期分为六年、十年和长期。&#10;
-
-
-
-
-"/>
+         第十条 机动车驾驶证有效期分为六年、十年和长期。&#10;"
+         app:ignore="HardcodedText" />
 
     <com.getbase.floatingactionbutton.FloatingActionsMenu
         android:id="@+id/detail_actions_menu"

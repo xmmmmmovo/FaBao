@@ -108,7 +108,6 @@ public class Main_Analysis_Adapter extends RecyclerView.Adapter implements View.
         int position = (int) v.getTag();
         if (mOnItemClickListener != null) {
             switch (v.getId()) {
-
                 case R.id.textview_anli_item:
                     mOnItemClickListener.onClick(v, position);
                     break;

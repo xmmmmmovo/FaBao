@@ -20,13 +20,13 @@
     <color name="zz_divider">#e6e6e6</color>
     <color name="text_color3">#909090</color>
     <color name="zz_half_transparent">#7f000000</color>
-    <color name="light_gray_2">#f0f2f6</color>
+    <color name="light_gray_2">#a4b5d7</color>
     <color name="click_bg">#d9d9d9</color>
     <color name="dark_gray_1">#051b28</color>
     <color name="button_bg_press">#88e83060</color>
     <color name="button_bg">#e83060</color>
     <color name="color_theme">#489cfa</color>
-    <color name="guanzhu">#30cc10</color>
+    <color name="guanzhu">#6da461</color>
     //悬浮按钮
     <color name="fab_color">#80738ffe</color>
     <color name="blue_normal">#ff33b5e5</color>

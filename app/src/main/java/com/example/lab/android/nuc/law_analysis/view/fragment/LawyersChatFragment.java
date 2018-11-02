@@ -92,7 +92,7 @@ public class LawyersChatFragment extends Fragment implements View.OnClickListene
     }
 
     private void initView(View view) {
-        mRecyclerView = (RecyclerView) view.findViewById( R.id.recyclerView );
+        mRecyclerView = (RecyclerView) view.findViewById( R.id.search_item_recyclerView );
         mLayoutManager = new LinearLayoutManager( getContext() );
         mRecyclerView.setLayoutManager( mLayoutManager );
         mAdapter = new NineGridTest2Adapter( getContext() );
