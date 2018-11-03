@@ -35,8 +35,6 @@ public class LawyerActivity extends AppCompatActivity {
     private TextView contact_name,native_language,learn_language;
     private String interest_text,toPerson_text,toGoal_text,imageUri;
     private TextView interest,toPerson,toGoal;
-
-
     private String learnLanguage;
     private String nativeLanguage;
     private String languageLevel;

@@ -34,6 +34,10 @@ import com.example.lab.android.nuc.law_analysis.adapter.PageAdapter;
 import com.example.lab.android.nuc.law_analysis.application.MyApplication;
 import com.example.lab.android.nuc.law_analysis.communication.utils.PathUtils;
 import com.example.lab.android.nuc.law_analysis.news.util.SnackBarUtil;
+import com.example.lab.android.nuc.law_analysis.utils.iflytek.IflytekSpeech;
+import com.example.lab.android.nuc.law_analysis.utils.iflytek.Iflytekrecognize;
+import com.example.lab.android.nuc.law_analysis.utils.iflytek.iflytekWakeUp;
+import com.example.lab.android.nuc.law_analysis.utils.iflytek.resultresolve;
 import com.example.lab.android.nuc.law_analysis.utils.tools.PermissionUtil;
 import com.example.lab.android.nuc.law_analysis.utils.views.CanaroTextView;
 import com.luck.picture.lib.PictureSelector;
@@ -55,6 +59,11 @@ import devlight.io.library.ntb.NavigationTabBar;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private AlertDialog.Builder alertDialog;
+    //语音唤醒
+    public Iflytekrecognize rec;
+    public iflytekWakeUp wkup;
+    private boolean ison = false;
+    public IflytekSpeech spe;
 
     //aip.lecence初始话
     private boolean hasGotToken = false;
@@ -77,6 +86,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     // 记录第一次点击的时间
     private long clickTime = 0;
 
+    private resultresolve resolver =new resultresolve()
+    {
+        @Override
+        public void resolveresult(String str) {
+            if(str.equals("speechover"))
+            {
+                if(ison){
+                    ison=false;
+                    rec.listening();
+                }
+                else {
+                    wkup.startWakeuper();
+                }
+            }
+            else{
+                if(str.equals("waked"))
+                {
+                    ison=true;
+                    spe.Speek("法宝时刻守护着您，您需要查什么案件或法律么");
+                    wkup.startWakeuper();
+                }
+            }
+        }
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
@@ -86,6 +119,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         alertDialog = new AlertDialog.Builder(this);
         //文字提取初始化
         initAccessToken();
+        wkup= new iflytekWakeUp(this,resolver);
+        rec = new Iflytekrecognize(this,resolver);
+        spe = new IflytekSpeech(this,resolver);
+        wkup.startWakeuper();
     }
     private void initUI(){
         toolbar = (Toolbar) findViewById( R.id.toolbar_main );
@@ -94,6 +131,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             setSupportActionBar( toolbar );
             getSupportActionBar().setTitle( null );
         }
+
         root = (FrameLayout) findViewById( R.id.root );
         guillotineMenu = LayoutInflater.from(this).inflate(R.layout.shine_toolbar, null);
         root.addView(guillotineMenu);

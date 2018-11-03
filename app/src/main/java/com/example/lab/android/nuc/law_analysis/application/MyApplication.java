@@ -9,6 +9,10 @@ import android.support.multidex.MultiDexApplication;
 
 import com.example.lab.android.nuc.law_analysis.communication.bean.DaoMaster;
 import com.example.lab.android.nuc.law_analysis.communication.bean.DaoSession;
+import com.example.lab.android.nuc.law_analysis.utils.iflytek.IflytekSpeech;
+import com.example.lab.android.nuc.law_analysis.utils.iflytek.Iflytekrecognize;
+import com.example.lab.android.nuc.law_analysis.utils.iflytek.iflytekWakeUp;
+import com.example.lab.android.nuc.law_analysis.utils.iflytek.resultresolve;
 import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechUtility;
 import com.lzy.okgo.OkGo;
@@ -25,9 +29,11 @@ import java.util.Set;
 
 public class MyApplication extends MultiDexApplication{
 
+
     private Set<Activity> allActivities;
 
     private static MyApplication instance;
+
     private static final String CANARO_EXTRA_BOLD_PATH = "fonts/canaro_extra_bold.otf";
     public static Typeface canaroExtraBold;
 
@@ -40,6 +46,7 @@ public class MyApplication extends MultiDexApplication{
     public static MyApplication getInstance(){
         return instance;
     }
+
 
     @Override
     public void onCreate() {
