@@ -39,6 +39,7 @@ import com.example.lab.android.nuc.law_analysis.communication.utils.PathUtils;
 import com.example.lab.android.nuc.law_analysis.communication.widget.ChatBottomView;
 import com.example.lab.android.nuc.law_analysis.communication.widget.InputBarLayout;
 import com.example.lab.android.nuc.law_analysis.R;
+import com.example.lab.android.nuc.law_analysis.view.activity.MainActivity;
 import com.example.lab.android.nuc.law_analysis.view.activity.VideoChatActivity;
 import com.example.lab.android.nuc.law_analysis.view.activity.VoiceChatActivity;
 import com.google.gson.Gson;
@@ -57,6 +58,7 @@ import com.luck.picture.lib.PictureSelector;
 import com.luck.picture.lib.config.PictureConfig;
 import com.luck.picture.lib.config.PictureMimeType;
 import com.luck.picture.lib.entity.LocalMedia;
+import com.squareup.haha.perflib.Main;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -264,6 +266,7 @@ public class ChatActivity extends AppCompatActivity {
                         startActivity( new Intent( ChatActivity.this, VoiceChatActivity.class ) );
                         break;
                     case ChatBottomView.FROM_VOICE_TO_TEXT:
+                        MainActivity.wkup.destroyWakeuper();
                         voice_to_text();
                         break;
                     case ChatBottomView.FROM_TEXT_TO_VOICE:// 文字转语音

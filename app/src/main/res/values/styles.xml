@@ -41,6 +41,8 @@
     <style name="aboutTheme" parent="Theme.AppCompat.Light.DarkActionBar">
     </style>
 
+    <style name="commnetTheme" parent="Theme.AppCompat.Light.NoActionBar"/>
+
 
     <style name="Toolbar">
         <item name="android:layout_height">wrap_content</item>

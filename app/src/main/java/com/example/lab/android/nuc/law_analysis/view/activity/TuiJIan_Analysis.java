@@ -106,7 +106,7 @@ public class TuiJIan_Analysis extends AppCompatActivity {
          Random random = new Random();
          textView.setText(detial[random.nextInt(6)]);
 
-        scrollView = (ScrollView ) findViewById( R.id.scrollView_news );
+        scrollView = (ScrollView ) findViewById( R.id.scrollView_w );
 
         initFloatButton();
         //获取手机录音机使用权限，听写、识别、语义理解需要用到此权限

@@ -11,6 +11,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.text.method.ScrollingMovementMethod;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ScrollView;
@@ -36,7 +37,7 @@ public class Analysis_Similar_Item  extends AppCompatActivity {
     private FloatingActionButton text_to_voice,change_voice,fab_up;
     private String VOICE = null;
     List<String> permissionList = new ArrayList<>();
-
+    private TextView textview;
     String tvDetail = "李某某醉酒逃逸，被判10年 近日，公安交警查获一起未成年人醉酒驾驶机动车肇事逃逸案件，目前，嫌疑人李某某因肇事逃逸、醉酒驾驶、无证驾驶等已被依法刑事拘留。\n" +
             "\n" +
             "9月8日零时30分许，在安新县三台镇新徐新公路某物流门口路段，一辆轿车与两名行人发生交通事故，肇事司机驾车逃逸，公安交警接报后，立即赶赴现场。\n" +
@@ -55,6 +56,8 @@ public class Analysis_Similar_Item  extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.analysis_item_show);
+        textview = (TextView) findViewById( R.id.anjian_content );
+        textview.setMovementMethod(new ScrollingMovementMethod());
         //添加返回按钮
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -63,7 +66,7 @@ public class Analysis_Similar_Item  extends AppCompatActivity {
             actionBar.setTitle( "相似案件" );
         }
 
-        scrollView = (ScrollView ) findViewById( R.id.scrollView_news );
+        scrollView = (ScrollView ) findViewById( R.id.scrollView_w );
 
         initFloatButton();
         //获取手机录音机使用权限，听写、识别、语义理解需要用到此权限

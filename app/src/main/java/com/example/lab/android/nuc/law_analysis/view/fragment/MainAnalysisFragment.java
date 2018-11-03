@@ -1,23 +1,12 @@
 package com.example.lab.android.nuc.law_analysis.view.fragment;
 
 import android.app.Activity;
-import android.content.ContentResolver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
-import android.os.Environment;
-import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
-
 import android.support.v7.app.AlertDialog;
-
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -30,33 +19,31 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.baidu.ocr.sdk.OCR;
 import com.baidu.ocr.sdk.OnResultListener;
 import com.baidu.ocr.sdk.exception.OCRError;
-import com.baidu.ocr.sdk.model.AccessToken;
-import com.baidu.ocr.sdk.model.GeneralBasicParams;
 import com.baidu.ocr.sdk.model.GeneralParams;
 import com.baidu.ocr.sdk.model.GeneralResult;
 import com.baidu.ocr.sdk.model.WordSimple;
 import com.baidu.ocr.ui.camera.CameraActivity;
 import com.example.lab.android.nuc.law_analysis.adapter.Main_Analysis_Adapter;
 import com.example.lab.android.nuc.law_analysis.base.DataBean;
-
 import com.example.lab.android.nuc.law_analysis.R;
-
-import com.example.lab.android.nuc.law_analysis.communication.activity.ChatActivity;
+import com.example.lab.android.nuc.law_analysis.base.Result;
 import com.example.lab.android.nuc.law_analysis.communication.activity.DictationResult;
 import com.example.lab.android.nuc.law_analysis.communication.utils.KeyBoardUtils;
-import com.example.lab.android.nuc.law_analysis.main_analysis.ImagetoText;
-import com.example.lab.android.nuc.law_analysis.util.tools.FileUtil;
-import com.example.lab.android.nuc.law_analysis.util.tools.RecognizeService;
 import com.example.lab.android.nuc.law_analysis.util.views.RecycleViewDivider2;
+import com.example.lab.android.nuc.law_analysis.utils.iflytek.IflytekSpeech;
+import com.example.lab.android.nuc.law_analysis.utils.iflytek.Iflytekrecognize;
+import com.example.lab.android.nuc.law_analysis.utils.iflytek.iflytekWakeUp;
+import com.example.lab.android.nuc.law_analysis.utils.tools.FileUtil;
 import com.example.lab.android.nuc.law_analysis.view.activity.Analysis_Similar_Item;
 import com.example.lab.android.nuc.law_analysis.view.activity.MainActivity;
 import com.example.lab.android.nuc.law_analysis.view.activity.TuiJIan_Analysis;
+import com.example.lab.android.nuc.law_analysis.view.activity.pictureTotext;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.iflytek.cloud.ErrorCode;
@@ -66,16 +53,9 @@ import com.iflytek.cloud.RecognizerResult;
 import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.ui.RecognizerDialog;
 import com.iflytek.cloud.ui.RecognizerDialogListener;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-
-
-
-import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter;
-
-
 
 
 /**
@@ -83,7 +63,14 @@ import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter;
  * */
 public class MainAnalysisFragment extends Fragment {
 
-    private static final int REQUEST_CODE_GENERAL_BASIC = 102;
+    private String filePath;
+    //语音唤醒
+    public Iflytekrecognize rec;
+    public iflytekWakeUp wkup;
+    private boolean ison = false;
+    public IflytekSpeech spe;
+    private static final int REQUEST_CODE_PICK_IMAGE = 101;
+    private static final int REQUEST_CODE_CAMERA = 102;
     private RecyclerView recyclerView_Analyis_Law;
     private List<DataBean> lists;
     private Main_Analysis_Adapter adapter_Analyis_Law;
@@ -99,17 +86,11 @@ public class MainAnalysisFragment extends Fragment {
 
     private FloatingActionButton button_PaiZhao;
     private RecognizerDialog iatDialog;
-
     private TextView Tv1;
-
     private Button button;
-
-
-    public static final int TAKE_PHOTO = 1;
-    public static final int CROP_PHOTO = 2;
     private AlertDialog.Builder alertDialog;
-
     private boolean hasGotToken = false;
+    private ProgressBar mProgressBar;
 
     private  View view;
     //实例化
@@ -130,30 +111,25 @@ public class MainAnalysisFragment extends Fragment {
         view = inflater.inflate( R.layout.main_analysis_fragment,container,false);
         initData();
         recyclerView_Analyis_Law = view.findViewById(R.id.recyclerview_analyis);
-
         button_delete =view.findViewById(R.id.bt_delete_text)  ;
-
         editText_Analyis = view.findViewById(R.id.edittext_analyis);
-
         button_YuYin = view.findViewById(R.id.bt_yuyin);
-
         button_PaiZhao = view.findViewById(R.id.bt_paizhao);
-
         button = view.findViewById(R.id.analysis_button);
-
-        button_delete.setOnClickListener(new View.OnClickListener() {
+        mProgressBar = (ProgressBar) view.findViewById( R.id.main_progress );
+                button_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 editText_Analyis.setText("");
             }
         });
-
         //语音识别
 
         button_YuYin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               voice_to_text();
+                MainActivity.wkup.destroyWakeuper();
+                voice_to_text();
             }
         });
 
@@ -162,7 +138,6 @@ public class MainAnalysisFragment extends Fragment {
             @Override
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 Toast.makeText(getActivity(), "正在为你搜索...", Toast.LENGTH_SHORT).show();
-
                 return false;
             }
         });
@@ -181,21 +156,11 @@ public class MainAnalysisFragment extends Fragment {
         button_PaiZhao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                if (!checkTokenStatus()) {
-//                    return;
-//                }
-                Intent intent = new Intent(getActivity(), CameraActivity.class);
-                intent.putExtra(CameraActivity.KEY_OUTPUT_FILE_PATH,
-                        FileUtil.getSaveFile(getActivity().getApplication()).getAbsolutePath());
-                intent.putExtra(CameraActivity.KEY_CONTENT_TYPE,
-                        CameraActivity.CONTENT_TYPE_GENERAL);
-                startActivityForResult(intent, REQUEST_CODE_GENERAL_BASIC);
-
+                editText_Analyis.setText( "" );
+                startActivity( new Intent( getActivity(),pictureTotext.class ) );
             }
 
         });
-
-//        initAccessTokenWithAkSk();
 
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
@@ -231,37 +196,16 @@ public class MainAnalysisFragment extends Fragment {
             }
         });
         return view;
-
     }
 
-
-
-
-    private boolean checkTokenStatus() {
-        if (!hasGotToken) {
-            Toast.makeText(getContext(), "token还未成功获取", Toast.LENGTH_LONG).show();
+    @Override
+    public void onResume() {
+        super.onResume();
+        if(Result.getResult() != null) {
+            editText_Analyis.setText( Result.getResult().toString() );
+            editText_Analyis.setSelection(Result.getResult().length());
         }
-        return hasGotToken;
     }
-
-
-
-    private void initAccessTokenWithAkSk() {
-        OCR.getInstance(getActivity()).initAccessTokenWithAkSk(new OnResultListener<AccessToken>() {
-            @Override
-            public void onResult(AccessToken result) {
-                String token = result.getAccessToken();
-                hasGotToken = true;
-            }
-
-            @Override
-            public void onError(OCRError error) {
-                error.printStackTrace();
-                alertText("AK，SK方式获取token失败", error.getMessage());
-            }
-        }, getContext(),  AK, SK);
-    }
-
 
     private void alertText(final String title, final String message) {
         getActivity().runOnUiThread(new Runnable() {
@@ -276,7 +220,6 @@ public class MainAnalysisFragment extends Fragment {
     }
 
 
-
     private void infoPopText(final String result) {
         alertText("", result);
     }
@@ -284,28 +227,18 @@ public class MainAnalysisFragment extends Fragment {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        // 识别成功回调，通用文字识别
-        if (requestCode == REQUEST_CODE_GENERAL_BASIC && resultCode == Activity.RESULT_OK) {
-//            RecognizeService.recGeneralBasic(getActivity(), FileUtil.getSaveFile(getContext()).getAbsolutePath(),
-//                    new RecognizeService.ServiceListener() {
-//                        @Override
-//                        public void onResult(String result) {
-//                          editText_Analyis.setText(result);
-//                        }
-//                    });
-            recGeneral(FileUtil.getSaveFile(getContext()).getAbsolutePath());
+        super.onActivityResult( requestCode, resultCode, data );
+        if(requestCode  == REQUEST_CODE_CAMERA && resultCode == Activity.RESULT_OK){
+            filePath = FileUtil.getSaveFile(getActivity().getApplicationContext()).getAbsolutePath();
+            recGeneral( filePath );
         }
-
     }
 
-
-
     private void recGeneral(String filePath) {
-        final GeneralParams param = new GeneralParams();
+        GeneralParams param = new GeneralParams();
         param.setDetectDirection(true);
         param.setImageFile(new File(filePath));
-        OCR.getInstance(getActivity()).recognizeGeneral(param, new OnResultListener<GeneralResult>() {
+        OCR.getInstance(getActivity()).recognizeAccurate(param, new OnResultListener<GeneralResult>() {
             @Override
             public void onResult(GeneralResult result) {
                 StringBuilder sb = new StringBuilder();
@@ -314,7 +247,6 @@ public class MainAnalysisFragment extends Fragment {
                     sb.append("\n");
                 }
                 editText_Analyis.setText(sb);
-                Toast.makeText(getContext(), sb.toString(), Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -328,8 +260,6 @@ public class MainAnalysisFragment extends Fragment {
     @Override
    public void onDestroy() {
         super.onDestroy();
-        // 释放内存资源
-        OCR.getInstance(getActivity()).release();
     }
 
     /*语音转文字*/

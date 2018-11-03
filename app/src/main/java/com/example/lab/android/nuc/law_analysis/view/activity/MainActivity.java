@@ -16,9 +16,11 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -61,9 +63,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private AlertDialog.Builder alertDialog;
     //语音唤醒
     public Iflytekrecognize rec;
-    public iflytekWakeUp wkup;
+    public static iflytekWakeUp wkup;
     private boolean ison = false;
     public IflytekSpeech spe;
+    private boolean iswake = true;
 
     //aip.lecence初始话
     private boolean hasGotToken = false;
@@ -83,10 +86,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ContentValues contentValues;
     private final static int CAMERA_REQUEST = 2;
 
+    private ImageView mImageView;
+
     // 记录第一次点击的时间
     private long clickTime = 0;
 
-    private resultresolve resolver =new resultresolve()
+
+    public resultresolve resolver =new resultresolve()
     {
         @Override
         public void resolveresult(String str) {
@@ -110,6 +116,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
     };
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
@@ -119,11 +127,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         alertDialog = new AlertDialog.Builder(this);
         //文字提取初始化
         initAccessToken();
-        wkup= new iflytekWakeUp(this,resolver);
+        wkup = new iflytekWakeUp(this,resolver);
         rec = new Iflytekrecognize(this,resolver);
         spe = new IflytekSpeech(this,resolver);
         wkup.startWakeuper();
     }
+
     private void initUI(){
         toolbar = (Toolbar) findViewById( R.id.toolbar_main );
         contentHamburger = findViewById( R.id.content_hamburger );
@@ -131,10 +140,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             setSupportActionBar( toolbar );
             getSupportActionBar().setTitle( null );
         }
-
         root = (FrameLayout) findViewById( R.id.root );
         guillotineMenu = LayoutInflater.from(this).inflate(R.layout.shine_toolbar, null);
         root.addView(guillotineMenu);
+        mImageView = (ImageView) findViewById( R.id.wakeup );
+        mImageView.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(iswake){
+                    mImageView.setImageResource( R.drawable.wakeupp );
+                    Toast.makeText( MainActivity.this, "语音唤醒已开启", Toast.LENGTH_SHORT ).show();
+                    wkup = new iflytekWakeUp(MainActivity.this,resolver);
+                    rec = new Iflytekrecognize(MainActivity.this,resolver);
+                    spe = new IflytekSpeech(MainActivity.this,resolver);
+                    wkup.startWakeuper();
+                    iswake = false;
+                }else {
+                    mImageView.setImageResource( R.drawable.wakeup );
+                    Toast.makeText( MainActivity.this, "语音唤醒已关闭", Toast.LENGTH_SHORT ).show();
+                    wkup.destroyWakeuper();
+                    iswake = true;
+                }
+            }
+        } );
         dingView = (InsLoadingView) guillotineMenu.findViewById( R.id.loading_view);
         dingView.setStatus( InsLoadingView.Status.LOADING );
         dingView.setOnClickListener( new View.OnClickListener() {
@@ -474,4 +502,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
     }
+
+
 }

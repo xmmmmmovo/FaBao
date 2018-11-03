@@ -91,13 +91,13 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
             "\t\t\t\t\"id\": 41,\n" +
             "\t\t\t\t\"nickName\": \"张连民\",\n" +
             "\t\t\t\t\"userLogo\": \"http://p8nssbtwi.bkt.clouddn.com/teacher_4.jpg\",\n" +
-            "\t\t\t\t\"content\": \"我们老师说 学俄语的初步是英语打俄语\n" +
-            "然后是俄语打英语\n" +
-            "最后是互不打架 自由切换\n" +
-            "三个阶段 只是你处的阶段不一样 好好学 会分开运用自如的\n" +
-            "如果还是混淆的话 只能说火候未到啦~\n" +
-            "学俄语的孩纸都是勇士\n" +
-            "加油\",\n" +
+            "\t\t\t\t\"content\": \"真相： 德国从没有规定一定要给女方赡养费。原则上各自婚前财产归各自所有。婚后财产原则上平分。\n" +
+            "离婚后如有一方收入达不到法定生活标准下限，由超出的另一方提供赡养费，但是不能让自身的收入在付赡养费后低于这个下限。\n" +
+            "这个可以是男方付给女方，也可以是女方付给男方，而且这样的例子并不少见。\n" +
+            "如果双方收入都超过这个最低标准，就不存在谁给谁赡养费的事情，如果都低于这个标准，主要由社会福利体系分担。\n" +
+            "即使是一方需要付给一方赡养费的情况，现在新法也有所改变，不再是一辈子付下去，而是有规定时限，比如说三年。\n" +
+            "这样收入低的一方有时间努力提高自己的生存技能，自力更生地去创造财富，而不是想当然地等着人来养。\n" +
+            "所以谁先提出离婚对于财产分割基本没有任何影响。\",\n" +
             "\t\t\t\t\"imgId\": \"xcclsscrt0tev11ok364\",\n" +
             "\t\t\t\t\"replyTotal\": 1,\n" +
             "\t\t\t\t\"createDate\": \"一天前\",\n" +
@@ -145,7 +145,7 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         CollapsingToolbarLayout collapsingToolbar =
                 (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
-        collapsingToolbar.setTitle("贴子详情");
+        collapsingToolbar.setTitle("社区详情");
         commentsList = generateTestData();
         initExpandableListView(commentsList);
         image = (CircleImageView) findViewById(R.id.detail_page_userLogo);

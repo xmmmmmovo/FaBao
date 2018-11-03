@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2017 Baidu, Inc. All Rights Reserved.
  */
-package com.example.lab.android.nuc.law_analysis.util.tools;
+package com.example.lab.android.nuc.law_analysis.utils.tools;
 
 import java.io.File;
 

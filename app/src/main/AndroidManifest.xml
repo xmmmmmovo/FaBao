@@ -69,27 +69,28 @@
             android:theme="@style/aboutTheme" />
         <activity
             android:name=".view.activity.CommentActivity"
-            android:theme="@style/aboutTheme" />
+            android:theme="@style/commnetTheme" />
         <activity
             android:name=".news.activity.NewsDetailActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".news.activity.WebUIActivity"
-            android:configChanges="orientation"/>
-
-
-        <activity android:name=".view.activity.Search_Item_Activity"
-            android:theme="@style/aboutTheme"/>
-
-
-        <activity android:name=".view.activity.Analysis_Similar_Item"/>
-        <activity android:name=".view.activity.TuiJIan_Analysis"/>
-
-    
-        <activity android:name=".view.activity.AboutActivity"
-            android:theme="@style/aboutTheme"/>
-        <activity android:name=".view.activity.InfoActivity"/>
-
+            android:configChanges="orientation" />
+        <activity
+            android:name=".view.activity.Search_Item_Activity"
+            android:theme="@style/aboutTheme" />
+        <activity android:name=".view.activity.Analysis_Similar_Item"
+            android:hardwareAccelerated="true"/>
+        <activity android:name=".view.activity.TuiJIan_Analysis" />
+        <activity
+            android:name=".view.activity.AboutActivity"
+            android:theme="@style/aboutTheme" />
+        <activity android:name=".view.activity.InfoActivity" />
+        <activity
+            android:name="com.baidu.ocr.ui.camera.CameraActivity"
+            android:launchMode="singleTask" />
+        <activity android:name=".view.activity.pictureTotext"
+            android:theme="@style/aboutTheme" />
     </application>
 
 </manifest>

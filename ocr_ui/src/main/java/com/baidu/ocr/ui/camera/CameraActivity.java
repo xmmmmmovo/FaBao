@@ -512,4 +512,5 @@ public class CameraActivity extends Activity {
         super.onDestroy();
         this.doClear();
     }
+
 }
