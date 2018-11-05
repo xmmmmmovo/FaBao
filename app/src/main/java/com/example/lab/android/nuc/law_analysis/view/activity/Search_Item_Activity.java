@@ -124,21 +124,21 @@ public class Search_Item_Activity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-//                try {
-//                    Class.forName("com.mysql.jdbc.Driver");
-//                    connection = DriverManager.getConnection("jdbc:mysql://39.105.110.28:3306/lawList?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&failOverReadOnly=false", "root", "FABAOin2018");
-//                } catch (ClassNotFoundException e) {
-//                    customStatusView.loadFailure();
-//                    tipTextView.setText("寻找class方法失败！");
-//                    e.printStackTrace();
-//                    return;
-//                } catch (SQLException e) {
-//                    customStatusView.loadFailure();
-//                    tipTextView.setText(e.toString());
-//                    e.printStackTrace();
-//                    return;
-//                }
-//
+                try {
+                    Class.forName("org.mariadb.jdbc.Driver");
+                    connection = DriverManager.getConnection("jdbc:mysql://39.105.110.28:3306/lawList?autoReconnect=true&failOverReadOnly=false", "root", "FABAOin2018");
+                } catch (ClassNotFoundException e) {
+                    customStatusView.loadFailure();
+                    tipTextView.setText("寻找class方法失败！");
+                    e.printStackTrace();
+                    return;
+                } catch (SQLException e) {
+                    customStatusView.loadFailure();
+                    tipTextView.setText(e.toString());
+                    e.printStackTrace();
+                    return;
+                }
+
 //                String sql_lines = "select * from LawArticleAll_set where concat(law_content, law_from) like '%"
 //                        + cutSearchData[0] + "%'";
 //                for (int i = 1; i < cutSearchData.length; i++) {
@@ -160,7 +160,10 @@ public class Search_Item_Activity extends AppCompatActivity {
 //                    return;
 //                }
 
-           }
+                tipTextView.setText("成功!");
+                customStatusView.loadSuccess();
+
+            }
         }, 500);
         //这里用到了handler的定时器效果 延迟2秒执行dismiss();
         new Handler().postDelayed(new Runnable() {
@@ -182,8 +185,6 @@ public class Search_Item_Activity extends AppCompatActivity {
             LawItemBean item = all_items[random.nextInt(24)];
             laws.add(item);
         }
-        //tipTextView.setText("成功!");
-        //customStatusView.loadSuccess();
 
         initrecycleView();
         //添加返回按钮

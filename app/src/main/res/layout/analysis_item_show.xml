@@ -40,7 +40,6 @@
                 android:layout_height="50dp"
                 android:layout_below="@+id/anjian_title_item"
                 android:gravity="center"
-                android:text="李某某醉酒逃逸，被判10年"
                 android:textColor="#040404"
                 android:textSize="15sp"
                 android:textStyle="bold" />
@@ -72,17 +71,6 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/anjian_content_item"
                 android:layout_margin="15dp"
-                android:text=" 近日，公安交警查获一起未成年人醉酒驾驶机动车肇事逃逸案件，目前，嫌疑人李某某因肇事逃逸、醉酒驾驶、无证驾驶等已被依法刑事拘留。\n
-
-9月8日零时30分许，在安新县三台镇新徐新公路某物流门口路段，一辆轿车与两名行人发生交通事故，肇事司机驾车逃逸，公安交警接报后，立即赶赴现场。\n
-
-到达现场后，一名行人倒地，已无生命迹象，另一名伤者已被送往医院治疗。在勘查现场过程中，民警发现距离案发地点不远处一辆雪铁龙轿车停在路边，该车右前侧及前挡风玻璃大面积破损，右后视镜破损脱落，有重大嫌疑。\n
-
-办案民警随即在肇事嫌疑车停放地点附近走访调查，这时一蹲在路边草丛里接打电话的男子引起警方注意。经查，该男子为该雪铁龙车主李某，随后民警将其带回执法办案中心进行询问。\n
-
-经查，是李某的儿子李某某驾驶该雪铁龙轿车，在安新县三台镇新徐新公路路段与两名行人发生交通事故。驾驶人李某某未满18周岁，未取得驾照，属于无证驾驶。事故发生后，李某某弃车逃走。警方根据掌握的线索立即组织警力到李某某上班的鞋厂将其抓获。肇事司机李某某对自己的违法行为供认不讳。\n
-
-经查，李某某血液酒精浓度检测为91毫克/100毫升，属于醉酒后驾驶机动车。目前，李某某因肇事逃逸、醉酒驾驶、无证驾驶等已被依法刑事拘留，案件正在进一步审理中。\n"
                 android:textIsSelectable="true"
                 android:textSize="16sp"
                 tools:ignore="HardcodedText" />

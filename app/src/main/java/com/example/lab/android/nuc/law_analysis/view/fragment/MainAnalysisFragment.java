@@ -357,13 +357,7 @@ public class MainAnalysisFragment extends Fragment {
         }
     };
 
-
-
     private void initData() {
         lists = new ArrayList<>();
-        lists.add(new DataBean("2016年12月20日，王某某因肇事逃逸被判刑......."));
-        lists.add(new DataBean("2018年2月李某某因撞到行人，弃车逃跑....."));
-        lists.add(new DataBean("2017年10月赵某某路上没遵守交通规则，被大货车撞到....."));
     }
-
 }
