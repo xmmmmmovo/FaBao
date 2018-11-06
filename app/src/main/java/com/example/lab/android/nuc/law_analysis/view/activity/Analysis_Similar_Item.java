@@ -8,7 +8,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.method.ScrollingMovementMethod;
@@ -20,7 +19,6 @@ import android.widget.Toast;
 
 import com.cocosw.bottomsheet.BottomSheet;
 import com.example.lab.android.nuc.law_analysis.R;
-import com.example.lab.android.nuc.law_analysis.news.activity.NewsDetailActivity;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import com.iflytek.cloud.ErrorCode;
@@ -37,7 +35,8 @@ public class Analysis_Similar_Item  extends AppCompatActivity {
     private FloatingActionButton text_to_voice,change_voice,fab_up;
     private String VOICE = null;
     List<String> permissionList = new ArrayList<>();
-    private TextView textview;
+    private TextView titleTextView;
+    private TextView contentTextView;
     String tvDetail;
     private ScrollView scrollView;
 
@@ -45,8 +44,12 @@ public class Analysis_Similar_Item  extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.analysis_item_show);
-        textview = (TextView) findViewById( R.id.anjian_content );
-        textview.setMovementMethod(new ScrollingMovementMethod());
+        titleTextView = (TextView) findViewById(R.id.anjian_title);
+        contentTextView = (TextView)findViewById(R.id.anjian_content);
+        contentTextView.setMovementMethod(new ScrollingMovementMethod());
+        Bundle bundle = getIntent().getExtras();
+        titleTextView.setText(bundle.getString("title"));
+        contentTextView.setText(bundle.getString("content"));
         //添加返回按钮
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -55,7 +58,7 @@ public class Analysis_Similar_Item  extends AppCompatActivity {
             actionBar.setTitle( "相似案件" );
         }
 
-        scrollView = (ScrollView ) findViewById( R.id.scrollView_w );
+        scrollView = (ScrollView) findViewById( R.id.scrollView_w );
 
         initFloatButton();
         //获取手机录音机使用权限，听写、识别、语义理解需要用到此权限

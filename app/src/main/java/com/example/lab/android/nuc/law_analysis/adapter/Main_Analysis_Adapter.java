@@ -87,7 +87,6 @@ public class Main_Analysis_Adapter extends RecyclerView.Adapter implements View.
         public ItemHolder(View view) {
             super(view);
             demo_textview = view.findViewById(R.id.textview_anli_item);
-
         }
     }
 

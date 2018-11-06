@@ -2,6 +2,8 @@ package com.example.lab.android.nuc.law_analysis.view.fragment;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -36,6 +38,7 @@ import com.example.lab.android.nuc.law_analysis.base.Result;
 import com.example.lab.android.nuc.law_analysis.communication.activity.DictationResult;
 import com.example.lab.android.nuc.law_analysis.communication.utils.KeyBoardUtils;
 import com.example.lab.android.nuc.law_analysis.util.views.RecycleViewDivider2;
+import com.example.lab.android.nuc.law_analysis.utils.SQLiteUtils;
 import com.example.lab.android.nuc.law_analysis.utils.iflytek.IflytekSpeech;
 import com.example.lab.android.nuc.law_analysis.utils.iflytek.Iflytekrecognize;
 import com.example.lab.android.nuc.law_analysis.utils.iflytek.iflytekWakeUp;
@@ -53,7 +56,11 @@ import com.iflytek.cloud.RecognizerResult;
 import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.ui.RecognizerDialog;
 import com.iflytek.cloud.ui.RecognizerDialogListener;
+
+import org.greenrobot.greendao.internal.SqlUtils;
+
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -109,7 +116,7 @@ public class MainAnalysisFragment extends Fragment {
                 (WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN|
                         WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         view = inflater.inflate( R.layout.main_analysis_fragment,container,false);
-        initData();
+        lists = new ArrayList<>();
         recyclerView_Analyis_Law = view.findViewById(R.id.recyclerview_analyis);
         button_delete =view.findViewById(R.id.bt_delete_text)  ;
         editText_Analyis = view.findViewById(R.id.edittext_analyis);
@@ -138,6 +145,34 @@ public class MainAnalysisFragment extends Fragment {
             @Override
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 Toast.makeText(getActivity(), "正在为你搜索...", Toast.LENGTH_SHORT).show();
+
+                /**
+                 * 在此处更新recyclerView的ui
+                 * */
+                try {
+                    SQLiteDatabase sqLiteDatabase = SQLiteUtils.getDatabase(getContext());
+                    Cursor cursor = sqLiteDatabase.rawQuery("SELECT * from lawCase order by RANDOM() limit 5", null);
+
+                    lists.clear();//清空列表
+
+                    if (cursor.moveToFirst()){
+                        do {
+                            String title = cursor.getString(cursor.getColumnIndex("title"));
+                            String content = cursor.getString(cursor.getColumnIndex("content"));
+
+                            lists.add(new DataBean(title, content));
+                        }while (cursor.moveToNext());
+
+                        cursor.close();
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    Toast.makeText(getContext(), "获取推荐失败！请检查网络是否畅通！", Toast.LENGTH_SHORT).show();
+                    return false;
+                }
+
+                adapter_Analyis_Law.notifyDataSetChanged();
+
                 return false;
             }
         });
@@ -190,6 +225,8 @@ public class MainAnalysisFragment extends Fragment {
                 switch(view.getId()){
                     case R.id.textview_anli_item:
                         Intent i = new Intent(getActivity(),Analysis_Similar_Item.class);
+                        i.putExtra("title", lists.get(position).getDemo_textView());
+                        i.putExtra("content", lists.get(position).getDemo_Content());
                         startActivity(i);
                 }
 
@@ -356,8 +393,4 @@ public class MainAnalysisFragment extends Fragment {
             }
         }
     };
-
-    private void initData() {
-        lists = new ArrayList<>();
-    }
 }
