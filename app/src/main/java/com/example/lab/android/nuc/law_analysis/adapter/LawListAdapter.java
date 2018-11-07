@@ -23,7 +23,6 @@ public class LawListAdapter extends RecyclerView.Adapter<LawListAdapter.ViewHold
 
     public LawListAdapter(List<LawItemBean> laws){
         this.lawItems = laws;
-        Log.d("item", lawItems.get(1).toString());
     }
 
     @NonNull

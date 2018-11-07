@@ -30,7 +30,6 @@ import com.baidu.ocr.sdk.exception.OCRError;
 import com.baidu.ocr.sdk.model.GeneralParams;
 import com.baidu.ocr.sdk.model.GeneralResult;
 import com.baidu.ocr.sdk.model.WordSimple;
-import com.baidu.ocr.ui.camera.CameraActivity;
 import com.example.lab.android.nuc.law_analysis.adapter.Main_Analysis_Adapter;
 import com.example.lab.android.nuc.law_analysis.base.DataBean;
 import com.example.lab.android.nuc.law_analysis.R;
@@ -56,8 +55,6 @@ import com.iflytek.cloud.RecognizerResult;
 import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.ui.RecognizerDialog;
 import com.iflytek.cloud.ui.RecognizerDialogListener;
-
-import org.greenrobot.greendao.internal.SqlUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -94,20 +91,20 @@ public class MainAnalysisFragment extends Fragment {
     private FloatingActionButton button_PaiZhao;
     private RecognizerDialog iatDialog;
     private TextView Tv1;
-    private Button button;
+    private Button button_tuijian;
     private AlertDialog.Builder alertDialog;
     private boolean hasGotToken = false;
     private ProgressBar mProgressBar;
+    private String lawlinesString = "";
 
     private  View view;
     //实例化
     public static MainAnalysisFragment newInstance() {
         Bundle args = new Bundle();
-
-    MainAnalysisFragment fragment = new MainAnalysisFragment();
+        MainAnalysisFragment fragment = new MainAnalysisFragment();
         fragment.setArguments(args);
         return fragment;
-}
+    }
 
     @Nullable
     @Override
@@ -122,7 +119,7 @@ public class MainAnalysisFragment extends Fragment {
         editText_Analyis = view.findViewById(R.id.edittext_analyis);
         button_YuYin = view.findViewById(R.id.bt_yuyin);
         button_PaiZhao = view.findViewById(R.id.bt_paizhao);
-        button = view.findViewById(R.id.analysis_button);
+        button_tuijian = view.findViewById(R.id.analysis_button);
         mProgressBar = (ProgressBar) view.findViewById( R.id.main_progress );
                 button_delete.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -151,16 +148,29 @@ public class MainAnalysisFragment extends Fragment {
                  * */
                 try {
                     SQLiteDatabase sqLiteDatabase = SQLiteUtils.getDatabase(getContext());
-                    Cursor cursor = sqLiteDatabase.rawQuery("SELECT * from lawCase order by RANDOM() limit 5", null);
+                    Cursor cursor = sqLiteDatabase.rawQuery("SELECT * from lawCase order by RANDOM() limit 3", null);
 
                     lists.clear();//清空列表
-
+                    //随机案例
                     if (cursor.moveToFirst()){
                         do {
                             String title = cursor.getString(cursor.getColumnIndex("title"));
                             String content = cursor.getString(cursor.getColumnIndex("content"));
 
                             lists.add(new DataBean(title, content));
+                        }while (cursor.moveToNext());
+
+//                        cursor.close();
+                    }
+
+                    //随机法律条文
+                    cursor = sqLiteDatabase.rawQuery("SELECT * from LawArticleAll_set where law_from " +
+                            "like '%婚姻%' or law_content like '%婚姻%' order by RANDOM() limit 10 ", null);
+                    if (cursor.moveToFirst()){
+                        do {
+                            lawlinesString += (cursor.getString(cursor.getColumnIndex("law_line")) + "  "
+                                    + cursor.getString(cursor.getColumnIndex("law_from")).replace(".txt", "") + "\n"
+                                    + cursor.getString(cursor.getColumnIndex("law_content")) + "\n\n");
                         }while (cursor.moveToNext());
 
                         cursor.close();
@@ -171,17 +181,18 @@ public class MainAnalysisFragment extends Fragment {
                     return false;
                 }
 
-                adapter_Analyis_Law.notifyDataSetChanged();
+                adapter_Analyis_Law.notifyDataSetChanged();//更新ui
 
                 return false;
             }
         });
 
 
-        button.setOnClickListener(new View.OnClickListener() {
+        button_tuijian.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getActivity(),TuiJIan_Analysis.class);
+                i.putExtra("lawans", lawlinesString);
                 startActivity(i);
             }
         });
