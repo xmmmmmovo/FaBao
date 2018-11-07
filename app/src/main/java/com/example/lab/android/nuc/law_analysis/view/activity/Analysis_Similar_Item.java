@@ -38,6 +38,8 @@ public class Analysis_Similar_Item  extends AppCompatActivity {
     private TextView titleTextView;
     private TextView contentTextView;
     String tvDetail;
+    private String title;
+    private String content;
     private ScrollView scrollView;
 
     @Override
@@ -48,8 +50,11 @@ public class Analysis_Similar_Item  extends AppCompatActivity {
         contentTextView = (TextView)findViewById(R.id.anjian_content);
         contentTextView.setMovementMethod(new ScrollingMovementMethod());
         Bundle bundle = getIntent().getExtras();
-        titleTextView.setText(bundle.getString("title"));
-        contentTextView.setText(bundle.getString("content"));
+        title = bundle.getString("title");
+        content = bundle.getString("content");
+        tvDetail = title + content;
+        titleTextView.setText(title);
+        contentTextView.setText(content);
         //添加返回按钮
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {

@@ -166,6 +166,7 @@ public class MainAnalysisFragment extends Fragment {
                     //随机法律条文
                     cursor = sqLiteDatabase.rawQuery("SELECT * from LawArticleAll_set where law_from " +
                             "like '%婚姻%' or law_content like '%婚姻%' order by RANDOM() limit 10 ", null);
+                    lawlinesString = "";
                     if (cursor.moveToFirst()){
                         do {
                             lawlinesString += (cursor.getString(cursor.getColumnIndex("law_line")) + "  "
