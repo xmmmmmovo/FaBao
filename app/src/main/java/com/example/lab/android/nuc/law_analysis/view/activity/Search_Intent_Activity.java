@@ -67,7 +67,7 @@ public class Search_Intent_Activity extends AppCompatActivity {
 
     private void initData() {
         List<String> skills = HistoryCache.toArray(getApplicationContext());
-        String shareHotData ="婚姻法,未成年人保护法,产权法,交通法";
+        String shareHotData ="中华人民共和国婚姻法,中华人民共和国农业法,中华人民共和国民事诉讼法,中华人民共和国价格法";
         List<String> skillHots = Arrays.asList(shareHotData.split(","));
         searchLayout.initData(skills, skillHots, new onSearchCallBackListener() {
             @Override

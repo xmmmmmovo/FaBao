@@ -144,7 +144,7 @@ public class Search_Item_Activity extends AppCompatActivity {
             public void run() {
                 ProgressDialog.dismiss();
             }
-        }, 2000);
+        }, 2500);
     }
 
     private void initView() {
