@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_voice_chat_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/voice_people_image"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="60dp"
+            android:src="@drawable/icon"/>
+
+        <TextView
+            android:id="@+id/waitting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="等待对方接听..."
+            android:textSize="16sp"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:layout_below="@+id/voice_people_image"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/quick_tips_when_use_agora_sdk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:gravity="center_vertical|start"
+            android:text="1. 默认通道名称为demoChannel1. \n\n 2. 仅支持1v1语音调用. \n\n 3.等待远程用户..." />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="20"
+                android:onClick="onLocalAudioMuteClicked"
+                android:scaleType="centerInside"
+                android:src="@drawable/btn_mute" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="20"
+                android:onClick="onSwitchSpeakerphoneClicked"
+                android:scaleType="centerInside"
+                android:src="@drawable/btn_speaker" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="20"
+                android:onClick="onEncCallClicked"
+                android:scaleType="centerInside"
+                android:src="@drawable/btn_end_call" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

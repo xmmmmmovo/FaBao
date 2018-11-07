@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp">
+
+        <ImageView
+            android:id="@+id/fabao_image"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:src="@drawable/logo2"
+            android:layout_centerHorizontal="true"/>
+        <LinearLayout
+            android:id="@+id/search_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/fabao_image">
+
+            <EditText
+                android:id="@+id/et_searchtext_search"
+                android:layout_width="0dp"
+                android:layout_weight="6"
+                android:layout_height="45dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/search_baground_shap"
+                android:drawableLeft="@drawable/explore_search_icon"
+                android:hint="热门法律应有尽有"
+                android:imeOptions="actionSearch"
+                android:singleLine="true"
+                android:textColor="#000000"
+                android:textSize="14sp"/>
+            <ImageView
+                android:layout_weight="0.8"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:src="@drawable/yuyin_edit_center"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/light_gray_2"
+            android:layout_below="@+id/search_main"
+            android:layout_marginTop="5dp"/>
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/search_main"
+            android:id="@+id/swipe_refresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </android.support.v4.widget.SwipeRefreshLayout>
+    </RelativeLayout>
+
+
+</RelativeLayout>

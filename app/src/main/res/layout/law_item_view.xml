@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    android:id="@+id/law_item_card_view"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardCornerRadius="4dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/item_number_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_margin="15dp"
+            android:gravity="center"
+            android:minWidth="30dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:text="1"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="30dp"
+            android:layout_toRightOf="@id/item_number_text_view"
+            android:orientation="vertical"
+            android:id="@+id/linearLayout">
+            <TextView
+                android:id="@+id/law_line_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:singleLine="false"
+                tools:text="test"/>
+
+            <TextView
+                android:id="@+id/law_from_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/linearLayout"
+                android:layout_toEndOf="@+id/item_number_text_view"
+                android:lines="1"
+                tools:text="2018.03.01"/>
+
+            <TextView
+                android:id="@+id/law_content_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="17sp"
+                android:singleLine="false"
+                tools:text="test"/>
+
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

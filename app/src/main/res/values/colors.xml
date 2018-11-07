@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#63b8ff</color>
+    <color name="colorPrimaryDark">#7788f1</color>
+    <color name="colorAccent">#f76597</color>
+    <color name="colorLogin">#f76597</color>
+    <color name="colorAccentDark">#0b1039</color>
+    <color name="guillotine_background">#63b8ff</color>
+    <color name="guillotine_background_dark">#ffffff</color>
+    <color name="selected_item_color">#41f58c</color>
+    <color name="orange">#ffbd48</color><!--橙色 -->
+    <color name="deep_orange">#FFA500</color>
+    <color name="light_orange">#ffcc6f</color>
+    <color name="backgroundEditText">#5cffffff</color>
+    //底部弹出栏
+    <color name="gray">#cccccc</color>
+    <color name="actionsheet_blue">#037BFF</color>
+    <color name="picture_list_sina_text_color">#00BFFF</color>
+    <color name="black_semi_transparent">#B2000000</color>
+    <color name="zz_divider">#e6e6e6</color>
+    <color name="text_color3">#909090</color>
+    <color name="zz_half_transparent">#7f000000</color>
+    <color name="light_gray_2">#a4b5d7</color>
+    <color name="click_bg">#d9d9d9</color>
+    <color name="dark_gray_1">#051b28</color>
+    <color name="button_bg_press">#88e83060</color>
+    <color name="button_bg">#e83060</color>
+    <color name="color_theme">#489cfa</color>
+    <color name="guanzhu">#6da461</color>
+    //悬浮按钮
+    <color name="fab_color">#80738ffe</color>
+    <color name="blue_normal">#ff33b5e5</color>
+    <color name="blue_pressed">#ff0099cc</color>
+    //相册的颜色
+    <color name="green_normal">#37C000</color>
+    //评论区
+    <color name="color_f6">#f6f6f6</color>
+    <color name="base_yellow">#f9b516</color>
+    <color name="colorLine">#c6bdbd</color>
+
+    //dialog颜色
+    <color name="load_success">#03a44e</color>
+    <color name="load_failure">#de0e26</color>
+
+</resources>

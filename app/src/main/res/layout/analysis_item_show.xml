@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginRight="10dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginBottom="10dp">
+
+    <ScrollView
+        android:id="@+id/scrollView_w"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_anjian_jin"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:contentDescription="TODO"
+                android:src="@drawable/anjian_xiangjin" />
+
+            <TextView
+                android:id="@+id/anjian_title_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_anjian_jin"
+                android:text="案件标题:"
+                android:textColor="#0b0b0b"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/anjian_title"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/anjian_title_item"
+                android:gravity="center"
+                android:textColor="#040404"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+
+            <View
+                android:id="@+id/line"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/anjian_title"
+                android:layout_marginBottom="15dp"
+                android:background="@color/black" />
+
+
+            <TextView
+                android:id="@+id/anjian_content_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/line"
+                android:layout_marginBottom="10dp"
+                android:text="案件内容："
+                android:textColor="#000"
+                android:textSize="15sp" />
+
+
+            <TextView
+                android:id="@+id/anjian_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/anjian_content_item"
+                android:layout_margin="15dp"
+                android:textIsSelectable="true"
+                android:textSize="16sp"
+                tools:ignore="HardcodedText" />
+
+        </RelativeLayout>
+    </ScrollView>
+
+
+    <com.getbase.floatingactionbutton.FloatingActionsMenu
+        android:id="@+id/detail_actions_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="bottom|right|end"
+        app:fab_addButtonSize="mini"
+        fab:fab_addButtonColorNormal="@color/fab_color"
+        fab:fab_addButtonColorPressed="@color/blue_normal"
+        fab:fab_addButtonPlusIconColor="@color/white"
+        fab:fab_labelStyle="@style/menu_labels_style">
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow"
+            fab:fab_addButtonColorNormal="@color/fab_color"
+            fab:fab_addButtonColorPressed="@color/blue_normal"
+            fab:fab_colorNormal="#f08fb0"
+            fab:fab_colorPressed="#ef739d"
+            fab:fab_size="mini"
+            fab:fab_title="返回顶部" />
+
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/action_text_to_voice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_addButtonColorNormal="@color/fab_color"
+            fab:fab_addButtonColorPressed="@color/blue_normal"
+            fab:fab_colorNormal="@color/fab_color"
+            fab:fab_colorPressed="@color/blue_normal"
+            fab:fab_size="mini"
+            fab:fab_title="文字播报" />
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/change_voice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_change"
+            fab:fab_addButtonColorNormal="@color/fab_color"
+            fab:fab_addButtonColorPressed="@color/blue_normal"
+            fab:fab_addButtonSize="mini"
+            fab:fab_colorNormal="#ffe19c"
+            fab:fab_colorPressed="#ffce5d"
+            fab:fab_size="mini"
+            fab:fab_title="声音切换" />
+    </com.getbase.floatingactionbutton.FloatingActionsMenu>
+
+</RelativeLayout>

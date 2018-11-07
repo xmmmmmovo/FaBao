@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/kuang"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <com.tangguna.searchbox.library.widget.SearchLayout
+        android:id="@+id/searchlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        app:search_baground="@drawable/search_baground_shap"
+        app:search_hint="输入搜索内容">
+
+    </com.tangguna.searchbox.library.widget.SearchLayout>
+
+
+    <Button
+        android:id="@+id/bt_yuyin"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="12dp"
+        android:background="@drawable/yuyin_top" />
+
+
+</RelativeLayout>

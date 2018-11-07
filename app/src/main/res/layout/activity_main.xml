@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_main"
+            app:contentInsetStart="0dp"
+            style="@style/Toolbar"
+            app:layout_scrollFlags="scroll|enterAlways">
+
+
+            <ImageView
+                android:id="@+id/content_hamburger"
+                style="@style/ImageView.Hamburger"
+                android:src="@drawable/ic_menu_90" />
+
+            <com.example.lab.android.nuc.law_analysis.utils.views.CanaroTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/activity"
+                android:textColor="@color/white"
+                android:textSize="@dimen/guillotine_item_text_size" />
+
+            <ImageView
+                android:id="@+id/wakeup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/wakeup"
+                android:layout_gravity="right"
+                android:layout_marginRight="5dp"/>
+
+        </android.support.v7.widget.Toolbar>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vp_horizontal_ntb"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <devlight.io.library.ntb.NavigationTabBar
+            android:id="@+id/ntb_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            app:ntb_badge_gravity="top"
+            app:ntb_badge_position="right"
+            app:ntb_badged="true"
+            app:ntb_scaled="true"
+            app:ntb_tinted="true"
+            app:ntb_title_mode="all"
+            app:ntb_titled="true"
+            app:ntb_swiped="true"/>
+    </LinearLayout>
+
+
+</FrameLayout>
