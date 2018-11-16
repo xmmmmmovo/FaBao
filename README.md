@@ -4,6 +4,7 @@
 <h1> FaBao (法宝) </h1>
 
 <p>“法宝” ———— 您身边的AI法律助手</p>
+</div>
 
 ## 团队介绍
 [WXONE](https://github.com/WXONE)：负责算法，前端，任务分配和进度把握
