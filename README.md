@@ -17,6 +17,9 @@
 
 ## 完成度
 
+### web端
+[github地址](https://github.com/WXONE/HuaWu)
+
 ### 首要需求
 - [ ] 根据案例分析条目
 - [x] 盲人支持(语音支持 语音唤醒)
