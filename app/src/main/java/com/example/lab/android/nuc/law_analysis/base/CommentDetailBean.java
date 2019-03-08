@@ -18,7 +18,6 @@ public class CommentDetailBean {
         this.createDate = createDate;
     }
 
-
     public void setId(int id) {
         this.id = id;
     }
