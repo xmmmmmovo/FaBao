@@ -6,13 +6,12 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.lab.android.nuc.law_analysis.adapter.JiaoziAdapter;
-import com.example.lab.android.nuc.law_analysis.base.Jiaozi;
+import com.example.lab.android.nuc.law_analysis.bean.Jiaozi;
 import com.example.lab.android.nuc.law_analysis.R;
 
 import java.util.ArrayList;

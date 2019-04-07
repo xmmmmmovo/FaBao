@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.lab.android.nuc.law_analysis.R;
-import com.example.lab.android.nuc.law_analysis.base.Jiaozi;
+import com.example.lab.android.nuc.law_analysis.bean.Jiaozi;
 import com.example.lab.android.nuc.law_analysis.utils.views.JzvdStdShowShareButtonAfterFullscreen;
 
 import java.util.ArrayList;

@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.lab.android.nuc.law_analysis.R;
-import com.example.lab.android.nuc.law_analysis.base.NineGridTestModel;
+import com.example.lab.android.nuc.law_analysis.bean.NineGridTestModel;
 import com.example.lab.android.nuc.law_analysis.utils.tools.NineGridTestLayout;
 import com.example.lab.android.nuc.law_analysis.view.activity.CommentActivity;
 import com.example.lab.android.nuc.law_analysis.view.activity.LawyerActivity;

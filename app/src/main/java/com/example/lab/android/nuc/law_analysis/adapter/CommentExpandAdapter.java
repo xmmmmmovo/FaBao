@@ -14,8 +14,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.lab.android.nuc.law_analysis.R;
-import com.example.lab.android.nuc.law_analysis.base.CommentDetailBean;
-import com.example.lab.android.nuc.law_analysis.base.ReplyDetailBean;
+import com.example.lab.android.nuc.law_analysis.bean.CommentDetailBean;
+import com.example.lab.android.nuc.law_analysis.bean.ReplyDetailBean;
 
 import java.util.ArrayList;
 import java.util.List;

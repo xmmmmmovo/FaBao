@@ -2,17 +2,14 @@ package com.example.lab.android.nuc.law_analysis.adapter;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.lab.android.nuc.law_analysis.R;
-import com.example.lab.android.nuc.law_analysis.base.LawItemBean;
+import com.example.lab.android.nuc.law_analysis.bean.LawItemBean;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.Inflater;
 

@@ -1,4 +1,4 @@
-package com.example.lab.android.nuc.law_analysis.base;
+package com.example.lab.android.nuc.law_analysis.bean;
 
 import java.util.ArrayList;
 import java.util.List;

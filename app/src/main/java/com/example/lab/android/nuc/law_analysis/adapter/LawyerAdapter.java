@@ -9,13 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.lab.android.nuc.law_analysis.view.activity.LawyerActivity;
 import com.example.lab.android.nuc.law_analysis.R;
-import com.example.lab.android.nuc.law_analysis.base.Lawyer;
+import com.example.lab.android.nuc.law_analysis.bean.Lawyer;
 import com.example.lab.android.nuc.law_analysis.view.fragment.LawyersFragment;
 
 import java.util.ArrayList;

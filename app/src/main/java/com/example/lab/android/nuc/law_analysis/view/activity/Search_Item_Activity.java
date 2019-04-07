@@ -1,8 +1,6 @@
 package com.example.lab.android.nuc.law_analysis.view.activity;
 
 import android.app.Dialog;
-import android.app.ProgressDialog;
-import android.content.ClipData;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -11,10 +9,8 @@ import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -27,20 +23,14 @@ import android.widget.Toast;
 
 import com.example.lab.android.nuc.law_analysis.R;
 import com.example.lab.android.nuc.law_analysis.adapter.LawListAdapter;
-import com.example.lab.android.nuc.law_analysis.base.DataBean;
-import com.example.lab.android.nuc.law_analysis.base.LawItemBean;
+import com.example.lab.android.nuc.law_analysis.bean.LawItemBean;
 import com.example.lab.android.nuc.law_analysis.utils.SQLiteUtils;
 import com.example.lab.android.nuc.law_analysis.view.customview.CustomStatusView;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class Search_Item_Activity extends AppCompatActivity {
     private RecyclerView recyclerView;

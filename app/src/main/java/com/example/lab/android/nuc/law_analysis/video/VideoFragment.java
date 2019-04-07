@@ -52,7 +52,6 @@ public class VideoFragment extends AbsListFragment<VideoBean> {
 
     @Override
     protected void onClick(VideoBean videoBean, int position) {
-
     }
 
     @Override

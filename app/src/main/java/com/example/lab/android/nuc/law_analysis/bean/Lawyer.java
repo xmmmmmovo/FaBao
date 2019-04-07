@@ -1,4 +1,4 @@
-package com.example.lab.android.nuc.law_analysis.base;
+package com.example.lab.android.nuc.law_analysis.bean;
 
 public class Lawyer {
     public String lawyer_name,lawyer_level,lawyer_location,lawyer_like,imageUri;

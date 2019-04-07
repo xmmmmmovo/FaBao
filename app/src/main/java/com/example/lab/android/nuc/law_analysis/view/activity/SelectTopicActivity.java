@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 import com.example.lab.android.nuc.law_analysis.R;
 import com.example.lab.android.nuc.law_analysis.adapter.RecyclerViewAdapter;
-import com.example.lab.android.nuc.law_analysis.base.People;
+import com.example.lab.android.nuc.law_analysis.bean.People;
 import com.example.lab.android.nuc.law_analysis.communication.viewholder.AdapterViewHolder;
 
 import java.util.ArrayList;

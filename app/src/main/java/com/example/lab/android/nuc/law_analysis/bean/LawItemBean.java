@@ -1,4 +1,4 @@
-package com.example.lab.android.nuc.law_analysis.base;
+package com.example.lab.android.nuc.law_analysis.bean;
 
 public class LawItemBean {
     private String law_line;

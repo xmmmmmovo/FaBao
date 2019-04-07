@@ -5,7 +5,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -14,18 +13,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.animation.TranslateAnimation;
-import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.lab.android.nuc.law_analysis.R;
 import com.example.lab.android.nuc.law_analysis.adapter.MainAdapter;
-import com.example.lab.android.nuc.law_analysis.base.Law;
-import com.example.lab.android.nuc.law_analysis.utils.tools.GlideImageLoader;
+import com.example.lab.android.nuc.law_analysis.bean.Law;
 import com.example.lab.android.nuc.law_analysis.view.activity.Search_Intent_Activity;
-import com.tangguna.searchbox.library.widget.SearchLayout;
-import com.youth.banner.Banner;
-import com.youth.banner.BannerConfig;
-import com.youth.banner.Transformer;
 
 import java.util.ArrayList;
 import java.util.List;

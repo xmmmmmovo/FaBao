@@ -20,8 +20,7 @@ import android.widget.TextView;
 
 import com.example.lab.android.nuc.law_analysis.R;
 import com.example.lab.android.nuc.law_analysis.adapter.NineGridTest2Adapter;
-import com.example.lab.android.nuc.law_analysis.base.NineGridTestModel;
-import com.example.lab.android.nuc.law_analysis.communication.activity.ChatActivity;
+import com.example.lab.android.nuc.law_analysis.bean.NineGridTestModel;
 import com.example.lab.android.nuc.law_analysis.communication.utils.PathUtils;
 import com.example.lab.android.nuc.law_analysis.communication.widget.ChatBottomView;
 import com.example.lab.android.nuc.law_analysis.view.activity.DynamicActivity;
@@ -30,10 +29,6 @@ import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import com.luck.picture.lib.PictureSelector;
 import com.luck.picture.lib.config.PictureConfig;
 import com.luck.picture.lib.config.PictureMimeType;
-import com.lzy.okgo.OkGo;
-import com.lzy.okgo.callback.StringCallback;
-import com.lzy.okgo.model.Response;
-import com.sackcentury.shinebuttonlib.ShineButton;
 
 import java.io.File;
 import java.util.ArrayList;

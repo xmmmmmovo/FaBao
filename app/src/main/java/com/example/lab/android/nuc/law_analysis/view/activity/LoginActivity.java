@@ -29,7 +29,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.lab.android.nuc.law_analysis.R;
-import com.example.lab.android.nuc.law_analysis.base.Law;
 
 import it.sephiroth.android.library.easing.Back;
 import it.sephiroth.android.library.easing.EasingManager;

@@ -12,8 +12,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.lab.android.nuc.law_analysis.R;
-import com.example.lab.android.nuc.law_analysis.base.Law;
-import com.example.lab.android.nuc.law_analysis.news.activity.NewsDetailActivity;
+import com.example.lab.android.nuc.law_analysis.bean.Law;
 import com.example.lab.android.nuc.law_analysis.news.util.WebUtil;
 
 import java.util.List;

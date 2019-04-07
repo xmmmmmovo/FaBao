@@ -25,7 +25,7 @@ import com.baidu.ocr.sdk.model.WordSimple;
 import com.baidu.ocr.ui.camera.CameraActivity;
 import com.cocosw.bottomsheet.BottomSheet;
 import com.example.lab.android.nuc.law_analysis.R;
-import com.example.lab.android.nuc.law_analysis.base.Result;
+import com.example.lab.android.nuc.law_analysis.bean.Result;
 import com.example.lab.android.nuc.law_analysis.communication.activity.ImageDisplayActivity;
 import com.example.lab.android.nuc.law_analysis.utils.tools.FileUtil;
 import com.getbase.floatingactionbutton.FloatingActionButton;

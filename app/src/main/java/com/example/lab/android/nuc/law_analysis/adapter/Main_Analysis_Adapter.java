@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 
 import com.example.lab.android.nuc.law_analysis.R;
-import com.example.lab.android.nuc.law_analysis.base.DataBean;
+import com.example.lab.android.nuc.law_analysis.bean.DataBean;
 
 import java.util.List;
 

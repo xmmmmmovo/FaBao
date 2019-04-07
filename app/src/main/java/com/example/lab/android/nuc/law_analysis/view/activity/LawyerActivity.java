@@ -9,22 +9,17 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.alibaba.fastjson.JSON;
 import com.bumptech.glide.Glide;
 import com.example.lab.android.nuc.law_analysis.R;
-import com.example.lab.android.nuc.law_analysis.base.Lawyer;
+import com.example.lab.android.nuc.law_analysis.bean.Lawyer;
 import com.example.lab.android.nuc.law_analysis.communication.activity.ChatActivity;
 import com.example.lab.android.nuc.law_analysis.utils.views.RoundImageView;
-import com.lzy.okgo.OkGo;
-import com.lzy.okgo.callback.StringCallback;
-import com.lzy.okgo.model.Response;
 
 public class LawyerActivity extends AppCompatActivity {
     public static  String USERID = "UserID";
