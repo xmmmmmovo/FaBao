@@ -29,6 +29,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.lab.android.nuc.law_analysis.R;
+import com.lzy.okgo.request.PostRequest;
 
 import it.sephiroth.android.library.easing.Back;
 import it.sephiroth.android.library.easing.EasingManager;
@@ -106,6 +107,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     finish();
                     startActivity( intent );
                 }else {
+//                    PostRequest postRequest = new PostRequest();
                     Toast.makeText( LoginActivity.this, "登陆失败！，检查账号密码是否正确！", Toast.LENGTH_SHORT ).show();
                 }
             }

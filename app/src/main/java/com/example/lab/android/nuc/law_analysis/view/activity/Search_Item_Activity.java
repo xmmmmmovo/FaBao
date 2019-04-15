@@ -23,7 +23,7 @@ import android.widget.Toast;
 
 import com.example.lab.android.nuc.law_analysis.R;
 import com.example.lab.android.nuc.law_analysis.adapter.LawListAdapter;
-import com.example.lab.android.nuc.law_analysis.bean.LawItemBean;
+import com.example.lab.android.nuc.law_analysis.bean.LawEntry;
 import com.example.lab.android.nuc.law_analysis.utils.SQLiteUtils;
 import com.example.lab.android.nuc.law_analysis.view.customview.CustomStatusView;
 
@@ -42,7 +42,7 @@ public class Search_Item_Activity extends AppCompatActivity {
 
     private String search_data;
     private String[] cutSearchData;
-    private List<LawItemBean> laws;
+    private List<LawEntry> laws;
 
     private Connection connection;//数据库连接操作变量
     private Context context;
@@ -111,7 +111,7 @@ public class Search_Item_Activity extends AppCompatActivity {
                                     .replace(".txt", "");
                             String lawcontent = cursor.getString(cursor.getColumnIndex("law_content"));
 
-                            laws.add(new LawItemBean(lawline, lawcontent, lawfrom));
+                            laws.add(new LawEntry(lawline, lawcontent, lawfrom));
                         } while (cursor.moveToNext());
 
                         customStatusView.loadSuccess();
@@ -159,13 +159,13 @@ public class Search_Item_Activity extends AppCompatActivity {
         lawListAdapter = new LawListAdapter(laws);
         lawListAdapter.setOnItemClickLitener(new LawListAdapter.OnItemClickLitener() {
             @Override
-            public void onItemClick(LawItemBean lawItemBean) {
+            public void onItemClick(LawEntry lawEntry) {
             }
 
             @Override
-            public void onItemLongClick(LawItemBean lawItemBean) {
+            public void onItemLongClick(LawEntry lawEntry) {
                 android.content.ClipboardManager cm = (android.content.ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-                cm.setText(lawItemBean.getLaw_line() + lawItemBean.getLaw_content() + lawItemBean.getLaw_from());
+                cm.setText(lawEntry.getLaw_line() + lawEntry.getLaw_content() + lawEntry.getLaw_from());
                 Toast.makeText(Search_Item_Activity.this, "已复制到粘贴板中！", Toast.LENGTH_SHORT).show();
             }
         });

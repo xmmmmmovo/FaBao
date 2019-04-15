@@ -8,17 +8,17 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.lab.android.nuc.law_analysis.R;
-import com.example.lab.android.nuc.law_analysis.bean.LawItemBean;
+import com.example.lab.android.nuc.law_analysis.bean.LawEntry;
 
 import java.util.List;
 import java.util.zip.Inflater;
 
 public class LawListAdapter extends RecyclerView.Adapter<LawListAdapter.ViewHolder> {
-    private List<LawItemBean> lawItems;
+    private List<LawEntry> lawItems;
     private Inflater inflater;
     private OnItemClickLitener mOnItemClickLitener;
 
-    public LawListAdapter(List<LawItemBean> laws){
+    public LawListAdapter(List<LawEntry> laws){
         this.lawItems = laws;
     }
 
@@ -41,8 +41,8 @@ public class LawListAdapter extends RecyclerView.Adapter<LawListAdapter.ViewHold
 
     public interface OnItemClickLitener
     {
-        void onItemClick(LawItemBean lawItemBean);
-        void onItemLongClick(LawItemBean lawItemBean);
+        void onItemClick(LawEntry lawEntry);
+        void onItemLongClick(LawEntry lawEntry);
     }
 
     public void setOnItemClickLitener(OnItemClickLitener mOnItemClickLitener)
@@ -64,7 +64,7 @@ public class LawListAdapter extends RecyclerView.Adapter<LawListAdapter.ViewHold
             fileNumber = itemView.findViewById(R.id.item_number_text_view);
         }
 
-        public void bindHolder(final LawItemBean law, int position) {
+        public void bindHolder(final LawEntry law, int position) {
             fileNumber.setText((position + 1) + "");
             law_line.setText(law.getLaw_line());
             law_content.setText(law.getLaw_content());

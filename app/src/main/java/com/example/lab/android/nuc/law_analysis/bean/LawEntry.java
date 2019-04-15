@@ -1,11 +1,11 @@
 package com.example.lab.android.nuc.law_analysis.bean;
 
-public class LawItemBean {
+public class LawEntry {
     private String law_line;
     private String law_content;
     private String law_from;
 
-    public LawItemBean(String law_line, String law_content, String law_from) {
+    public LawEntry(String law_line, String law_content, String law_from) {
         this.law_line = law_line;
         this.law_content = law_content;
         this.law_from = law_from;
