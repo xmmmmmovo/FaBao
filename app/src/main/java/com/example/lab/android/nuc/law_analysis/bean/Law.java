@@ -1,7 +1,6 @@
 package com.example.lab.android.nuc.law_analysis.bean;
 
 public class Law {
-
     public static String account;
     public static String password;
     private String Law_name;
