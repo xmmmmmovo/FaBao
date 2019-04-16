@@ -29,10 +29,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.lab.android.nuc.law_analysis.R;
+import com.lzy.okgo.OkGo;
+import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.request.PostRequest;
 
 import it.sephiroth.android.library.easing.Back;
 import it.sephiroth.android.library.easing.EasingManager;
+import okhttp3.Call;
+import okhttp3.Response;
 
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
@@ -97,18 +101,28 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             @Override
             public void onClick(View v) {
                 singupTV.setTextColor( Color.parseColor( "#000000" ) );
-                if (email.getText().toString() == null){
+                if (email.getText().toString() == null) {
                     Toast.makeText( LoginActivity.this, "邮箱不用为空！", Toast.LENGTH_SHORT ).show();
-                }else if(password.getText().toString() == null){
+                } else if(password.getText().toString() == null) {
                     Toast.makeText( LoginActivity.this, "密码不能为空！", Toast.LENGTH_SHORT ).show();
-                }else if(true){
-                    Toast.makeText( LoginActivity.this, "登陆成功！", Toast.LENGTH_SHORT ).show();
-                    Intent intent = new Intent( LoginActivity.this,MainActivity.class );
-                    finish();
-                    startActivity( intent );
-                }else {
+                } else {
 //                    PostRequest postRequest = new PostRequest();
-                    Toast.makeText( LoginActivity.this, "登陆失败！，检查账号密码是否正确！", Toast.LENGTH_SHORT ).show();
+
+                    OkGo.post("39.105.110.28:50123/user/login")
+                            .tag(this)
+                            .upJson()
+                            .execute(new StringCallback() {
+                                @Override
+                                public void onSuccess(String s, Call call, Response response) {
+                                    response.body();
+                                }
+
+                                @Override
+                                public void onError(Call call, Response response, Exception e) {
+                                    Toast.makeText( LoginActivity.this, "登陆失败！，检查网络是否正确！", Toast.LENGTH_SHORT ).show();
+                                    super.onError(call, response, e);
+                                }
+                            });
                 }
             }
         } );

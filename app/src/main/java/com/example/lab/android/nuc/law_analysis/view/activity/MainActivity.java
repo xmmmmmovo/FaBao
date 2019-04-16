@@ -240,7 +240,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         Color.parseColor(colors[0]))
                         .selectedIcon(getResources().getDrawable(R.drawable.ic_searchs1))
                         .title("条目查询")
-                        .badgeTitle("new")
+                        .badgeTitle(null)
                         .build()
         );
         models.add(
@@ -249,7 +249,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         Color.parseColor(colors[1]))
                         .selectedIcon(getResources().getDrawable(R.drawable.ic_news))
                         .title("法律新闻")
-                        .badgeTitle("new")
+                        .badgeTitle(null)
                         .build()
         );
         models.add(
@@ -258,7 +258,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         Color.parseColor(colors[2]))
                         .selectedIcon(getResources().getDrawable(R.drawable.ic_seventh))
                         .title("法律分析")
-                        .badgeTitle("new")
+                        .badgeTitle(null)
                         .build()
         );
         models.add(
@@ -267,7 +267,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         Color.parseColor(colors[3]))
 //                        .selectedIcon(getResources().getDrawable(R.drawable.ic_eighth))
                         .title("社群")
-                        .badgeTitle("new")
+                        .badgeTitle(null)
                         .build()
         );
         models.add(//典型案例
@@ -276,7 +276,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         Color.parseColor(colors[4]))
                         .selectedIcon(getResources().getDrawable(R.drawable.platform_begin))
                         .title("法律讲坛")
-                        .badgeTitle("new")
+                        .badgeTitle(null)
                         .build()
         );
 
