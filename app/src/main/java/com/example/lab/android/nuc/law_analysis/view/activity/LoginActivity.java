@@ -88,17 +88,55 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         singupTV.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (emailS.getText() == null){
+                String emailStringGet = emailS.getText().toString();
+                String passwordStringGet = passwordS.getText().toString();
+                String passwordComfirmStringGet = passwordC.getText().toString();
+                if (emailStringGet == null){
                     Toast.makeText( LoginActivity.this, "邮箱不能为空！", Toast.LENGTH_SHORT ).show();
                 }
-                else if (passwordS.getText().toString() == null || passwordC.getText().toString() == null){
+                else if (passwordStringGet == null || passwordComfirmStringGet == null){
                     Toast.makeText( LoginActivity.this, "密码不能为空！", Toast.LENGTH_SHORT ).show();
                 }
-                else if (!passwordS.getText().toString().equals( passwordC.getText().toString() )){
+                else if (!passwordStringGet.equals( passwordComfirmStringGet )){
                     Toast.makeText( LoginActivity.this, "两次的密码不一致", Toast.LENGTH_SHORT ).show();
                     passwordS.setText( "" );
                 }else {
-                    Toast.makeText( LoginActivity.this, "SignUp Succeed!", Toast.LENGTH_SHORT ).show();
+                    User user = new User(emailStringGet, passwordStringGet);
+                    String userJson = JSON.toJSONString(user);
+
+                    OkGo.post("39.105.110.28:50123/user/register")
+                            .tag(this)
+                            .upJson(userJson)
+                            .execute(new StringCallback() {
+                                @Override
+                                public void onSuccess(String s, Call call, Response response) {
+                                    try {
+                                        String resMsg = response.body().string();
+                                        Msg msg = JSON.parseObject(resMsg, Msg.class);
+                                        if (msg.getReCode() == 200) {
+                                            Toast.makeText(LoginActivity.this,
+                                                    msg.getMsg(), Toast.LENGTH_LONG).show();
+                                        } else {
+                                            Toast.makeText(LoginActivity.this,
+                                                    msg.getMsg(), Toast.LENGTH_LONG).show();
+                                        }
+                                    } catch (IOException e) {
+                                        // 返回信息不完全
+                                        Toast.makeText(LoginActivity.this,
+                                                "登陆失败！检查网络是否正确！", Toast.LENGTH_LONG).show();
+                                        e.printStackTrace();
+                                    }
+                                }
+
+                                /**
+                                 * 失败返回
+                                 * */
+                                @Override
+                                public void onError(Call call, Response response, Exception e) {
+                                    Toast.makeText( LoginActivity.this, "登陆失败！检查网络是否正确！", Toast.LENGTH_SHORT ).show();
+                                    super.onError(call, response, e);
+                                }
+                            });
                 }
             }
         } );
@@ -126,11 +164,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                     try {
                                         String resMsg = response.body().string();
                                         Msg msg = JSON.parseObject(resMsg, Msg.class);
-                                        if (msg.getReCode() != 200) {
+                                        if (msg.getReCode() == 200) {
                                             Toast.makeText(LoginActivity.this,
                                                     msg.getMsg(), Toast.LENGTH_LONG).show();
+                                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                            finish();
+                                            startActivity(intent);
                                         } else {
-
+                                            Toast.makeText(LoginActivity.this,
+                                                    msg.getMsg(), Toast.LENGTH_LONG).show();
                                         }
                                     } catch (IOException e) {
                                         // 返回信息不完全
