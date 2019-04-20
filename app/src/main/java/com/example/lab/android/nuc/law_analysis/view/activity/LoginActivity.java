@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.ViewGroup;
 import android.animation.ArgbEvaluator;
 import android.animation.ValueAnimator;
@@ -28,10 +29,16 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alibaba.fastjson.JSON;
 import com.example.lab.android.nuc.law_analysis.R;
+import com.example.lab.android.nuc.law_analysis.bean.Msg;
+import com.example.lab.android.nuc.law_analysis.bean.User;
+import com.google.gson.JsonObject;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.request.PostRequest;
+
+import java.io.IOException;
 
 import it.sephiroth.android.library.easing.Back;
 import it.sephiroth.android.library.easing.EasingManager;
@@ -91,7 +98,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     Toast.makeText( LoginActivity.this, "两次的密码不一致", Toast.LENGTH_SHORT ).show();
                     passwordS.setText( "" );
                 }else {
-
                     Toast.makeText( LoginActivity.this, "SignUp Succeed!", Toast.LENGTH_SHORT ).show();
                 }
             }
@@ -101,25 +107,45 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             @Override
             public void onClick(View v) {
                 singupTV.setTextColor( Color.parseColor( "#000000" ) );
-                if (email.getText().toString() == null) {
+                String emailText = email.getText().toString();
+                String passwordText = password.getText().toString();
+                if (emailText == null) {
                     Toast.makeText( LoginActivity.this, "邮箱不用为空！", Toast.LENGTH_SHORT ).show();
-                } else if(password.getText().toString() == null) {
+                } else if(passwordText== null) {
                     Toast.makeText( LoginActivity.this, "密码不能为空！", Toast.LENGTH_SHORT ).show();
                 } else {
 //                    PostRequest postRequest = new PostRequest();
-
+                    User user = new User(emailText, passwordText); // 用户对象
+                    String userJson = JSON.toJSONString(user);
                     OkGo.post("39.105.110.28:50123/user/login")
                             .tag(this)
-                            .upJson()
+                            .upJson(userJson)
                             .execute(new StringCallback() {
                                 @Override
                                 public void onSuccess(String s, Call call, Response response) {
-                                    response.body();
+                                    try {
+                                        String resMsg = response.body().string();
+                                        Msg msg = JSON.parseObject(resMsg, Msg.class);
+                                        if (msg.getReCode() != 200) {
+                                            Toast.makeText(LoginActivity.this,
+                                                    msg.getMsg(), Toast.LENGTH_LONG).show();
+                                        } else {
+
+                                        }
+                                    } catch (IOException e) {
+                                        // 返回信息不完全
+                                        Toast.makeText(LoginActivity.this,
+                                                "登陆失败！检查网络是否正确！", Toast.LENGTH_LONG).show();
+                                        e.printStackTrace();
+                                    }
                                 }
 
+                                /**
+                                 * 失败返回
+                                 * */
                                 @Override
                                 public void onError(Call call, Response response, Exception e) {
-                                    Toast.makeText( LoginActivity.this, "登陆失败！，检查网络是否正确！", Toast.LENGTH_SHORT ).show();
+                                    Toast.makeText( LoginActivity.this, "登陆失败！检查网络是否正确！", Toast.LENGTH_SHORT ).show();
                                     super.onError(call, response, e);
                                 }
                             });

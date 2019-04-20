@@ -18,7 +18,7 @@
 ## 完成度
 
 ### web端
-[github地址](https://github.com/WXONE/HuaWu)
+[github地址](https://github.com/xmmmmmovo/FaBao_Server_Web)
 
 ### 首要需求
 - [ ] 根据案例分析条目
@@ -114,3 +114,4 @@
 
 - "鑫台华"杯华北五省计算机设计应用大赛国赛一等奖
 - 大学生创新创业项目省级重点立项
+
