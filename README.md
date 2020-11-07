@@ -1,11 +1,11 @@
 <div align="center">
 <img src="http://ww1.sinaimg.cn/large/006ZO6XQly1fx6quyphwbj307a07aq4t.jpg" height="100px" width="100px"/>
+</div>
+
 
 <h1> FaBao (法宝) </h1>
 
 <p>“法宝” ———— 您身边的AI法律助手</p>
-</div>
-
 ## 团队介绍
 [WXONE](https://github.com/WXONE)：负责算法，前端，任务分配和进度把握
 
@@ -13,7 +13,7 @@
 
 [wanghao15536870732](https://github.com/wanghao15536870732)：负责部分功能实现，以及程序调试及修改
 
-[xmmmmmovo](https://github.com/xmmmmmovo)：负责网络爬虫、服务器和数据库的编写
+[xmmmmmovo](https://github.com/xmmmmmovo)：负责网络爬虫、服务器、数据库和安卓网络通信模块的编写
 
 ## 完成度
 
@@ -113,8 +113,9 @@
 ## 比赛奖项
 
 - 2018"鑫台华"杯华北五省计算机设计应用大赛国赛一等奖
-- 大学生创新创业项目国家级立项
+- 大学生创新创业项目国家级立项并结题
 - 2019计算机设计大赛省赛二等奖
 - 2019”互联网+“大赛省赛三等奖
 - 2019山西省五小六化学科竞赛三等奖
+- 2020计算机设计大赛省赛一等奖
 
