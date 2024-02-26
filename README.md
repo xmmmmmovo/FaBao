@@ -8,11 +8,11 @@
 “法宝” ———— 您身边的AI法律助手
 
 ## 团队介绍
-[WXONE](https://github.com/WXONE)：负责算法，前端，任务分配和进度把握
+[WXONE](https://github.com/WXONE)：负责算法，前端
 
-[DreamMemory001](https://github.com/DreamMemory001)：负责Android程序后端，以及部分功能实现
+[DreamMemory001](https://github.com/DreamMemory001)：负责Android程序核心功能编写及调试
 
-[wanghao15536870732](https://github.com/wanghao15536870732)：负责部分功能实现，以及程序调试及修改
+[wanghao15536870732](https://github.com/wanghao15536870732)：负责Android主程序基础架构编写及调试
 
 [xmmmmmovo](https://github.com/xmmmmmovo)：负责网络爬虫、服务器、数据库和安卓网络通信模块的编写
 
@@ -106,10 +106,10 @@
 
 ## 图片
 
-![搜索](http://ww1.sinaimg.cn/large/006ZO6XQgy1fx6suxmjbyj30ad0hvmy5.jpg)![分析](http://ww1.sinaimg.cn/large/006ZO6XQgy1fx6suxqthrj30810g9q5j.jpg)
-![律师](http://ww1.sinaimg.cn/large/006ZO6XQgy1fx6suxmm0aj307v0gcq3v.jpg)![新闻](http://ww1.sinaimg.cn/large/006ZO6XQgy1fx6suxphfkj30al0hmdjw.jpg)
+![搜索](https://camo.githubusercontent.com/b367cc3a712bec4a95ef391e313c43100294ca192896c6dff5b6bb393b999839/687474703a2f2f7777312e73696e61696d672e636e2f6c617267652f3030365a4f3658516779316678367375786d6a62796a333061643068766d79352e6a7067)![分析](https://camo.githubusercontent.com/47f51bf85f9778d3419138a84f7dcb12272ef3c44cf4903c264b08ec25ff832a/687474703a2f2f7777312e73696e61696d672e636e2f6c617267652f3030365a4f365851677931667836737578717468726a3330383130673971356a2e6a7067)
+![律师](https://camo.githubusercontent.com/3556e2a7807798d96b9de45688ff9f448fbbe2b71c10901a1d8a7d9851813787/687474703a2f2f7777312e73696e61696d672e636e2f6c617267652f3030365a4f3658516779316678367375786d6d30616a333037763067637133762e6a7067)![新闻](https://camo.githubusercontent.com/1226ce892e3dc293579327c129defd8fdc5691fb942f85f48f6b1494bc341042/687474703a2f2f7777312e73696e61696d672e636e2f6c617267652f3030365a4f3658516779316678367375787068666b6a3330616c30686d646a772e6a7067)
 
-![案件](http://ww1.sinaimg.cn/large/006ZO6XQgy1fx6suxmxlcj30810fl75h.jpg)
+![案件](https://camo.githubusercontent.com/545a59eb454a8034483f7d84e246e5c2f95083be406230f0fdc654bf0f5b8f0c/687474703a2f2f7777312e73696e61696d672e636e2f6c617267652f3030365a4f3658516779316678367375786d786c636a3330383130666c3735682e6a7067)
 
 ## 比赛奖项
 
